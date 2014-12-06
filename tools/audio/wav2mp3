@@ -1,0 +1,23 @@
+#!/bin/sh
+# name of this script: wav2mp3.sh
+# wav to mp3
+
+dir="./"
+if [ "$1" ];
+then
+	if [ -d "$1" ];
+	then
+		dir=$1
+	fi
+else
+	echo "N"
+fi
+
+echo "Converting wav files in $dir"
+
+for i in $dir/*.wav; do
+ if [ -e "$i" ]; then
+   file=`basename "$i" .wav`
+   lame -h -b 128 "$i" "$dir/$file.mp3"
+ fi
+done

@@ -1,0 +1,52 @@
+The i-7000/8000 Software for Linux
+
+v 0.8.0 2011.11.01 by Golden
+  Fixed the flag "LinPAC" of Makefile for x86 LinPAC(LX800 and Atom).
+
+v 0.7.1 2011.09.01 by Golden
+  Add function "GetATOMRotaryID" for LP-8x81-ATOM.
+  Add demo "rotary_atom_id" for LP-8x81-Atom.
+
+v 0.7.0 2011.08.09 by Golden
+  Give support the linux kernel 2.6.33.
+
+v 0.6.0 2010.11.24 by Golden
+  Give support the linux kernel 2.6.26.
+
+v 0.5.0 2010.02.23 by Golden
+  Add support of CAN Bus/CANOpen/DeviceNet ICPDAS modules.
+
+v 0.4.0 2009.03.01 by Golden
+  Add support of LinPAC-8x81 series.
+
+v 0.3.0 2003.10.22 by Reed
+  Revise text.
+  Revise i7kon codes, color the scope rx/tx data.
+  Fixed the logical errors in the i7000.c, i8000.c, and i87000.c, which
+  compare an M$ WORD (unsigned int) value with a signed value (-1). 
+
+v 0.2.0 2001.2.19 by Moki and Reed
+  Add support of 8000 series.
+
+v 0.1.3 2000.9.26 by Reed Lai
+  Change the searching order for the "Find Learning Kit" of the i7kon.
+
+v 0.1.2 2000.9.21 by Reed Lai
+  Fixed the timer.c compilation error on kernel 2.2.13.
+
+v 0.1.1 2000.9.1 by Reed Lai
+  Fixed the path error of the lemp pictures in file interface.c (iwc.)
+
+v 0.1.0 2000.6.27 by Reed Lai
+  iWarp
+
+v 0.0.1 2000.4.20 by Reed Lai
+  i7kon
+  Fixed the display problem when device has been found behind the second
+  searching baudrate.
+
+  The timer.h.
+  Fixed the timer.c compilation error on kernel 2.2.14.
+
+v 0.00 1999.11.23 by Reed Lai
+  Created, dirty codes.

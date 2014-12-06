@@ -1,0 +1,9 @@
+; exstreamerlib.def : Declares the module parameters for the DLL.
+
+LIBRARY      "exstreamerlib"
+DESCRIPTION  'exstreamerlib Windows Dynamic Link Library'
+
+EXPORTS
+    ; Explicit exports can go here
+	EXSTREAMERLIB_iSendCmd
+	EXSTREAMERLIB_iStreamFile

@@ -1,0 +1,4 @@
+Test text document to be sent via TCP client script. 
+Next line in test document is line 2, 
+followed by line 3 which is a very very very very very very very very very very very very very very very very very very very very very very very very long line.
+And this is the end of our test document. Thanks!

@@ -1,0 +1,56 @@
+$VAR1 = {
+          'q_location' => '100B BERWICK RD-RI, Cambria, PA',
+          'geocodeRegexLoc' => undef,
+          'recip' => [
+                     '4432501272@Sprint_PCS',
+                     '4433984370@ATT_Wireless_SMTP',
+                     '7249808155@ATT_Wireless_SMTP',
+                     '8145250314@ATT_Wireless_SMTP',
+                     '8145257250@ATT_Wireless_SMTP',
+                     '8145251031@ATT_Wireless_SMTP',
+                     '8146598873@ATT_Wireless_SMTP',
+                     '8145252684@ATT_Wireless_SMTP',
+                     '8145250377@ATT_Wireless_SMTP',
+                     '8145257113@ATT_Wireless_SMTP'
+                   ],
+          'location' => '100B BERWICK RD-RI (SCALP AVE-RI & )',
+          'subject' => '[03] EMSB-BLS POLICE ASSIST',
+          'data' => 'INCIDENT HISTORY DETAIL: 201112-29972
+
+
+INITIATE: 01:31:11  12/07/11   CALL NUMBER:    201112-29972
+ENTRY:    01:31:11             CURRENT STATUS: DISPATCHED
+DISPATCH: 01:31:26             ALARM LEVEL:    
+ONSCENE:                       CASE NUMBER:    201112-29972
+CLOSE:                        
+
+
+LOCATION: 100B BERWICK RD-RI (SCALP AVE-RI & )
+LOCATION NOTE: 
+MAP:      
+STATION:  03 TYPE:     BLS EMSB-BLS POLICE ASSIST
+BOX AREA: 0305 PRIORITY: 1
+ASSIGNED: S31
+
+01:24:53               *RO,S4,S5
+01:25:01               CALLER ADVISING A VEHICLE WENT INTO A DITCH  (GPH)
+01:25:07               AND SOUNDS LIKE THEY ARE TRYING TO GET OUT (GPH)
+01:25:32               Waiting call viewed (DJA)
+01:26:08               P.D. Response area is 880 (DJA)
+01:27:51               OFFICER IN THE AREA (DJA)
+01:31:04               REQUEST EMS NON EMERGENCY (DJA)
+01:31:11               NATURE EMSB-BLS POLICE ASSIST [DJA]
+01:31:11               PD INCIDENT 201112-104660 SHIPPED TO FIRE WITH [DJA]
+01:31:11               SHIPPED FROM POLICE DISPATCH, INCIDENT NUMBER 201112-104660 (DJA)
+01:31:23               Fire service incident 201112-29972 (MEH)
+01:31:24               TAC CHANNEL RO ASSIGNED (MEH)
+01:31:35               STA9 Available 01:31:35 (MEH)
+01:32:49               *REQUEST MOXHAM FOR TOW [DJA]
+',
+          'service' => 'sms_send',
+          'license' => 'PA110003',
+          'inc_no' => '201112-29972',
+          'message' => '100B BERWICK RD-RI (SCALP AVE-RI & ) STA9 A91 S31',
+          'debug' => '1',
+          'geocodeRegexAddr' => undef
+        };

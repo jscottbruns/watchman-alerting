@@ -1,0 +1,6 @@
+$> xsltproc ../../xsl/prolite.xsl testserial.xml >/dev/ttyUSB0
+# Command hangs indefinitely
+
+# In order to correct this behavior need to remove pl2303 kernel module, then re-add it
+$> sudo modinfo -r pl2303
+$> sudo modinfo pl2303

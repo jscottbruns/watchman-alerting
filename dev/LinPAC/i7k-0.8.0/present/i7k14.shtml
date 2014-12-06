@@ -1,0 +1,53 @@
+<html> <head>
+  <title>Function calls from i7k.o</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Function calls from i7k.o</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k13.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k15.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+
+<p><font color=#DD4400><b>i7k_read&nbsp;&nbsp;&nbsp;&nbsp;i7k_read_cs</b></font><br>
+read from opened port in CANONICAL mode, i7k_read_cs() has check-sum test
+
+<p><font color=#DD4400><b>i7k_readt&nbsp;&nbsp;&nbsp;&nbsp;i7k_readt_cs</b></font><br>
+read from opened port in NON-CANONICAL mode that with time-out, i7k_readt_cs() has check-sum test
+
+<p><font color=#DD4400><b>i7k_send&nbsp;&nbsp;&nbsp;&nbsp;i7k_send_cs</b></font><br>
+send command via opened port, i7k_send_cs() will gum check-sum code
+
+<p><font color=#DD4400><b>i7k_send_read&nbsp;&nbsp;&nbsp;&nbsp;i7k_send_read_cs</b></font><br>
+send command and read its response at one fell swoop, read in CANONICAL mode, i7k_send_read_cs() will gum/test check-sum code
+
+<p><font color=#DD4400><b>i7k_send_readt&nbsp;&nbsp;&nbsp;&nbsp;i7k_send_readt_cs</b></font><br>
+like i7k_send_read(), but read in NON-CANONICAL mode with time-out, i7k_send_readt_cs() will gum/test check-sum code
+
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k13.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k15.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+﻿%-12345X@PJL SET RESOLUTION = 300
+@PJL ENTER LANGUAGE = PCL
+E(s10H(8U(s0S(s0B(s4099T&l0S&l0O&k0G&l1H&l2A&l8.00C(8U   03/16/11 15:03:59 ********** SERVICE REQUEST ROUTED FROM FD02 *********     
+
+*                                                                               
+
+ INCIDENT HISTORY DETAIL: P110750202                                            
+
+                                                                                
+
+                                                                                
+
+INITIATE: 15:02:05  03/16/11   CALL NUMBER:    P00202                          
+
+ENTRY:    15:03:17             CURRENT STATUS: DISPATCHED                     
+
+DISPATCH: 15:03:59             ALARM LEVEL:    1      
+
+ONSCENE:                       CASE NUMBER:    PF1100027267           
+
+CLOSE:                                                
+
+                             
+
+                            
+
+ 
+
+ 
+
+LOCATION: CAP BELT IL NO HY/ANNAPOLIS RD (CAP BELT IL NO HY/ANNAPOLIS RD)       
+
+LOCATION COMMENTS: UNK CITY PGCO & MARYLAND                    
+
+DAREA:    F1                                                                 
+
+STATION:  35                    TYPE:     PIAH   PIA-HIGHWAY                    
+
+RD:       3516                  PRIORITY: 1                     
+
+RUN CARD: 3516                  PRIORS                   
+
+   
+
+15:03:17 CT17 ENTRY    TEXT:SINGLE VEH JUST HIT MEDIAN...LOF BLK/GRY   
+
+                       VOLVO..UNK INJURIES \NAME:SHALAYA \PH:301-523-9683   
+
+15:03:17 CT17 SIGNAL4     
+
+15:03:17 CT17 E911     LOCATION:7500 GOOD LUCK RD - SE SECTOR \PHONE:301/523-   
+
+                       -9683 \COMP:SPRINT PCS \SRC:WPH2 \LAT:+038.969064LON:-   
+
+                       -076.868677 \CONF: 63% \UNCERT:    45FT \PNUM:301/511-   
+
+                       -8945   
+
+15:03:17 CT17 PRIOR    PF PIA 02/17/11 @ 21:45:53 (5 MORE)   
+
+15:03:29 CT17 SUPP     TEXT:ATTEMPTING TO NOTIFY MSP   
+
+15:03:46 FD02 SUPP     NO FURTHER INFORMATION   
+
+15:03:59 FD02 DISPATCH A835 SQ814 E835 E828 A830   
+
+15:03:59 FD02 CASE     PF1100027267 Assigned 
+
+  
+
+OPERATOR ASSIGNMENTS:  CT17  163    JONES, ALESHA            
+
+                       FD02  046    BYRD, MICHAEL           
+
+E(s10H&l0O&l0S&k0G&l6D%-12345X

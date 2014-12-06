@@ -1,0 +1,16 @@
+Noncanonical mode (with time-out)
+total cycles: 6001 in 60 secs
+average rate: 100/sec
+
+Canonical mode (without time-out)
+total cycles: 6001 in 60 secs
+average rate: 100/sec
+
+Noncanonical mode (with time-out)
+total cycles: 6000 in 60 secs
+average rate: 100/sec
+
+Canonical mode (without time-out)
+total cycles: 6001 in 60 secs
+average rate: 100/sec
+

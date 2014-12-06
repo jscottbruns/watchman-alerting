@@ -1,0 +1,10 @@
+README for iwc
+==============
+
+iWarp Client (iwc) is a demonstration of client side for controlling
+remote i7000 modules via TCP/IP protocol.  iWarp Client is an X GUI
+application implemented by GTK+ library, you need GTK+ to compiling
+iWarp Client.  Use "configure" "make" "make install" to build and
+install.  Installation instructions are detailed in "INSTALL".
+
+The server side program is "iw" located i7000 installed directory.

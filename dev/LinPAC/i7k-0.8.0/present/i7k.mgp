@@ -1,0 +1,446 @@
+%% i7k for Linux, v 0.00, Reed Lai, ICPDAS, 1999.12.30
+%include "default.mgp"
+%%
+%deffont "logo"     tfont "yadou.ttf"
+%deffont "project"  tfont "lunasequ.ttf"
+%%deffont "project2" tfont "interpla.ttf"
+%%deffont "project3" tfont "!y2kbug.ttf"
+%deffont "title"    tfont "arial.ttf"
+%%deffont "title2"   tfont "arialmir.ttf"
+%deffont "title3"   tfont "inningha.ttf"
+%%deffont "title4"   tfont "ironcbr_.ttf"
+%%
+%deffont "text"     tfont "times.ttf"
+%%deffont "text2"    tfont "timesmir.ttf"
+%deffont "code"     tfont "cour.ttf"
+%%deffont "code"	     xfont "-misc-*-medium-r-*-*-15-*-*-*-*-*-*-*"
+%%deffont "code"	     xfont "-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-1"
+%%deffont "code"	     xfont "fixed-medium-r"
+%%
+%%deffont "pointer"  tfont "pointers.ttf"
+%%deffont "craft"    tfont "gezoom__.ttf"
+%%deffont "mac"      tfont "mac_ding.ttf"
+%%
+%%deffont "title" xfont "lucida-bold-r"
+%%deffont "fs" xfont "song ti-medium-r"
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 1 %%
+%% page 1
+%page
+%nodefault
+%fore "red", size 7, font "standard", back "black"
+
+
+
+%center, fore "blue", font "project", size 7
+i7000 for Linux
+%font "standard"
+
+
+%size 4, fore "green", font "logo"
+ICP DAS Co., Ltd.
+%size 3, font "title3"
+Reed Lai
+%font "code"
+service@icpdas.com
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 2 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+UNIX Family 
+
+	Origins 1969-1985
+		1969,
+%cont, fore "gold"
+ First Edition,
+%cont, fore "white"
+ Bell Laboratories, Ken Thompson (private research project PDP-7)
+		1976,
+%cont, fore "gold"
+ Sixth Editioni (V6),
+%cont, fore "white"
+ Bell Laboratories
+		1977,
+%cont, fore "gold"
+ PWB, MERT, CB, UNIX, Sixth Edition, 1BSD
+%fore "white"
+		1980, (PWB) 3.0,
+%cont, fore "gold"
+ XENIX,
+%cont, fore "white"
+ 4.0BSD, 2BSD
+		1982, (PWB) 5.0, System III, XENIX, 4.1aBSD, 2.8BSD
+		1983, (PWB) 5.2,
+%cont, fore "gold"
+ System V,
+%cont, fore "white"
+ XENIX 3, Eighth Edition, 4.1cBSD, 2.8BSD
+		1984, System V R2, XENIX 3,
+%cont, fore "gold"
+ SunOS,
+%cont, fore "white"
+ Eighth Edition, 4.2BSD, 2.9BSD
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 3 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+UNIX Family & History 
+	Continue
+		1985-1992, Chorus, System V, NeXT Step, SunOS4, Tenth Edition, 4.3BSD, 2.11BSD, NET, OSF, Plan 9, 386BSD, Solaris, NetBSD
+		1992, SVR4, DEC UNIX, Solaris,
+%cont, fore "green"
+ FreeBSD
+%cont, fore "white"
+ 1.0, NetBSD 0.8, BSDI 1.0 
+		1993,
+%cont, fore "red"
+ Linux,
+%cont, fore "white"
+ Novell UNIX Ware, XENIX 5, DEC UNIX, Solaris 2, 4.4BSD, BSDI
+		1995, Linux,
+%cont, fore "gold"
+ SCO UNIX,
+%cont, fore "white"
+ FreeBSD 2.0, 4.4BSD Lite-2, BSDI 2.0
+		1996, ... OpenBSD
+		1999, ... Linux kernel stable 2.2.13, FreeBSD 3.4
+
+	3 Families
+		USG / USDL / ATTIS / DSG / USO / USL  (System V)
+		Bell Laboratories Research  (V6, SunOS)
+		Berkeley Software Distributions  (BSD)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 4 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Different from Other System
+
+The UNIX System was distinguished from other operating systems in three important ways:
+
+	written in a high-level language
+
+	distributed in source form
+
+	provided powerful primitives normally found in only those operating systems that ran on much expensive hardware
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 5 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Environment
+	shells
+		sh, csh, tcsh, bash, ksh, zsh...
+
+	do not work as root
+
+	use libraries
+		console mode keyboard, screen, mouse manipulator
+			SLANG
+%cont, size 3, font "code"
+ http://www.s-lang.org/
+%font "title"
+			NCURSES
+%cont, size 3, font "code"
+ http://www.gnu.org/software/ncurses/
+%font "title"
+
+		X/MS GUI
+			GTK
+%cont, size 3, font "code"
+ http://www.gtk.org/
+%font "title"
+			Qt
+%cont, size 3, font "code"
+ http://www.troll.no/products/qt.html
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 6 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Tools
+
+	Console & Terminal
+		et -> Big5 console without X
+		xterm (cxterm) -> terminal emulator for X
+		rxvt (crxvt) -> VT102 emulator for X
+		Eterm -> Enlightened terminal emulator for X
+	Editor
+		vi (nvi, vim, elvis)
+		emacs, xemacs -> GNU Emacs
+	Compiler & Linker
+		gcc -> GNU C/C++ Compiler
+		as -> GNU Assembler
+		ld -> GNU Linker
+	Projecct & Maintenance
+		make -> GNU make utiltiy
+		awk -> GNU Awk, pattern scanning and processing
+		sed -> GNU streams editor
+		gzip(gunzip) -> GNU Zip
+		tar -> GNU tar archiving utiltiy
+		date, echo, head...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 7 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Manipulate Serial Port
+
+	Serial ports in system devices, /dev
+		ttyS0, ttyS1... as COM1, COM2...
+%size 3, font "code"
+      chmod a+rw /dev/ttyS*
+%font "title"
+
+	do access via file system
+		open()
+		close()
+		read()
+		write()
+
+	change the options
+		tcgetattr()
+		tcsetattr()
+		cfsetispeed()
+		cfsetospeed()
+
+	do it via i7k Software for Linux
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 8 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Get i7k Software for Linux
+
+
+	found it from CDROM
+
+	http://www.icpdas.com/
+
+	mail request to service@icpdas.com
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 9 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Install i7k Software for Linux
+
+	do not work as root
+
+	go to your project directory with rw privilege
+
+	extract package into current directory
+%font "code", size 3
+
+       gunzip -c [
+%cont, font "text"
+path
+%cont, font "code"
+]i7k_0.00.tar.gz | tar xvf -
+       cd i7k
+       mkdir your-project
+%font "title"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 10 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Getting Start
+
+	make sure i7000s are well connected and powered
+
+	check your rw privilege on serial device
+%font "code", size 3, prefix "  "
+ls -l /dev/ttyS1
+%filter "ls -l /dev/ttyS1"
+%endfilter
+%font "title"
+ 
+	run i7kon
+
+	refer to sio.c and sample send_read.c
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 11 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+i7kon
+
+
+%center
+%image "i7kon_open_port.gif"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 12 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Module Files of i7k Software
+
+	timer
+		#include "timer.h"
+		link timer.o
+		source timer.c
+
+	sio
+		#include "sio.h"
+		link sio.o
+		source sio.c
+		functions list SIO.TXT
+
+	i7k
+		#include "i7k.h"  /* involves sio.h timer.h */
+		link i7k.o
+		source i7k.c
+		functions list I7K.TXT
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 13 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Module Files of i7k Software (cont)
+
+	msw
+		#include "msw.h" /* involves i7k.h */
+		link msw.o
+		source msw.c
+
+	i7000
+		#include "msw.h"
+		link i7000.o
+		source i7000.c
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 14 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Different to Microsoft
+
+	port open/close
+		device name
+		baudrate
+		data bits
+		parity
+		stop bit(s)
+
+	time-out
+		tenth of a second
+
+	time measure
+		microsecond
+
+	other
+		report rate 100/sec
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 15 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Function calls from sio.o
+
+%font "typewriter", fore "gold"
+	sio_close()
+%cont, font "text", size 4, fore "white"
+  close opened serial port
+
+%font "typewriter", fore "gold"
+	sio_open()
+%cont, font "text", size 4, fore "white"
+  open serial port
+
+%font "typewriter", fore "gold"
+	sio_set_baud()
+%cont, font "text", size 4, fore "white"
+  change opened port's I/O baudrate
+
+%font "typewriter", fore "gold"
+	sio_canon()
+%cont, font "text", size 4, fore "white"
+  set opened port to operate in canonical mode
+
+%font "typewriter", fore "gold"
+	sio_noncan()
+%cont, font "text", size 4, fore "white"
+  set opened port to operate in non-canonical mode, this is default setting for sio_open()
+
+%font "typewriter", fore "gold"
+	sio_set_timer()
+%cont, font "text", size 4, fore "white"
+  give input condication (time-out...) to opened port, only work on non-canonical mode
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 16 %%
+%page
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Function calls from i7k.o
+
+
+%font "typewriter", fore "gold", rcutin
+	i7k_read() i7k_read_cs()
+%cont, font "text", size 4, fore "white"
+  read from opened port in CANONICAL mode, i7k_read_cs() has check-sum test
+
+%font "typewriter", fore "gold", rcutin, pause
+	i7k_readt() i7k_readt_cs()
+%cont, font "text", size 4, fore "white"
+  read from opened port in NON-CANONICAL mode that with time-out, i7k_readt_cs() has check-sum test
+
+%font "typewriter", fore "gold", rcutin, pause
+	i7k_send() i7k_send_cs()
+%cont, font "text", size 4, fore "white"
+  send command via opened port, i7k_send_cs() will gum check-sum code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 17 %%
+%page
+%PCACHE 1 1 1 50
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Function calls from i7k.o (cont)
+
+
+%font "typewriter", fore "gold", rcutin
+	i7k_send_read() i7k_send_read_cs()
+%cont, font "text", size 4, fore "white"
+  send command and read its response at one fell swoop, read in CANONICAL mode, i7k_send_read_cs() will gum/test check-sum code
+
+%font "typewriter", fore "gold", rcutin, pause
+	i7k_send_readt() i7k_send_readt_cs()
+%cont, font "text", size 4, fore "white"
+  like i7k_send_read(), but read in NON-CANONICAL mode with time-out, i7k_send_readt_cs() will gum/test check-sum code
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Page 18 %%
+%PAGE
+%PCACHE 0 
+%bgrad 0 0 32 0 0 "blue" "black"
+
+%font "title"
+Have a nice day!
+
+
+
+%center
+Visit i7k Current Page
+
+
+%cont, font "typewriter"
+http://w3.icpdas.com/reed/i7k.shtml
+
+
+
+

@@ -1,0 +1,43 @@
+*
+ INCIDENT HISTORY DETAIL: P100950033
+
+
+INITIATE: 04:12:25  04/05/10   CALL NUMBER:    P00033
+ENTRY:    04:18:06             CURRENT STATUS: DISPATCHED
+DISPATCH: 04:18:17             ALARM LEVEL:    1
+ONSCENE:                       CASE NUMBER:    PF1000034202
+CLOSE:
+
+
+
+
+LOCATION: 4600 MARGIE CT (CRANDALL RD & DEAD END)
+LOCATION COMMENTS: LANHAM   PG CO
+DAREA:    F1
+STATION:  28                    TYPE:     FALRM  ALARM-AFA
+RD:       2801                  PRIORITY: 1
+RUN CARD: 2801                  PRIORS
+
+04:18:06 CT04 ENTRY    SOURCE:RESD, NO FURTHER INFORMATION
+04:18:06 CT04 SIGNAL4
+04:18:06 CT04 E911     LOCATION:4600 MARGIE CT \PHONE:301/429-3491
+                       COMP:PRATT ANTOINE \SRC:RESD \PNUM:301/429-3491
+04:18:06 CT04 PRIOR    PF BLS 03/01/10 @ 20:32:32
+04:18:06 CT04 MISC     #100950033, ProQA Case #0010007930 Classification:
+                       FALRM Description: Residential (single) (General/Fire-
+                       ). 1.This is a private caller. 2.The caller is on
+                       scene (1st party). 3.It is a general/fire alarm. 4.The
+                       incident involves a single-family residential
+                       structure. 5.The name of the business/resident/owner
+                       is: PRATT RESIDENCE 6.The area or zone activated is:
+                       MIDDLE LEVEL OF HOUSE 7.Neither flames nor smoke are
+                       visible. 8.A multi-story structure is involved: 3 9.It
+                       is not known what caused the activation. 10.There are
+                       no reported people inside. --Comments: PRATT
+                       RESIDENCE- --Comments: MIDDLE LEVEL OF HOUSE-
+                       --Comments: 3- Dispatch Level: 52B01
+04:18:17 FD02 DISPATCH E828
+04:18:17 FD02 CASE     PF1000034202 Assigned
+
+OPERATOR ASSIGNMENTS:  CT04  253    GRIMES, DONNA
+                       FD02  144    HUDDLE, MATTHEW

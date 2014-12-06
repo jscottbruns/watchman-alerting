@@ -1,0 +1,6 @@
+<signboard>
+	<text label="0">
+		<mode display="hold"/><green/>
+		<time/>
+	</text>
+</signboard>

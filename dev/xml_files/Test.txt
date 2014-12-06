@@ -1,0 +1,2 @@
+<ID01><PA><CP>HELLO - TEST 
+<ID01><RPA>

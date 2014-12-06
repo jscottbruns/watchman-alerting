@@ -1,0 +1,50 @@
+I-7000/8000 Software for Linux
+
+Please read file README under each subdirectory for more information
+if they are there.  This package try to provide convenient functions
+for I-7000/8000 modules.  The function calls, there are some created
+under Linux, and some wrapped from the I-7000/8000 library for MSDOS.
+If you come from Microsoft programming environment and experienced
+the I-7000/8000 MS library, the most of the functions can still work
+for you.
+
+However, the difference between Linux and Microsoft makes some calls
+have different behavior, especially on port open, close, time-out,
+and time measurement.  Please refer to the send_read.c example which
+show you the basic difference.
+
+The package may be precompiled.  Type "make clean" will clean up all
+compiled objects.  Type "make" will build all targets under the root
+directory of the package except the "misc" directory.
+
+Due the creation of this package, the versions are
+
+  Linux kernel 2.2
+  GNU Make version 3.77
+  GNU gcc version egcs-2.91.66
+  NCURSES 5.0 (for i7kon only)
+
+Other version may work if you give it a try.
+
+Directories under the package-root:
+
+  <package-root>/
+              
+    i7k/      Library source codes and object modules
+    
+    i7kon/    A simple I-7K/8K console tool which allow to send commands
+              to modules.
+
+    include/  Headers
+
+    iw/	      The iWarp, server side, control the I-7K/8K modules via TCP/IP
+
+    iwc/      The iWarp Client
+
+    misc/     Miscellaneous codes for test and debug, but not regular
+
+    present/  Some presentation material
+
+    examples/ Codes for getting start
+
+- end of file -

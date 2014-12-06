@@ -1,0 +1,999 @@
+Google API Key:   GET /locate/savePOI.htm?action=redirect&a_key=c6a2af1c9bee6bfbebd2000da4204779&name=6800 Highview Terrace, Chillum, MD 20782&hl=en&lat=38.976252&long=-76.964137&attribution=&province=MD&country=US&city=Chillum&street=Highview Terrace&streetnum=6800&postcode=20782&phone=3766180185&source=http://maps.google.com&notes= HTTP/1.1
+Watchman API Key: GET /locate/savePOI.htm?action=redirect&a_key=ca10609abba0158d758eff73846f2093&name=6800 Highview Terrace, Chillum, MD 20782&hl=en&lat=38.976252&long=-76.964137&attribution=&province=MD&country=US&city=Chillum&street=Highview Terrace&streetnum=6800&postcode=20782&phone=&source=http://maps.google.com&notes=
+
+
+HTTP/1.1 200 OK
+Server: Apache/2.2.14 (Ubuntu)
+Content-Language: en
+Vary: Accept-Encoding
+Content-Type: text/html;charset=UTF-8
+Content-Length: 29618
+Date: Fri, 25 Mar 2011 14:00:37 GMT
+Connection: close
+Set-Cookie: JSESSIONID=FDDBC3EE716701AF0D085A3DDE13BC18; Path=/
+Set-Cookie: BIGipServermy.garmin.com.80.pool=2719000768.20480.0000; path=/
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	
+		<head>
+			<title>
+				Garmin | Send to GPS
+			</title>
+			
+			<!-- begin disable cache for GoogleMaps -->
+			<meta http-equiv="pragma" content="no-cache" />
+			<meta http-equiv="expires" content="-1" />
+			<!-- end disable cache for GoogleMaps -->
+			
+			<!-- begin i18n strings -->
+			<script type="text/javascript">var i18nActionAborted='Action aborted.';
+</script><script type="text/javascript">var i18nBrowserNotSupported='Your browser is not supported to use the Garmin Communicator Plug-In.';
+</script><script type="text/javascript">var i18nNoDeviceSelected='No device was selected.';
+</script><script type="text/javascript">var i18nSaveToDevice='Saving data to device...';
+</script><script type="text/javascript">var i18nSearchingDevice='Searching for a Garmin device...';
+</script><script type="text/javascript">var i18nPluginInitialized='Plug-in initialized.';
+</script><script type="text/javascript">var i18nPluginNotDetected='Garmin Communicator Plugin NOT detected.';
+</script><script type="text/javascript">var i18nPluginOutOfDate='Your version of the Garmin Communicator Plug-In is out of date.';
+</script><script type="text/javascript">var i18nPluginUnlockFailed='Garmin Plugin has not been unlocked';
+</script><script type="text/javascript">var i18nUnexpectedMessage='The following unexpected message was received from the device:';
+</script><script type="text/javascript">var i18nSavingLocToMg='Saving locations to your Garmin account...';
+</script><script type="text/javascript">var i18nCloseGmapDialog='Close';
+</script><script type="text/javascript">var i18nNotSignedIn='You aren\'t signed in';
+</script><script type="text/javascript">var i18nWelcomeUser='Welcome, {0}';
+</script><script type="text/javascript">var i18nWlsTabUnitId='Unit ID:';
+</script><script type="text/javascript">var i18nErrDesc403='Your session has timed out. Please input again.';
+</script><script type="text/javascript">var i18nErrInvalidParams='Contains invalid parameter values.';
+</script><link rel="stylesheet" type="text/css" media="all" href="/locate/c/main.css" />
+<!--[if IE]>
+	<link rel="stylesheet" type="text/css" media="all" href="/locate/c/ie.css" />
+<![endif]-->
+	<link rel="stylesheet" type="text/css" href="/locate/c/sendToGarmin.css" /><link rel="stylesheet" type="text/css" media="print, projection, screen" href="/locate/c/jquery.tabs.css" />
+	
+	
+
+	<!-- Additional IE/Win specific style sheet (Conditional Comments) -->
+	<!--[if lte IE 7]>
+	<link rel="stylesheet" type="text/css" media="projection, screen" href="/locate/c/jquery.tabs-ie.css" />
+	<![endif]-->
+
+	<!-- JavaScript -->
+	<script type="text/javascript" src="/locate/j/suckerfish.js"></script>
+	
+	<script type="text/javascript" src="/locate/j/jquery/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="/locate/j/jquery/jquery.tooltip-1.3.js"></script>
+	<script type="text/javascript" src="/locate/j/jquery/jquery-fx.js"></script>
+	<script type="text/javascript" src="/locate/j/jquery/jquery.tabs-2.7.4.js"></script>
+	<script type="text/javascript" src="/locate/j/jquery/jquery.tabs.effects.js"></script>
+	<script type="text/javascript" src="/locate/j/jquery/jquery.history_remote-0.2.3.js"></script>
+
+<!-- end tab dependant files -->
+
+<!-- begin Google Analytics variables -->
+<script type="text/javascript">
+	var gatcId = "UA-31920-5";
+	var gatcCookiePath = "/locate/";
+</script>
+<script type="text/javascript" src="/locate/j/google/gatc.js?noCache=8467620664681260907"></script>
+<!-- end Google Analytics variables -->
+	
+			<script type="text/javascript" src="/locate/j/jquery/jquery-ui-personalized-1.5.3.packed.js"></script>
+			<script type="text/javascript" src="/locate/j/jquery/jquery.blockUI-2.25.js"></script>
+			<script type="text/javascript" src="/locate/j/jquery/jquery.tabs-2.7.4.js"></script>
+			<script type="text/javascript" src="/locate/j/jquery/jquery.tabs.effects.js"></script>
+			
+			<!-- begin Google maps -->
+			<script type="text/javascript"
+					src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAA-NnOmSoFqH7b9IhVUsiwZhQ5sVBgKrc5PtPxzfQHurBmeMbrjhTmpfjdHjMy9GvegtseGmFtjun-sA&noCache=8467620664681260907">
+			</script>
+			
+			<script type="text/javascript"
+					src="/locate/j/google/gmaps.js?noCache=3.0.19, 02">
+			</script>
+			<!-- end Google maps -->
+	
+			<!-- begin communicator plugin -->
+			<script type="text/javascript" src="/locate/j/prototype/prototype-1.5.0.js"></script>
+					
+			<script type="text/javascript" src="/locate/j/garmin/util/Util-Broadcaster.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/util/Util-BrowserDetect.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/util/Util-DateTimeFormat.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/util/Util-PluginDetect.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/util/Util-XmlConverter.js"></script>
+					
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminObjectGenerator.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminGpsDataStructures.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminPluginUtils.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminDevice.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminDevicePlugin.js"></script>
+			<script type="text/javascript" src="/locate/j/garmin/device/GarminDeviceControl.js"></script>
+			<!-- end communicator plugin -->
+			
+			<!-- begin DWR -->
+			<script type="text/javascript" src="/locate/dwr/engine.js"></script>
+			<script type="text/javascript" src="/locate/dwr/util.js"></script>
+			<script type="text/javascript"
+				src="/locate/dwr/interface/ManageLocations.js"></script>
+			<script type="text/javascript"
+				src="/locate/dwr/interface/MygarminAuth.js"></script>
+			<!-- end DWR -->
+			
+			<!-- begin function tabs script -->
+			<script type="text/javascript"
+					src="/locate/j/garmin/dwrCommon.js?noCache=3.0.19, 02">
+			</script>
+			
+			<script type="text/javascript"
+					src="/locate/j/garmin/usbTab.js?noCache=3.0.19, 02">
+			</script>
+			
+			<script type="text/javascript"
+					src="/locate/j/garmin/msnTab.js?noCache=3.0.19, 02">
+			</script>
+			
+			<script type="text/javascript"
+					src="/locate/j/garmin/mygarminTab.js?noCache=3.0.19, 02">
+			</script>
+			
+			<script type="text/javascript"
+					src="/locate/j/garmin/wirelessTab.js?noCache=3.0.19, 02">
+			</script>
+			<!-- end function tabs script -->
+			
+			<script type="text/javascript">
+				
+				var saveUsb;
+				var garminSiteKeys	= [
+"http://mygarmindev.garmin.com", "e62d6ea7a53e187768e21d9fa8175d64",
+"https://mygarmindev.garmin.com", "df1abba778b284e59203e77ce79fca3c",
+"http://mygarmindev0.garmin.com", "7797b26f5d43b868983b4b1b799c8898",
+"https://mygarmindev0.garmin.com", "a524dc7d50f049e0cb3f22b8301b799c",
+"http://webtest.garmin.com", "2a0f9d43c035883a821c6b52eb0c6196",
+"https://webtest.garmin.com", "4b3b44528cdd78fb8287fed810233d38",
+"http://mygarmintest.garmin.com", "51f5976c767ff1ae101be81b3e51fd37",
+"https://mygarmintest.garmin.com", "f61642cf0f0a47fa0aa4a18bfee18369",
+"http://mygarminblue.garmin.com", "7395735a89d1bde90a51cf5e767ebb6d",
+"https://mygarminblue.garmin.com", "4cd56b7080e2cd56b044970aebf1ab14",
+"http://mygarminlmu.garmin.com", "d9cfd2da2d95ab13a38da9bf6453929f",
+"https://mygarminlmu.garmin.com", "9583ebd46682a9e4558d36758cf645ab",
+"http://mygarminstg.garmin.com", "83a019a8155ecd00763469d45c250170",
+"https://mygarminstg.garmin.com", "4474e9e59100f865f78ed40aa31cfe85",
+"http://my.garmin.com", "5b444e617bc19c949a9366ae894f858c",
+"https://my.garmin.com", "27254d9839a9292d46a48b258326c0c5",
+"http://t1-mis-lance:8080", "1d25d5ec658cbfed6ba9971ca4cb0bca",
+"http://t1-mis-yenbo.ad.garmin.com", "5af3405ee8c78652066e94601eb393de",
+"https://t1-mis-yenbo.ad.garmin.com", "42a05bfb99c08fcc5bc392ce8b278473",
+"http://t1-mis-yenbo-nb.ad.garmin.com", "b5926e08d414584524bc0a750515eca8",
+"https://t1-mis-yenbo-nb.ad.garmin.com", "aac5e0444fadd08d44e4701607c657c1",
+"http://localhost.garmin.com", "b6df6908d586eccc42c8b99e67d9698d",
+"http://localhost:8080", "78ae6ebf31a73f7a79eaca06b4023d2c",
+"https://localhost:8443", "ae929b635468f3e3502c5836349033f8"
+];
+				var gpxString		= "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<gpx creator=\"http:\/\/www.garmin.com\" version=\"1.1\" xmlns=\"http:\/\/www.topografix.com\/GPX\/1\/1\" xmlns:gpxx=\"http:\/\/www.garmin.com\/xmlschemas\/GpxExtensions\/v3\" xmlns:xsd=\"http:\/\/www.w3.org\/2001\/XMLSchema\" xmlns:xsi=\"http:\/\/www.w3.org\/2001\/XMLSchema-instance\"><wpt lat=\"38.976252\" lon=\"-76.964137\"><time>2011-03-25T14:00:37Z<\/time><name>6800 Highview Terrace, Chillum, MD 20782<\/name><sym>Waypoint<\/sym><extensions><gpxx:WaypointExtension><gpxx:Address><gpxx:StreetAddress>6800 Highview Terrace<\/gpxx:StreetAddress><gpxx:City>Chillum<\/gpxx:City><gpxx:State>MD<\/gpxx:State><gpxx:Country>United States<\/gpxx:Country><gpxx:PostalCode>20782<\/gpxx:PostalCode><\/gpxx:Address><gpxx:PhoneNumber>(376)-618-0185<\/gpxx:PhoneNumber><\/gpxx:WaypointExtension><\/extensions><\/wpt><\/gpx>";
+				var msnDirectString	= "<collections><collection><point name=\"6800 Highview Terrace, Chillum, MD 20782\"><latitude>38.976252<\/latitude><longitude>-76.964137<\/longitude><address>6800 Highview Terrace, Chillum, MD 20782 United States<\/address><phone>(376)-618-0185<\/phone><\/point><\/collection><\/collections>";
+				var mgPoiArray;
+				
+				var errorInvalidRequestPage	= "errorInvalidRequest.htm?hl=en";
+				var error500Page			= "error500.htm?hl=en";
+				
+				var dwrHttpsPath = "https://my.garmin.com/locate/dwr";
+				
+				jQuery(document).ready(function () {
+					jQuery("#dialogContents").dialog({ 
+					    modal: true, 
+					    autoOpen: false,
+					    bgiframe: true,
+					    width:"430px",
+					    height:"430px",
+					    overlay: { 
+					        opacity: 0.5, 
+					        background: "#000" 
+					    }
+					});		
+				});
+	     		
+	     		function jqBlockUi() {
+	     			jQuery.blockUI({
+						message: '<img src="/locate/m/g/ajax-loader.gif" />'
+					});
+				}
+
+	     		function setTabCookie(tabName) {
+	     			var d = new Date();
+	    			d.setTime(d.getTime() + (30*1000*60*60*24));
+
+	    			document.cookie = "selTabCookie=" + tabName + ";expires=" +
+	    				d.toGMTString();
+	     		}
+
+	     		function restoreTab() {
+
+	     			// TODO enable myGarmin tab
+	     			if (document.cookie.indexOf("selTabCookie=usbTab") != -1){
+	     				jQuery('#container-4').triggerTab(1);
+	     			}	
+	     			else if (document.cookie.indexOf("selTabCookie=wirelessTab") != -1){
+	     				jQuery('#container-4').triggerTab(2);
+	     			}
+	     			else if (document.cookie.indexOf("selTabCookie=msnTab") != -1){
+	     				jQuery('#container-4').triggerTab(3);
+	     			}
+	     		}
+	     		
+				function load() {
+					
+					if (document.location.protocol == 'https:') {
+						
+						// We don't support https yet. Redirect to http.
+						document.location =
+							document.location.href.replace("https://", "http://");
+					}
+					else {
+
+						restoreTab();
+						
+						
+							var querystring = document.location.search.substring(1);
+							var cookieName = "sendToGpsQuery=";
+							
+							if (querystring.length > 0) {
+								document.cookie = cookieName + querystring;
+							} // end if
+						
+					
+						saveUsb = new SaveUsbClass();
+						document.getElementById("collection").value = msnDirectString;
+						
+						// create JSON object array
+						mgPoiArray = new Array();
+mgPoiArray[0] = {
+	 latitude: 38.976252,
+	 longitude: -76.964137,
+	 name: "6800 Highview Terrace, Chillum, MD 20782",
+	 address1: "6800 Highview Terrace",
+	 address2: "",
+	 city: "Chillum",
+	 stateCode: "MD",
+	 countryCode: "US",
+	 postalCode: "20782",
+	 phoneNumber: "(376)-618-0185",
+	 note: ""
+};
+
+						
+						// DWR
+						MygarminAuth._path = dwrHttpsPath;
+						ManageLocations._path = dwrHttpsPath;
+						
+						dwr.engine.setRpcType(dwr.engine.ScriptTag);
+						
+						MygarminAuth.isAuthenticated({
+							callback: function(data) {
+								if (data == true) {
+									loginUiHandler();
+								}
+								else {
+									logout();
+								} // end if
+							},
+							errorHandler: dwrCbError,
+							exceptionHandler: dwrCbException,
+							textHtmlHandler: dwrCbTextHtml
+						});
+					} // end if
+					
+				}
+			</script>
+		</head>
+
+		<body onload="load()" onunload="GUnload()">
+			
+			<!-- begin layout -->
+			
+
+
+
+
+
+
+
+
+<!-- start init google-analytics  -->
+
+<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ?
+		"https://ssl." : "http://www.");
+		
+	document.write(unescape("%3Cscript src='" + gaJsHost +
+		"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<!-- end init google-analytics  -->
+
+<!-- begin header column -->
+
+
+
+
+
+
+
+
+<div id="dropnav">
+	<div class="column span-24 last">
+		<div class="inside">
+		
+			<a href="http://www8.garmin.com/aboutGarmin/" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_company)">Company</a><a href="https://buy.garmin.com/shop/category/all" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_products)">Products</a><a href="http://www8.garmin.com/solutions/" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_solutions)">Solutions</a><a href="http://www.garmin.com/garmin/cms/site/us/services" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_extras)">Extras</a><a href="http://www.garmin.com/garmin/cms/site/us/maps" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_maps)">Maps</a><a href="http://www.garmin.com/garmin/cms/site/us/support" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_support)">Support</a><a href="https://buy.garmin.com/shop" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_shop)">Shop</a><a href="https://my.garmin.com" onclick="gatcTrackLink(gatcEC_navBar, gatcEA_navBar_mygarmin)" class="last">myGarmin</a>
+			
+			
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</div>
+<p class="icnnav"><a href="#" class="btn_icnnav"><span>Garmin.com</span></a></p>
+
+<!-- end header column -->
+
+<div id="wrapper">
+	<div class="container">
+		
+		<div id="signin" class="column span-24 last">
+
+			<div class="t-right">
+				<span id="signedInUser">
+					You aren't signed in
+				</span> |
+				<a href="#" id="headerLogoutLink" onclick="logout()"
+					style="display: none">
+					Sign Out |
+				</a>
+				<a href="http://www.garmin.com/garmin/cms/site/us/support" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_help)">Help</a>
+			</div>
+
+		</div>
+		
+		<div id="nav" class="column span-24 last">
+			<img id="validRequest:logo" src="/locate/m/g/gr-logo.gif;jsessionid=FDDBC3EE716701AF0D085A3DDE13BC18" alt="myGarmin" />
+		</div>
+		
+		<!-- begin main body column -->
+		<div class="column span-17 append-1">
+			
+
+
+
+
+
+
+
+
+
+<!-- begin content -->
+<p>
+	From the tabs below, choose how you want to send or save locations, and then follow the instructions in that tab.
+</p>
+
+<div class="sendtogps span-17 column last">
+
+	<!-- begin left panel -->
+	<div class="waypoints column span-7">
+		
+
+
+
+
+
+
+
+
+<!-- begin waypoints -->
+		
+
+
+
+	
+	<div style="white-space: normal; word-wrap: break-word;">
+	
+		<h2>6800 Highview Terrace, Chillum, MD 20782</h2>
+		<p>
+			
+
+6800 Highview Terrace
+				<br />
+			
+Chillum, MD 20782 United States
+				<br />
+			
+(376)-618-0185
+			
+			<br />
+			
+			
+			
+			
+	        
+			
+			
+			
+			
+			<script type="text/javascript">
+				var ptName0 =
+					"6800 Highview Terrace, Chillum, MD 20782";
+			</script>
+			<a href="#"
+				onClick="javascript:viewOnMap(38.976252, -76.964137, ptName0);">
+				View on Map
+			</a>
+		</p>
+	</div>
+	
+
+
+
+<!-- end waypoints -->
+
+<!-- begin map div -->
+
+<div id="dialogContents" class="ui-corner-all">
+	<div class="innerDialog" style="padding-bottom:0px;margin-bottom:0px;">	
+		
+		<div id="gmap"
+			style="overflow: hidden; border: 1px solid black; width: 398px; height: 374px">
+		</div>    
+	</div>
+</div>
+
+<!-- end map div -->
+	</div>
+	<!-- end left panel -->
+	
+	<!-- begin right panel -->
+	<div class="tabs column span-10 last">
+		
+		<!-- begin tabs -->
+		<div id="container-4">
+		
+			<!-- begin tab titles -->
+			<ul>
+				<li>
+					<a href="#usbTab">
+						<span onclick="setTabCookie('usbTab');">
+							USB
+						</span>
+					</a>
+				</li>
+				<li>
+					<a href="#wirelessTab">
+						<span onclick="setTabCookie('wirelessTab');">
+							Wireless
+						</span>
+					</a>
+				</li>
+				
+				<li class="">
+					<a href="#msnTab">
+						<span onclick="setTabCookie('msnTab');">
+							MSN Direct
+						</span>
+					</a>
+				</li>
+			</ul>
+			<!-- end tab titles -->
+		
+			
+
+
+
+
+
+
+
+
+<!-- begin usb tab content -->
+<div id="usbTab">
+	
+	<!-- begin status line -->
+	<div id="usbStatusText" style="display: none"></div>
+	<!-- end status line -->
+	
+	<!-- begin usb tab no devices detected -->
+	<div id="divUsbNoDeviceFound" style="display: none">
+		<p class="red">
+			No Garmin devices were found. Please connect your Garmin device and scan again.
+		</p>
+		<a id="usbFindDevicesButton" href="#" class="button">
+			<span>
+				Scan for Devices
+			</span>
+		</a>
+	</div>
+	<!-- end usb tab no devices detected -->
+
+
+	<!-- begin usb tab device list -->
+
+	<div id="divUsbSelectDevice" style="display: none">
+		<p>
+			Please select your device below and click <strong>Send to GPS</strong> to transfer your data.
+			&nbsp;
+			Don't see your device?
+			<a id="usbFindDevicesLink" href="#">
+	 			Scan for Devices
+	 		</a>
+		</p>
+		
+		
+		<form id="usbDeviceInfoList"></form>
+		
+
+		
+	
+		<p>
+			<a id="usbWriteDataButton" class="button" href="#"
+				tabindex="13">
+				<span>
+					Send to GPS
+				</span>
+	 		</a>
+ 		</p>
+
+	</div>
+	<!-- end usb tab device list -->
+
+	<!-- begin usb tab transfer confirmation -->
+
+	<div id="divUsbSaveDeviceComplete" style="display: none">
+		
+		<p class="green">
+			Your locations have been sent.
+		</p>
+		
+		
+		
+		<p>
+			<a id="usbSendMoreDevicesButton" class="button" href="#">
+				<span>
+					Send to More Devices
+				</span>
+			</a>
+		</p>
+		
+		<!-- start return to link -->
+		<a href="javascript:history.back()" onclick="gatcTrackLink(gatcEC_coBrand, gatcEA_coBrand_returnUrl);" style="margin-left: 1em">Return to Google maps</a>
+		
+		
+		<!-- end return to link -->
+		
+	</div>
+
+	<!-- end usb tab transfer confirmation -->
+
+
+	<!-- begin msg plugin not installed -->
+	 <div id="msgPluginNotInstalled" style="display: none; color: #BB0000">
+		 This website uses the Garmin GPS Control, which has not been installed in your browser.
+	 </div>
+	 <!-- end msg plugin not installed -->
+	 
+	 <!-- begin msg plugin out of date -->
+	 <div id="msgPluginOutOfDate" style="display: none; color: #BB0000">
+		 Your version of the Garmin Communicator Plug-In is out of date.
+		 &nbsp;<span id="msgPluginVersion"></span>
+	 </div>
+	 <!-- end msg plugin out of date -->
+	 
+	 <!-- begin download/install plugin -->
+	 <div id="downloadInstallPlugin" style="display: none; color: #BB0000">
+		 
+		 
+		 
+		 	
+		 	<p>
+			 	Click here to install the plugin.
+			</p>
+			
+		 	<a href="javascript:document.forms['commPluginEulaFrm'].submit();"
+		 		class="button">
+		 		<span>Install</span>
+		 	</a>
+			 
+			 <form id="commPluginEulaFrm" action="commPluginEula.htm" method="post">
+			 	<input type="hidden" name="hl" value="en" />
+			 	
+			 	
+			 	
+			 </form>
+		 
+		 
+		 
+		 
+		 
+		 
+	 </div>
+	 <!-- end download/install plugin -->
+
+	<object id="GarminActiveXControl"
+	    style="WIDTH: 0px; HEIGHT: 0px; visible: hidden" height="0"
+	    width="0" classid="CLSID:099B5A62-DE20-48C6-BF9E-290A9D1D8CB5">
+	    <object id="GarminNetscapePlugin"
+	        type="application/vnd-garmin.mygarmin" width="0" height="0">
+	    </object>
+	</object>
+	 
+</div>
+<!-- end usb tab content -->
+			
+
+
+
+
+
+
+
+
+<div id="wirelessTab">
+
+	<!-- begin wireless tab sign in -->
+	<div id="divWlsMgSignIn">
+	
+		<p>
+			Sign in to your Garmin account to select your registered device, or <a href="https://my.garmin.com/mygarmin/marketing/register.htm" target="_blank" onclick="gatcTrackLink(gatcEC_funcTabs, gatcEA_funcTabs_regDevice)">register a device</a> now.
+		</p>
+		
+		<p class="quiet">
+			Note: You must be in a service area to successfully receive data wirelessly.
+		</p>
+
+		
+		<div id="wlsTabMgLoginErr" style="display: none">
+			<p class="red">
+				Enter a valid username and/or password.
+			</p>
+		</div>
+		
+	
+		
+		<div id="wlsTabNoCompatible" style="display: none">
+			<p class="red">
+				We did not find a wireless device in your account that is compatible with this service. You may need to register your device or sign in to a different account.
+			</p>
+		</div>
+		
+	
+		<div class="saveLogin clear">
+			<div>
+				<label for="wlsTabMgUsername">
+					Username
+				</label>
+				<input id="wlsTabMgUsername" class="text" type="text"
+					tabindex="21"
+					onkeypress="wlsTabLoginByEnter(event)" />
+				<small>
+					<a href="https://my.garmin.com/mygarmin/forgotUserName.faces" onclick="gatcTrackLink(gatcEC_funcTabs, gatcEA_funcTabs_forgotUsername)" target="_blank">Forgot username?</a>
+				</small>
+			</div>
+			<div>
+				<label for="wlsTabMgPassword">
+					Password
+				</label>
+				<input id="wlsTabMgPassword" class="text" type="password"
+					tabindex="22"
+					onkeypress="wlsTabLoginByEnter(event)" />
+				<small>
+					<a href="https://my.garmin.com/mygarmin/forgotPassword.faces" onclick="gatcTrackLink(gatcEC_funcTabs, gatcEA_funcTabs_forgotPassword)" target="_blank">Forgot password?</a>
+				</small>
+			</div>
+		</div>
+		<p class="clear">
+			<a id="wlsTabMgSignInButton" class="button" href="#"
+				tabindex="23"
+				onclick="clickWlsTabSignInButton()">
+				<span>
+					Sign In
+				</span>
+			</a>
+		</p>
+	</div>
+	<!-- end wireless tab sign in -->
+          
+	<!-- begin wireless tab device select -->
+	<div id="divWlsSelectDevices" style="display: none">
+		<p>
+			Choose a device below or <a href="https://my.garmin.com/mygarmin/marketing/register.htm" target="_blank" onclick="gatcTrackLink(gatcEC_funcTabs, gatcEA_funcTabs_regDevice)">register a device</a>.Don't see your device?
+
+			
+			<a id="wlsTabRefereshList" href="#" onclick="clickWlsTabRefreshList()">
+				Refresh Device List
+			</a>
+		</p>
+		
+		
+		<form id="wlsTabDeviceInfoList"></form>
+		
+		
+		
+		
+		
+		
+		<p>
+			<a id="wlsSendToGpsButton" class="button" href="#"
+				onclick="clickWlsTabSendToGpsButton()">
+				<span>
+					Send to GPS
+				</span>
+			</a>
+		</p>
+	</div>
+	<!-- end wireless tab device select -->                    
+
+	<!-- begin wireless tab transfer confirmation -->
+	<div id="divWlsLocationSent" style="display: none">
+		<p class="green">
+			Your locations have been sent.
+		</p>
+		<p>
+			If you are in a service area, they will be available on your device shortly. Go to <strong>Favorites</strong> to ensure they were successfully saved.
+		</p>
+
+		
+		
+		<p>
+			<a id="wlsSendMoreDevicesButton" class="button" href="#"
+			onclick="clickWlsTabSendMoreDevicesButton()">
+				<span>
+					Send to More Devices
+				</span>
+			</a>
+		</p>
+		
+		<!-- start return to source -->
+		<a href="javascript:history.back()" onclick="gatcTrackLink(gatcEC_coBrand, gatcEA_coBrand_returnUrl);" style="margin-left: 1em">Return to Google maps</a>
+		
+		<!-- end return to source -->
+	</div>
+	<!-- end wireless tab transfer confirmation --> 
+
+</div>
+
+			
+			
+			
+			
+
+
+
+
+
+
+
+
+<!-- begin msn tab content -->
+<div id="msnTab">
+
+	<!-- begin send by msn direct -->
+	<div id="divSendByMsn">
+		<p>
+			Send locations to your device wirelessly with an MSN Direct-compatible* Garmin device and an active MSN Direct account. You will need to provide your Windows Live ID.
+		</p>
+		
+		<p class="clear">
+			<a class="button" href="#" onclick="javascript: sendMsnDirect();">
+				<span>
+					Send by MSN Direct
+				</span>
+			</a>
+		</p>
+		
+		<!-- begin msn direct note -->
+		<p class="quiet">
+			*Includes North American n&uuml;vi series 2x5, 7x5, 8x5, 500, 550, 750, 760, 770, 780, 880 and 5000.
+			&nbsp;
+			<a href="http://www.msndirect.com/devices.aspx?DeviceDetailsfromServices=Garmin" target="_blank">Show All</a>
+		</p>
+		<!-- end msn direct note -->
+	</div>
+	<!-- end send by msn direct -->
+	
+	
+	<!-- begin msn tab transfer confirmation -->
+
+	<div id="divMsnSendComplete" style="display: none;">
+	
+		<p class="green">
+			Your locations have been sent.
+		</p>
+		
+		<p>
+			<a class="button" href="#" onclick="javascript: sendMsnDirect();">
+				<span>
+					Send to More Devices
+				</span>
+			</a>
+		</p>
+	
+		<!-- start return to link -->
+		<a href="javascript:history.back()" onclick="gatcTrackLink(gatcEC_coBrand, gatcEA_coBrand_returnUrl);" style="margin-left: 1em">Return to Google maps</a>
+		
+		
+		<!-- end return to link -->
+	</div>
+	
+	<!-- end msn tab transfer confirmation myGarmin -->
+	
+	
+	<form id="frmMsnDirect" method="post" target="_blank"
+		action="http://www.msndirect.com/send/poi.aspx?deliverymethod=wireless">
+		<input id="collection" name="collection" style="display:none" />
+	</form>
+
+</div>
+<!-- end msn tab content -->
+		</div>
+		<!-- end tabs -->
+		
+	</div>
+	<!-- end right panel -->
+            
+</div>
+<!-- end content -->
+
+		</div>
+		<!-- end main body column -->
+
+		<!-- begin side column -->
+		
+
+
+
+
+
+
+
+<div class="column span-6 last">
+
+	<!-- begin partner logo div, logo image should not exceed 230 pixels wide -->
+	<div id="partner">
+	
+		
+	</div>
+	<!-- end partner logo div -->
+
+	<!-- begin side content box -->
+	<div class="cssbox">
+		<div class="cssbox_head">
+			<p>
+				Quick Links
+			</p>
+		</div>
+		<div class="cssbox_link">
+		
+			
+		
+			<a href="http://www.youtube.com/watch?v=N_p1x-fL2zc" onclick="gatcTrackLink(gatcEC_qkLinks, gatcEA_qkLinks_howToVideo)" target="_blank">How-To Video (English)</a><a href="google-sendtoGPSHelp.htm;jsessionid=FDDBC3EE716701AF0D085A3DDE13BC18?hl=en&a_key=c6a2af1c9bee6bfbebd2000da4204779" onclick="gatcTrackLink(gatcEC_qkLinks, gatcEA_qkLinks_gmapsFaq)" target="_blank">Google Maps FAQ</a><a href="https://www.msndirect.com/support.aspx" onclick="gatcTrackLink(gatcEC_qkLinks, gatcEA_qkLinks_msnDirFaq)" target="_blank">MSN Direct FAQ (English)</a><a href="http://www.garmin.com/communicator/" onclick="gatcTrackLink(gatcEC_qkLinks, gatcEA_qkLinks_gcp)" target="_blank">Garmin Communicator Plugin</a><a href="https://my.garmin.com/mygarmin/dashboard.htm" onclick="gatcTrackLink(gatcEC_qkLinks, gatcEA_qkLinks_myDashboard)" target="_blank">myDashboard</a>
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>  
+	</div>
+	<!-- end side content box -->
+
+	<!-- begin banner ad div, banners should not exceed 230 pixels wide-->
+	<div id="banners">
+	
+		
+	</div>
+	<!-- end banner ad div -->
+
+</div>
+
+		<!-- end side column -->
+		
+		<!-- start footer column -->
+		
+
+
+
+
+
+
+
+
+
+<div class="span-24 column last footer">
+	<div class="column span-4">
+		<strong>
+			<a href="https://my.garmin.com" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_home)">Home</a>
+		</strong>
+	</div>
+	
+	<div class="column span-4">
+		<strong>
+			<a href="http://www.garmin.com/garmin/cms/site/us/support" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_help)">Help</a>
+		</strong>
+	</div>
+	
+	<div class="column span-4">
+		<strong>
+			<a href="http://www.garmin.com/" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_garmin)">Garmin.com</a>
+		</strong>
+		<br />
+		<a href="http://garmin.blogs.com/" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_blog)">Garmin Blog</a>
+	</div>
+	
+	<div class="column span-12 text-right last">
+		Copyright &#169;1996 &#8211; 2011 Garmin Ltd. or its subsidiaries
+		<br />
+		<a href="http://www.garmin.com/privacy" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_privacyStmt)">Privacy Statement</a>
+		&nbsp;|&nbsp;
+		<a href="http://www.garmin.com/privacy/terms.html" onclick="gatcTrackLink(gatcEC_ftLinks, gatcEA_ftLinks_termsOfUse)">Terms of Use</a>
+		<br />
+		3.0.19, 02
+	</div>
+
+</div>
+
+<!-- start google-analytics trackPageview -->
+
+<script type="text/javascript">
+	try {
+		pageTracker = _gat._getTracker(gatcId);
+		pageTracker._setCookiePath(gatcCookiePath);
+		pageTracker._setAllowLinker(true);
+		
+		pageTracker._trackPageview("/locate/savePOI.jsp");
+	} catch(err) {}
+</script>
+
+<!-- end google-analytics trackPageview -->
+		<!-- end footer column -->
+
+	</div>
+</div>
+
+			<!-- end layout -->
+	
+			<!-- begin track partner key -->
+			<script type="text/javascript">
+			
+				var partnerKey = "c6a2af1c9bee6bfbebd2000da4204779";
+				
+				if (partnerKey.length < 32) {
+					partnerKey = "NULL";
+				} // end if
+				
+				try {
+					pageTracker._trackEvent(gatcEC_partnerKey, partnerKey);
+				} catch(err) {}
+			</script>
+			<!-- end track partner key -->
+		</body>
+	
+</html>

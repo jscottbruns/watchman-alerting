@@ -1,0 +1,57 @@
+<html> <head>
+  <title>Function calls from sio.o</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Function calls from sio.o</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k12.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k14.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+
+<p><font color=#DD4400><b>sio_close</b></font><br>
+close opened serial port
+
+<p><font color=#DD4400><b>sio_open</b></font><br>
+open serial port
+
+<p><font color=#DD4400><b>sio_set_baud</b></font><br>
+change opened port's I/O baudrate
+
+<p><font color=#DD4400><b>sio_canon</b></font><br>
+set opened port to operate in canonical mode
+
+<p><font color=#DD4400><b>sio_noncan</b></font><br>
+set opened port to operate in non-canonical mode, this is default setting for sio_open()
+
+<p><font color=#DD4400><b>sio_set_timer</b></font><br>
+give input condication (time-out...) to opened port, only work on non-canonical mode
+
+<br><br>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k12.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k14.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

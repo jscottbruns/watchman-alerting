@@ -1,0 +1,59 @@
+<html> <head>
+  <title>Manipulate Serial Port.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Mainpulate Serial Port</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k5.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k7.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+<ul>
+  <li>Serial ports in system devices, /dev
+       <ul>
+	 <li>ttyS0, ttyS1... as COM1, COM2...
+	 <br><font face="courier new, courier" size=+0>chmod a+rw /dev/ttyS?</font>
+       </ul><br>
+  <li>do access via file system
+       <ul>
+	 <li>open()
+	 <li>close()
+	 <li>read()
+	 <li>write()
+       </ul><br>
+  <li>change the options
+       <ul>
+	 <li>tcgetattr()
+	 <li>tcsetattr()
+	 <li>cfsetispeed()
+	 <li>cfsetospeed()
+       </ul><br>
+  <li>do it via i7k Software for Linux
+</ul>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k5.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k7.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<html> <head>
+  <title>Different to Microsoft.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Different to i7000 for Microsoft/Windows</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k11.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k13.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+
+<b>port open/close</b>
+<ul>
+  <li>device name
+  <li>baudrate
+  <li>data bits
+  <li>parity
+  <li>stop bit(s)
+</ul><br>
+
+<b>time-out</b>
+<ul>
+  <li>tenth of a second
+</ul><br>
+
+<b>time measure</b>
+<ul>
+  <li>microsecond
+</ul><br>
+
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k11.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k13.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

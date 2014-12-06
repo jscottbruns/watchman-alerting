@@ -1,0 +1,22 @@
+-- TCP Command Syntax --
+Zone Server: 10.100.0.10/24
+Zone Clients: 10.100.1.0/24
+
+Alert Zone Client Commands:
+- ZID	Zone ID [char(5) i.e. 24-2]
+- ZLO	Zone Location [char(17) i.e. BATTALION OFFICE]
+- ZIP	Zone Interface IP Address [char(12) i.e. 10.100.1.XX]
+- PRT	Zone Interface TCP Control Port
+- DVL	Default Zone Volume Level
+- AVL	Alert Zone Volume Level
+- SIL	Silent Watch Enabled/Disabled
+- SST	Silent Watch Start Time
+- SEN	Silent Watch End Time
+- SVO	Silent Watch Volume Level
+- UNT	Unit Alerting Groups
+- UME	Unit Alerting Group Membership (GroupName)
+- UMI	Unit Alerting Group Membership (UnitID) 
+- INI	Zone Initiation
+
+
+- EXT	Disconnect request

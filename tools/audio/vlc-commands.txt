@@ -1,0 +1,702 @@
+Usage: vlc [options] [stream] ...
+You can specify multiple streams on the commandline. They will be enqueued in the playlist.
+The first item specified will be played first.
+
+Options-styles:
+  --option  A global option that is set for the duration of the program.
+   -option  A single letter version of a global --option.
+   :option  An option that only applies to the stream directly before it
+            and that overrides previous settings.
+
+Stream MRL syntax:
+  [[access][/demux]://]URL[@[title][:chapter][-[title][:chapter]]] [:option=value ...]
+
+  Many of the global --options can also be used as MRL specific :options.
+  Multiple :option=value pairs can be specified.
+
+URL syntax:
+  [file://]filename              Plain media file
+  http://ip:port/file            HTTP URL
+  ftp://ip:port/file             FTP URL
+  mms://ip:port/file             MMS URL
+  screen://                      Screen capture
+  [dvd://][device][@raw_device]  DVD device
+  [vcd://][device]               VCD device
+  [cdda://][device]              Audio CD device
+  udp://[[<source address>]@[<bind address>][:<bind port>]]
+                                 UDP stream sent by a streaming server
+  vlc://pause:<seconds>          Special item to pause the playlist for a certain time
+  vlc://quit                     Special item to quit VLC
+
+No matching module found. Use --list or--list-verbose to list available modules.
+
+ Audio
+      --audio, --no-audio        Enable audio (default enabled)
+      --volume <integer [0 .. 1024]>
+                                 Default audio volume
+      --volume-step <integer [0 .. 1024]>
+                                 Audio output volume step
+      --aout-rate <integer>      Audio output frequency (Hz)
+      --hq-resampling, --no-hq-resampling
+                                 High quality audio resampling (default enabled)
+      --spdif, --no-spdif        Use S/PDIF when available (default disabled)
+      --force-dolby-surround {0 (Auto), 1 (On), 2 (Off)}
+                                 Force detection of Dolby Surround
+      --audio-desync <integer>   Audio desynchronization compensation
+      --audio-replay-gain-mode {none,track,album}
+                                 Replay gain mode
+      --audio-replay-gain-preamp <float>
+                                 Replay preamp
+      --audio-replay-gain-default <float>
+                                 Default replay gain
+      --audio-replay-gain-peak-protection, --no-audio-replay-gain-peak-protection
+                                 Peak protection (default enabled)
+      --audio-time-stretch, --no-audio-time-stretch
+                                 Enable time streching audio (default enabled)
+  -A, --aout <string>            Audio output module
+      --audio-filter <string>    Audio filters
+      --audio-visual <string>    Audio visualizations 
+
+ Video
+      --video, --no-video        Enable video (default enabled)
+      --grayscale, --no-grayscale
+                                 Grayscale video output (default disabled)
+  -f, --fullscreen, --no-fullscreen
+                                 Fullscreen video output (default disabled)
+      --embedded-video, --no-embedded-video
+                                 Embedded video (default enabled)
+      --drop-late-frames, --no-drop-late-frames
+                                 Drop late frames (default enabled)
+      --skip-frames, --no-skip-frames
+                                 Skip frames (default enabled)
+      --quiet-synchro, --no-quiet-synchro
+                                 Quiet synchro (default disabled)
+      --vout-event {1 (Full support), 2 (Fullscreen-only), 3 (None)}
+                                 key and mouse event handling at vout level.
+      --overlay, --no-overlay    Overlay video output (default enabled)
+      --video-on-top, --no-video-on-top
+                                 Always on top (default disabled)
+      --disable-screensaver, --no-disable-screensaver
+                                 Disable screensaver (default enabled)
+      --video-title-show, --no-video-title-show
+                                 Show media title on video (default enabled)
+      --video-title-timeout <integer>
+                                 Show video title for x milliseconds
+      --video-title-position {0 (Center), 1 (Left), 2 (Right), 4 (Top), 8 (Bottom), 5 (Top-Left), 6 (Top-Right), 9 (Bottom-Left), 10 (Bottom-Right)}
+                                 Position of video title
+      --mouse-hide-timeout <integer>
+                                 Hide cursor and fullscreen controller after x milliseconds
+   Snapshot:
+      --snapshot-path <string>   Video snapshot directory (or filename)
+      --snapshot-prefix <string> Video snapshot file prefix
+      --snapshot-format {png,jpg}
+                                 Video snapshot format
+      --snapshot-preview, --no-snapshot-preview
+                                 Display video snapshot preview (default enabled)
+      --snapshot-sequential, --no-snapshot-sequential
+                                 Use sequential numbers instead of timestamps (default disabled)
+      --snapshot-width <integer> Video snapshot width
+      --snapshot-height <integer>
+                                 Video snapshot height
+   Window properties:
+      --width <integer>          Video width
+      --height <integer>         Video height
+      --video-x <integer>        Video X coordinate
+      --video-y <integer>        Video Y coordinate
+      --crop <string>            Video cropping
+      --custom-crop-ratios <string>
+                                 Custom crop ratios list
+      --aspect-ratio <string>    Source aspect ratio
+      --autoscale, --no-autoscale
+                                 Video Auto Scaling (default enabled)
+      --scale <float>            Video scaling factor
+      --monitor-par <string>     Monitor pixel aspect ratio
+      --custom-aspect-ratios <string>
+                                 Custom aspect ratios list
+      --hdtv-fix, --no-hdtv-fix  Fix HDTV height (default enabled)
+      --video-deco, --no-video-deco
+                                 Window decorations (default enabled)
+      --video-title <string>     Video title
+      --align {0 (Center), 1 (Left), 2 (Right), 4 (Top), 8 (Bottom), 5 (Top-Left), 6 (Top-Right), 9 (Bottom-Left), 10 (Bottom-Right)}
+                                 Video alignment
+      --zoom <float>             Zoom video
+  -V, --vout <string>            Video output module
+      --video-filter <string>    Video filter module
+      --vout-filter <string>     Video output filter module
+
+ Subpictures
+   On Screen Display:
+      --spu, --no-spu            Enable sub-pictures (default enabled)
+      --osd, --no-osd            On Screen Display (default enabled)
+      --text-renderer <string>   Text rendering module
+   Subtitles:
+      --sub-file <string>        Use subtitle file
+      --sub-autodetect-file, --no-sub-autodetect-file
+                                 Autodetect subtitle files (default enabled)
+      --sub-autodetect-fuzzy <integer>
+                                 Subtitle autodetection fuzziness
+      --sub-autodetect-path <string>
+                                 Subtitle autodetection paths
+      --sub-margin <integer>     Force subtitle position
+   Overlays:
+      --sub-filter <string>      Subpictures filter module
+   Track settings:
+      --program <integer>        Program
+      --programs <string>        Programs
+      --audio-track <integer>    Audio track
+      --sub-track <integer>      Subtitles track
+      --audio-language <string>  Audio language
+      --sub-language <string>    Subtitle language
+      --audio-track-id <integer> Audio track ID
+      --sub-track-id <integer>   Subtitles track ID
+   Playback control:
+      --input-repeat <integer>   Input repetitions
+      --start-time <float>       Start time
+      --stop-time <float>        Stop time
+      --run-time <float>         Run time
+      --input-fast-seek, --no-input-fast-seek
+                                 Fast seek (default disabled)
+      --input-list <string>      Input list
+      --input-slave <string>     Input slave (experimental)
+      --bookmarks <string>       Bookmarks list for a stream
+   Default devices:
+      --dvd <string>             DVD device
+      --vcd <string>             VCD device
+      --cd-audio <string>        Audio CD device
+   Network settings:
+      --server-port <integer>    UDP port
+      --mtu <integer>            MTU of the network interface
+  -6, --ipv6, --no-ipv6          Force IPv6 (default disabled)
+  -4, --ipv4, --no-ipv4          Force IPv4 (default disabled)
+      --ipv4-timeout <integer>   TCP connection timeout
+   Socks proxy:
+      --socks <string>           SOCKS server
+      --socks-user <string>      SOCKS user name
+      --socks-pwd <string>       SOCKS password
+   Metadata:
+      --meta-title <string>      Title metadata
+      --meta-author <string>     Author metadata
+      --meta-artist <string>     Artist metadata
+      --meta-genre <string>      Genre metadata
+      --meta-copyright <string>  Copyright metadata
+      --meta-description <string>
+                                 Description metadata
+      --meta-date <string>       Date metadata
+      --meta-url <string>        URL metadata
+   Advanced:
+      --cr-average <integer>     Clock reference average counter
+      --clock-synchro {-1 (Default), 0 (Disable), 1 (Enable)}
+                                 Clock synchronisation
+      --network-synchronisation, --no-network-synchronisation
+                                 Network synchronisation (default disabled)
+      --input-record-path <string>
+                                 Record directory or filename
+      --input-record-native, --no-input-record-native
+                                 Prefer native stream recording (default enabled)
+      --input-timeshift-path <string>
+                                 Timeshift directory
+      --input-timeshift-granularity <integer>
+                                 Timeshift granularity
+
+ Decoders
+      --codec <string>           Preferred decoders list
+      --encoder <string>         Preferred encoders list
+
+ Input
+      --access <string>          Access module
+      --demux <string>           Demux module
+      --prefer-system-codecs, --no-prefer-system-codecs
+                                 Prefer system plugins over VLC (default disabled)
+      --stream-filter <string>   Stream filter module
+
+ Stream output
+      --sout <string>            Default stream output chain
+      --sout-display, --no-sout-display
+                                 Display while streaming (default disabled)
+      --sout-keep, --no-sout-keep
+                                 Keep stream output open (default disabled)
+      --sout-all, --no-sout-all  Enable streaming of all ES (default disabled)
+      --sout-audio, --no-sout-audio
+                                 Enable audio stream output (default enabled)
+      --sout-video, --no-sout-video
+                                 Enable video stream output (default enabled)
+      --sout-spu, --no-sout-spu  Enable SPU stream output (default enabled)
+      --sout-mux-caching <integer>
+                                 Stream output muxer caching (ms)
+   VLM:
+      --vlm-conf <string>        VLM configuration file
+      --mux <string>             Mux module
+      --access_output <string>   Access output module
+      --ttl <integer>            Hop limit (TTL)
+      --miface <string>          Multicast output interface
+      --miface-addr <string>     IPv4 multicast output interface address
+      --dscp <integer>           DiffServ Code Point
+      --packetizer <string>      Preferred packetizer list
+      --sap-interval <integer>   SAP announcement interval
+
+ CPU
+      --fpu, --no-fpu            Enable FPU support (default enabled)
+      --mmx, --no-mmx            Enable CPU MMX support (default enabled)
+      --3dn, --no-3dn            Enable CPU 3D Now! support (default enabled)
+      --mmxext, --no-mmxext      Enable CPU MMX EXT support (default enabled)
+      --sse, --no-sse            Enable CPU SSE support (default enabled)
+      --sse2, --no-sse2          Enable CPU SSE2 support (default enabled)
+
+ Miscellaneous
+   Special modules:
+      --memcpy <string>          Memory copy module
+   Plugins:
+      --plugins-cache, --no-plugins-cache
+                                 Use a plugins cache (default enabled)
+      --plugin-path <string>     Modules search path
+   Performance options:
+      --rt-priority, --no-rt-priority
+                                 Allow real-time priority (default disabled)
+      --rt-offset <integer>      Adjust VLC priority
+      --inhibit, --no-inhibit    Inhibit the power management daemon during playback (default enabled)
+      --one-instance, --no-one-instance
+                                 Allow only one running instance (default disabled)
+      --started-from-file, --no-started-from-file
+                                 VLC is started from file association (default disabled)
+      --one-instance-when-started-from-file, --no-one-instance-when-started-from-file
+                                 One instance when started from file (default enabled)
+      --playlist-enqueue, --no-playlist-enqueue
+                                 Enqueue items to playlist when in one instance mode (default disabled)
+
+ Playlist
+  -Z, --random, --no-random      Play files randomly forever (default disabled)
+  -L, --loop, --no-loop          Repeat all (default disabled)
+  -R, --repeat, --no-repeat      Repeat current item (default disabled)
+      --play-and-exit, --no-play-and-exit
+                                 Play and exit (default disabled)
+      --play-and-stop, --no-play-and-stop
+                                 Play and stop (default disabled)
+      --media-library, --no-media-library
+                                 Use media library (default enabled)
+      --playlist-tree, --no-playlist-tree
+                                 Display playlist tree (default disabled)
+      --open <string>            Default stream
+      --auto-preparse, --no-auto-preparse
+                                 Automatically preparse files (default enabled)
+      --album-art {0 (Manual download only), 1 (When track starts playing), 2 (As soon as track is added)}
+                                 Album art policy
+  -S, --services-discovery <string>
+                                 Services discovery modules
+  -v, --verbose <integer>        Verbosity (0,1,2)
+      --verbose-objects <string> Choose which objects should print debug message
+  -q, --quiet, --no-quiet        Be quiet (default disabled)
+  -d, --daemon, --no-daemon      Run as daemon process (default disabled)
+      --pidfile <string>         Write process id to file
+      --file-logging, --no-file-logging
+                                 Log to file (default disabled)
+      --syslog, --no-syslog      Log to syslog (default disabled)
+      --color, --no-color        Color messages (default enabled)
+      --advanced, --no-advanced  Show advanced options (default enabled)
+      --interact, --no-interact  Interface interaction (default enabled)
+      --show-intf, --no-show-intf
+                                 Show interface with mouse (default disabled)
+      --stats, --no-stats        Collect statistics (default enabled)
+  -I, --intf <string>            Interface module
+      --extraintf <string>       Extra interface modules
+      --control <string>         Control interfaces
+
+ Hot keys
+      --key-toggle-fullscreen <integer>
+                                 Fullscreen
+      --global-key-toggle-fullscreen <integer>
+                                 Fullscreen
+      --key-leave-fullscreen <integer>
+                                 Leave fullscreen
+      --global-key-leave-fullscreen <integer>
+                                 Leave fullscreen
+      --key-play-pause <integer> Play/Pause
+      --global-key-play-pause <integer>
+                                 Play/Pause
+      --key-pause <integer>      Pause only
+      --global-key-pause <integer>
+                                 Pause only
+      --key-play <integer>       Play only
+      --global-key-play <integer>
+                                 Play only
+      --key-faster <integer>     Faster
+      --global-key-faster <integer>
+                                 Faster
+      --key-slower <integer>     Slower
+      --global-key-slower <integer>
+                                 Slower
+      --key-rate-normal <integer>
+                                 Normal rate
+      --global-key-rate-normal <integer>
+                                 Normal rate
+      --key-rate-faster-fine <integer>
+                                 Faster (fine)
+      --global-key-rate-faster-fine <integer>
+                                 Faster (fine)
+      --key-rate-slower-fine <integer>
+                                 Slower (fine)
+      --global-key-rate-slower-fine <integer>
+                                 Slower (fine)
+      --key-next <integer>       Next
+      --global-key-next <integer>
+                                 Next
+      --key-prev <integer>       Previous
+      --global-key-prev <integer>
+                                 Previous
+      --key-stop <integer>       Stop
+      --global-key-stop <integer>
+                                 Stop
+      --key-position <integer>   Position
+      --global-key-position <integer>
+                                 Position
+      --key-jump-extrashort <integer>
+                                 Very short backwards jump
+      --global-key-jump-extrashort <integer>
+                                 Very short backwards jump
+      --key-jump+extrashort <integer>
+                                 Very short forward jump
+      --global-key-jump+extrashort <integer>
+                                 Very short forward jump
+      --key-jump-short <integer> Short backwards jump
+      --global-key-jump-short <integer>
+                                 Short backwards jump
+      --key-jump+short <integer> Short forward jump
+      --global-key-jump+short <integer>
+                                 Short forward jump
+      --key-jump-medium <integer>
+                                 Medium backwards jump
+      --global-key-jump-medium <integer>
+                                 Medium backwards jump
+      --key-jump+medium <integer>
+                                 Medium forward jump
+      --global-key-jump+medium <integer>
+                                 Medium forward jump
+      --key-jump-long <integer>  Long backwards jump
+      --global-key-jump-long <integer>
+                                 Long backwards jump
+      --key-jump+long <integer>  Long forward jump
+      --global-key-jump+long <integer>
+                                 Long forward jump
+      --key-frame-next <integer> Next frame
+      --global-key-frame-next <integer>
+                                 Next frame
+      --key-nav-activate <integer>
+                                 Activate
+      --global-key-nav-activate <integer>
+                                 Activate
+      --key-nav-up <integer>     Navigate up
+      --global-key-nav-up <integer>
+                                 Navigate up
+      --key-nav-down <integer>   Navigate down
+      --global-key-nav-down <integer>
+                                 Navigate down
+      --key-nav-left <integer>   Navigate left
+      --global-key-nav-left <integer>
+                                 Navigate left
+      --key-nav-right <integer>  Navigate right
+      --global-key-nav-right <integer>
+                                 Navigate right
+      --key-disc-menu <integer>  Go to the DVD menu
+      --global-key-disc-menu <integer>
+                                 Go to the DVD menu
+      --key-title-prev <integer> Select previous DVD title
+      --global-key-title-prev <integer>
+                                 Select previous DVD title
+      --key-title-next <integer> Select next DVD title
+      --global-key-title-next <integer>
+                                 Select next DVD title
+      --key-chapter-prev <integer>
+                                 Select prev DVD chapter
+      --global-key-chapter-prev <integer>
+                                 Select prev DVD chapter
+      --key-chapter-next <integer>
+                                 Select next DVD chapter
+      --global-key-chapter-next <integer>
+                                 Select next DVD chapter
+      --key-quit <integer>       Quit
+      --global-key-quit <integer>
+                                 Quit
+      --key-vol-up <integer>     Volume up
+      --global-key-vol-up <integer>
+                                 Volume up
+      --key-vol-down <integer>   Volume down
+      --global-key-vol-down <integer>
+                                 Volume down
+      --key-vol-mute <integer>   Mute
+      --global-key-vol-mute <integer>
+                                 Mute
+      --key-subdelay-up <integer>
+                                 Subtitle delay up
+      --global-key-subdelay-up <integer>
+                                 Subtitle delay up
+      --key-subdelay-down <integer>
+                                 Subtitle delay down
+      --global-key-subdelay-down <integer>
+                                 Subtitle delay down
+      --key-audiodelay-up <integer>
+                                 Audio delay up
+      --global-key-audiodelay-up <integer>
+                                 Audio delay up
+      --key-audiodelay-down <integer>
+                                 Audio delay down
+      --global-key-audiodelay-down <integer>
+                                 Audio delay down
+      --key-audio-track <integer>
+                                 Cycle audio track
+      --global-key-audio-track <integer>
+                                 Cycle audio track
+      --key-audiodevice-cycle <integer>
+                                 Cycle through audio devices
+      --global-key-audiodevice-cycle <integer>
+                                 Cycle through audio devices
+      --key-subtitle-track <integer>
+                                 Cycle subtitle track
+      --global-key-subtitle-track <integer>
+                                 Cycle subtitle track
+      --key-aspect-ratio <integer>
+                                 Cycle source aspect ratio
+      --global-key-aspect-ratio <integer>
+                                 Cycle source aspect ratio
+      --key-crop <integer>       Cycle video crop
+      --global-key-crop <integer>
+                                 Cycle video crop
+      --key-toggle-autoscale <integer>
+                                 Toggle autoscaling
+      --global-key-toggle-autoscale <integer>
+                                 Toggle autoscaling
+      --key-incr-scalefactor <integer>
+                                 Increase scale factor
+      --global-key-incr-scalefactor <integer>
+                                 Increase scale factor
+      --key-decr-scalefactor <integer>
+                                 Decrease scale factor
+      --global-key-decr-scalefactor <integer>
+                                 Decrease scale factor
+      --key-deinterlace <integer>
+                                 Cycle deinterlace modes
+      --global-key-deinterlace <integer>
+                                 Cycle deinterlace modes
+      --key-intf-show <integer>  Show interface
+      --global-key-intf-show <integer>
+                                 Show interface
+      --key-intf-hide <integer>  Hide interface
+      --global-key-intf-hide <integer>
+                                 Hide interface
+      --key-snapshot <integer>   Take video snapshot
+      --global-key-snapshot <integer>
+                                 Take video snapshot
+      --key-history-back <integer>
+                                 Go back in browsing history
+      --global-key-history-back <integer>
+                                 Go back in browsing history
+      --key-history-forward <integer>
+                                 Go forward in browsing history
+      --global-key-history-forward <integer>
+                                 Go forward in browsing history
+      --key-record <integer>     Record
+      --global-key-record <integer>
+                                 Record
+      --key-dump <integer>       Dump
+      --global-key-dump <integer>
+                                 Dump
+      --key-zoom <integer>       Zoom
+      --global-key-zoom <integer>
+                                 Zoom
+      --key-unzoom <integer>     Un-Zoom
+      --global-key-unzoom <integer>
+                                 Un-Zoom
+      --key-wallpaper <integer>  Toggle wallpaper mode in video output
+      --global-key-wallpaper <integer>
+                                 Toggle wallpaper mode in video output
+      --key-menu-on <integer>    Display OSD menu on top of video output
+      --global-key-menu-on <integer>
+                                 Display OSD menu on top of video output
+      --key-menu-off <integer>   Do not display OSD menu on video output
+      --global-key-menu-off <integer>
+                                 Do not display OSD menu on video output
+      --key-menu-right <integer> Highlight widget on the right
+      --global-key-menu-right <integer>
+                                 Highlight widget on the right
+      --key-menu-left <integer>  Highlight widget on the left
+      --global-key-menu-left <integer>
+                                 Highlight widget on the left
+      --key-menu-up <integer>    Highlight widget on top
+      --global-key-menu-up <integer>
+                                 Highlight widget on top
+      --key-menu-down <integer>  Highlight widget below
+      --global-key-menu-down <integer>
+                                 Highlight widget below
+      --key-menu-select <integer>
+                                 Select current widget
+      --global-key-menu-select <integer>
+                                 Select current widget
+      --key-crop-top <integer>   Crop one pixel from the top of the video
+      --global-key-crop-top <integer>
+                                 Crop one pixel from the top of the video
+      --key-uncrop-top <integer> Uncrop one pixel from the top of the video
+      --global-key-uncrop-top <integer>
+                                 Uncrop one pixel from the top of the video
+      --key-crop-left <integer>  Crop one pixel from the left of the video
+      --global-key-crop-left <integer>
+                                 Crop one pixel from the left of the video
+      --key-uncrop-left <integer>
+                                 Uncrop one pixel from the left of the video
+      --global-key-uncrop-left <integer>
+                                 Uncrop one pixel from the left of the video
+      --key-crop-bottom <integer>
+                                 Crop one pixel from the bottom of the video
+      --global-key-crop-bottom <integer>
+                                 Crop one pixel from the bottom of the video
+      --key-uncrop-bottom <integer>
+                                 Uncrop one pixel from the bottom of the video
+      --global-key-uncrop-bottom <integer>
+                                 Uncrop one pixel from the bottom of the video
+      --key-crop-right <integer> Crop one pixel from the right of the video
+      --global-key-crop-right <integer>
+                                 Crop one pixel from the right of the video
+      --key-uncrop-right <integer>
+                                 Uncrop one pixel from the right of the video
+      --global-key-uncrop-right <integer>
+                                 Uncrop one pixel from the right of the video
+      --key-random <integer>     Random
+      --global-key-random <integer>
+                                 Random
+      --key-loop <integer>       Normal/Repeat/Loop
+      --global-key-loop <integer>
+                                 Normal/Repeat/Loop
+   Zoom:
+      --key-zoom-quarter <integer>
+                                 1:4 Quarter
+      --global-key-zoom-quarter <integer>
+                                 1:4 Quarter
+      --key-zoom-half <integer>  1:2 Half
+      --global-key-zoom-half <integer>
+                                 1:2 Half
+      --key-zoom-original <integer>
+                                 1:1 Original
+      --global-key-zoom-original <integer>
+                                 1:1 Original
+      --key-zoom-double <integer>
+                                 2:1 Double
+      --global-key-zoom-double <integer>
+                                 2:1 Double
+   Jump sizes:
+      --extrashort-jump-size <integer>
+                                 Very short jump length
+      --short-jump-size <integer>
+                                 Short jump length
+      --medium-jump-size <integer>
+                                 Medium jump length
+      --long-jump-size <integer> Long jump length
+      --key-set-bookmark1 <integer>
+                                 Set playlist bookmark 1
+      --global-key-set-bookmark1 <integer>
+                                 Set playlist bookmark 1
+      --key-set-bookmark2 <integer>
+                                 Set playlist bookmark 2
+      --global-key-set-bookmark2 <integer>
+                                 Set playlist bookmark 2
+      --key-set-bookmark3 <integer>
+                                 Set playlist bookmark 3
+      --global-key-set-bookmark3 <integer>
+                                 Set playlist bookmark 3
+      --key-set-bookmark4 <integer>
+                                 Set playlist bookmark 4
+      --global-key-set-bookmark4 <integer>
+                                 Set playlist bookmark 4
+      --key-set-bookmark5 <integer>
+                                 Set playlist bookmark 5
+      --global-key-set-bookmark5 <integer>
+                                 Set playlist bookmark 5
+      --key-set-bookmark6 <integer>
+                                 Set playlist bookmark 6
+      --global-key-set-bookmark6 <integer>
+                                 Set playlist bookmark 6
+      --key-set-bookmark7 <integer>
+                                 Set playlist bookmark 7
+      --global-key-set-bookmark7 <integer>
+                                 Set playlist bookmark 7
+      --key-set-bookmark8 <integer>
+                                 Set playlist bookmark 8
+      --global-key-set-bookmark8 <integer>
+                                 Set playlist bookmark 8
+      --key-set-bookmark9 <integer>
+                                 Set playlist bookmark 9
+      --global-key-set-bookmark9 <integer>
+                                 Set playlist bookmark 9
+      --key-set-bookmark10 <integer>
+                                 Set playlist bookmark 10
+      --global-key-set-bookmark10 <integer>
+                                 Set playlist bookmark 10
+      --key-play-bookmark1 <integer>
+                                 Play playlist bookmark 1
+      --global-key-play-bookmark1 <integer>
+                                 Play playlist bookmark 1
+      --key-play-bookmark2 <integer>
+                                 Play playlist bookmark 2
+      --global-key-play-bookmark2 <integer>
+                                 Play playlist bookmark 2
+      --key-play-bookmark3 <integer>
+                                 Play playlist bookmark 3
+      --global-key-play-bookmark3 <integer>
+                                 Play playlist bookmark 3
+      --key-play-bookmark4 <integer>
+                                 Play playlist bookmark 4
+      --global-key-play-bookmark4 <integer>
+                                 Play playlist bookmark 4
+      --key-play-bookmark5 <integer>
+                                 Play playlist bookmark 5
+      --global-key-play-bookmark5 <integer>
+                                 Play playlist bookmark 5
+      --key-play-bookmark6 <integer>
+                                 Play playlist bookmark 6
+      --global-key-play-bookmark6 <integer>
+                                 Play playlist bookmark 6
+      --key-play-bookmark7 <integer>
+                                 Play playlist bookmark 7
+      --global-key-play-bookmark7 <integer>
+                                 Play playlist bookmark 7
+      --key-play-bookmark8 <integer>
+                                 Play playlist bookmark 8
+      --global-key-play-bookmark8 <integer>
+                                 Play playlist bookmark 8
+      --key-play-bookmark9 <integer>
+                                 Play playlist bookmark 9
+      --global-key-play-bookmark9 <integer>
+                                 Play playlist bookmark 9
+      --key-play-bookmark10 <integer>
+                                 Play playlist bookmark 10
+      --global-key-play-bookmark10 <integer>
+                                 Play playlist bookmark 10
+      --bookmark1 <string>       Playlist bookmark 1
+      --bookmark2 <string>       Playlist bookmark 2
+      --bookmark3 <string>       Playlist bookmark 3
+      --bookmark4 <string>       Playlist bookmark 4
+      --bookmark5 <string>       Playlist bookmark 5
+      --bookmark6 <string>       Playlist bookmark 6
+      --bookmark7 <string>       Playlist bookmark 7
+      --bookmark8 <string>       Playlist bookmark 8
+      --bookmark9 <string>       Playlist bookmark 9
+      --bookmark10 <string>      Playlist bookmark 10
+  -h, --help, --no-help          print help for VLC (can be combined with --advanced and --help-verbose) (default enabled)
+  -H, --full-help, --no-full-help
+                                 Exhaustive help for VLC and its modules (default disabled)
+      --longhelp, --no-longhelp  print help for VLC and all its modules (can be combined with --advanced and --help-verbose) (default disabled)
+      --help-verbose, --no-help-verbose
+                                 ask for extra verbosity when displaying help (default disabled)
+  -l, --list, --no-list          print a list of available modules (default disabled)
+      --list-verbose, --no-list-verbose
+                                 print a list of available modules with extra detail (default disabled)
+  -p, --module <string>          print help on a specific module (can be combined with --advanced and --help-verbose). Prefix the module name with = for strict matches.
+      --ignore-config, --no-ignore-config
+                                 no configuration option will be loaded nor saved to config file (default disabled)
+      --save-config, --no-save-config
+                                 save the current command line options in the config (default disabled)
+      --reset-config, --no-reset-config
+                                 reset the current config to the default values (default disabled)
+      --reset-plugins-cache, --no-reset-plugins-cache
+                                 resets the current plugins cache (default disabled)
+      --version, --no-version    print version information (default disabled)
+      --config <string>          use alternate config file
+      --version, --no-version    print version information (default disabled)
+
+To get exhaustive help, use '-H'.

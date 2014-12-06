@@ -1,0 +1,45 @@
+<html> <head>
+  <title>Different from Other System.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Different from Other System</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k2.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k4.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+
+The UNIX System was distinguished from other operating systems in three important ways:
+<ul>
+  <li>written in a high-level language<br><br>
+  <li>distributed in source form<br><br>
+  <li>provided powerful primitives normally found in only those operating systems that ran on much expensive hardware<br><br>
+</ul>
+
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k2.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k4.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

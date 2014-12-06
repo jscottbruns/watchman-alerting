@@ -1,0 +1,17 @@
+README for iw
+=============
+
+iWarp (iw) is a demonstration of server side for controlling i7000
+modules via TCP/IP protocol.  To make iw work, you must edit file
+/etc/services, give it a un-used service name and port number, for
+example
+
+  iwarp		1500/tcp
+
+iw will read this and set it self as service "iwarp" and listen on
+port 1500.  If you change the default service name "iwarp", you should
+edit file main.c for your new service name
+
+  char *service = "iwarp";
+
+

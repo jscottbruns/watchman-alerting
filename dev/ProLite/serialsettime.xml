@@ -1,0 +1,10 @@
+<signboard>
+	<setDateTime>
+		<timeOfDay hour="16" minute="12" />
+		<timeFormat format="24-hour"/>
+	</setDateTime>
+	<text label="0">
+		<mode display="hold"/><green/>
+		<time/>
+	</text>
+</signboard>

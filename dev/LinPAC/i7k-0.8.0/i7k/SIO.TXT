@@ -1,0 +1,198 @@
+The SIO Functions Reference
+
+By Reed Lai
+
+sio_close
+sio_open
+sio_set_baud
+sio_set_canon
+sio_set_noncan
+sio_set_timer
+
+-----------------------------------------------------------------------
+NAME	sio_close
+
+SYNOPSIS
+	#include "sio.h"
+
+	int sio_close(int fd);
+
+DESCRIPTION
+	This function closes the given serial port, and releases the
+	memory which was allocated by the sio_open().
+
+ARGUMENTS
+	fd	File descriptor which was returned by sio_open().
+
+RETURN VALUE
+        OK_PORT_CLOSE or ERR_PORT_CLOSE
+
+-----------------------------------------------------------------------
+NAME
+	sio_open
+
+SYNOPSIS
+	#include "sio.h"
+
+	int sio_open( const char *port,
+		      speed_t     baud,
+		      tcflag_t    data,
+		      tcflag_t    parity,
+		      tcflag_t    stop    );
+
+DESCRIPTION
+	This funciton opens and initiates the specified serial port at
+	default noncanonical mode.
+
+ARGUMENTS
+	port	A string pointer to the serail device name, for Linux,
+		the device names are /dev/ttyS0, /dev/ttyS1... and so
+		on. There are 4 predefined symbols for the raw device
+		names.
+			SIO_DEV0	"/dev/ttyS0"
+			SIO_DEV1	"/dev/ttyS1"
+			SIO_DEV2	"/dev/ttyS2"
+			SIO_DEV3	"/dev/ttyS3"
+
+	baud	The baud rate, B0, B50... B9600, B19200, B38400... and
+		so on.   Refer to file /usr/include/asm/termbits.h for
+		available baud rate symbols. The workable highest baud
+		rate is depended on your device hardware.   Generally,
+		the highest workable baud rate is B115200.
+
+	data	This argument indicates how many data bits will be
+		used in communication.  The available options are
+		DATA_BITS_5, DATA_BITS_6, DATA_BITS7, and DATA_BITS_8.
+
+	parity	The parity. The available options are NO_PARITY,
+		ODD_PARITY, and EVEN_PARITY.
+
+	stop	The stop bit(s.) The available options are
+		ONE_STOP_BIT and TWO_STOP_BIT(S.) There is no 1.5 stop
+		bits to be defined in Linux POSIX control mode flags.
+
+RETURN VALUE
+	This function returns an integer as the port descriptor if the
+	port is opened successfully, or ERR_PORT_OPEN if failed.
+
+NOTES
+	The sio_open() allocates memory to record the original and
+	current port states; Use sio_close to close port and release
+	memory.
+
+-----------------------------------------------------------------------
+NAME
+	sio_set_baud
+
+SYNOPSIS
+	#include "sio.h"
+
+	int sio_set_baud(int fd, speed_t baud);
+
+DESCRIPTION
+	This function changes the baud rate to the given opened serial
+	device.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	baud	The desired baudrate. See also sio_open()
+
+RETURN VALUE
+        0 success, -1 error.
+
+-----------------------------------------------------------------------
+NAME
+	sio_set_canon
+
+SYNOPSIS
+	#include "sio.h"
+
+	void sio_set_canon(int fd);
+
+DESCRIPTION
+	This function turns the given port to operate in the canonical
+	mode.
+
+ARGUMENT
+	fd	The file descriptor of the opened serial device.
+
+RETURN VALUE
+        No returned value.
+
+SEE ALSO
+	sio_set_noncan
+
+-----------------------------------------------------------------------
+NAME
+	sio_set_noncan
+
+SYNOPSIS
+	#include "sio.h"
+
+	void sio_set_noncan(int fd);
+
+DESCRIPTION
+	This function turns the given port to operate in the non-
+	canonical mode.
+
+	The Non-canonical mode is the default setting for the
+	sio_open().
+
+ARGUMENT
+	fd	The file descriptor of the opened serial device.
+
+RETURN VALUE
+        No returned value
+
+SEE ALSO
+	sio_set_canon
+
+-----------------------------------------------------------------------
+NAME
+	sio_set_timer
+
+SYNOPSIS
+	#include "sio.h"
+
+	void sio_set_timer(int fd, cc_t vmin, cc_t vtime);
+
+DESCRIPTION
+	This function sets the input condictions for the given serial
+	device.
+
+	This function only works for the non-canonical mode.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	vmin	The minmum number of the reading bytes.
+
+	vtime	This is the inter-byte timer, the number of tenths-of-
+		a-second to wait for data arrival.
+
+RETURN VALUE
+        No returned value
+
+NOTES
+	There are four combinations for vmin and vtime.
+
+	A. vmin > 0 , vtime > 0
+	   read returns [vmin, nbytes] before timer expires
+	   read returns [1, vmin] if timer expires
+	   (call can be blocked indefinitely)
+
+	B. vmin > 0 , vtime == 0
+	   read returns [vmin, nbytes] when available
+	   (call can be blocked indefinitely)
+
+	C. vmin == 0 , vtime > 0
+	   read returns [1, nbytes] before timer expires
+	   read returns 0 if timer expires
+	   (vtime = read timer)
+
+	D. vmin == 0 , vtime == 0
+	   read returns [0, nbytes] immediately
+
+-----------------------------------------------------------------------
+- EOF -

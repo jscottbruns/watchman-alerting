@@ -1,0 +1,68 @@
+/* Example of Read I/O port from i8k modules.
+
+   Author: Moki Matsushima
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software Foundation,
+   Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA. */
+
+/* File level history (record changes for this file here.)
+
+   v 0.0.0  1 Sep 2004 by Moki Matsushima
+     create, blah blah... */
+
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
+#include <unistd.h>
+#include "msw.h"
+#define iTalkVersion	15
+
+int main(int argc, char **argv)
+{
+	int fd;
+	char *dev_file;
+	slot_reg_t reg;
+	if (argc != 4) {
+		printf("ICPDAS iTalk utility v%d\n",iTalkVersion);
+		printf("function : setport\n");
+		printf("Set port value to a module\n");
+		printf("Usage: setport slot offset data\n");
+		printf("Example :setport 1 0 20\n");
+		printf("Set the dec value 20 to offset 0 of slot 1\n");
+		return FAILURE;
+	}
+	sprintf(dev_file,"/dev/slot%d",atoi(argv[1]));
+	//printf("argc = %d argv0=%s argv1=%d argv2=%s\n",argc,dev_file,atoi(argv[1]),argv[2]);
+	/* open device file */
+	fd = open(dev_file, O_RDWR);
+	
+	if (fd < 0) {
+		printf("Failure of open device file \"%s.\"\n", dev_file);
+		return FAILURE;
+	}
+	
+	reg.value=atoi(argv[3]);
+	reg.offset=atoi(argv[2]);
+	
+	if (ioctl(fd, SLOT_WRITE_REG, &reg) ) {
+		printf("Failure of ioctl command SLOT_READ_REG SLOT_PC.\n");
+		close(fd);
+		return FAILURE;
+	}
+	//printf("%x",reg.value);
+	close(fd);
+	return SUCCESS;
+}

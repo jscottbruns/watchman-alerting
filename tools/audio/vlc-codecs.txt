@@ -1,0 +1,381 @@
+[32;1m  taglib                [0;1mtaglib
+[0m[32;1m  taglib                [0;1mtaglib
+[0m[32;1m  folder                [0;1mFolder meta data
+[0m[32;1m  mux_asf               [0;1mASF muxer
+[0m[32;1m  mux_mp4               [0;1mMP4/MOV muxer
+[0m[32;1m  mux_ps                [0;1mPS muxer
+[0m[32;1m  mux_wav               [0;1mWAV muxer
+[0m[32;1m  mux_dummy             [0;1mDummy/Raw muxer
+[0m[32;1m  mux_ts                [0;1mTS muxer (libdvbpsi)
+[0m[32;1m  mux_mpjpeg            [0;1mMultipart JPEG muxer
+[0m[32;1m  mux_ogg               [0;1mOgg/OGM muxer
+[0m[32;1m  mux_avi               [0;1mAVI muxer
+[0m[32;1m  i420_rgb              [0;1mI420,IYUV,YV12 to RGB2,RV15,RV16,RV24,RV32 conversions
+[0m[32;1m  i422_i420             [0;1mConversions from I422,J422 to I420,IYUV,J420,YV12,YUVA
+[0m[32;1m  grey_yuv              [0;1mConversions from GREY to I420,YUY2
+[0m[32;1m  yuy2_i420             [0;1mConversions from YUY2,YUNV,YVYU,UYVY,UYNV,Y422,cyuv to I420
+[0m[32;1m  i420_ymga             [0;1mConversions from I420,IYUV,YV12 to YMGA
+[0m[32;1m  i420_rgb_mmx          [0;1mMMX I420,IYUV,YV12 to RV15,RV16,RV24,RV32 conversions
+[0m[32;1m  i420_ymga_mmx         [0;1mMMX conversions from I420,IYUV,YV12 to YMGA
+[0m[32;1m  i420_yuy2             [0;1mConversions from I420,IYUV,YV12 to YUY2,YUNV,YVYU,UYVY,UYNV,Y422,IUYV,cyuv,Y211
+[0m[32;1m  i422_yuy2_mmx         [0;1mMMX conversions from I422 to YUY2,YUNV,YVYU,UYVY,UYNV,Y422,IUYV,cyuv
+[0m[32;1m  i420_yuy2_mmx         [0;1mMMX conversions from I420,IYUV,YV12 to YUY2,YUNV,YVYU,UYVY,UYNV,Y422,IUYV,cyuv
+[0m[32;1m  yuy2_i422             [0;1mConversions from YUY2,YUNV,YVYU,UYVY,UYNV,Y422,cyuv to I422
+[0m[32;1m  i422_yuy2             [0;1mConversions from I422 to YUY2,YUNV,YVYU,UYVY,UYNV,Y422,IUYV,cyuv,Y211
+[0m[32;1m  aes3                  [0;1mAES3/SMPTE 302M audio decoder
+[0m[32;1m  aes3                  [0;1mAES3/SMPTE 302M audio packetizer
+[0m[32;1m  lpcm                  [0;1mLinear PCM audio decoder
+[0m[32;1m  lpcm                  [0;1mLinear PCM audio packetizer
+[0m[32;1m  cc                    [0;1mClosed Captions decoder
+[0m[32;1m  libass                [0;1mSubtitle renderers using libass
+[0m[32;1m  rawvideo              [0;1mPseudo raw video decoder
+[0m[32;1m  rawvideo              [0;1mPseudo raw video packetizer
+[0m[32;1m  mpeg_audio            [0;1mMPEG audio layer I/II/III decoder
+[0m[32;1m  mpeg_audio            [0;1mMPEG audio layer I/II/III packetizer
+[0m[32;1m  png                   [0;1mPNG video decoder
+[0m[32;1m  araw                  [0;1mRaw/Log Audio decoder
+[0m[32;1m  araw                  [0;1mRaw audio encoder
+[0m[32;1m  t140                  [0;1mt140
+[0m[32;1m  t140                  [0;1mT.140 text encoder
+[0m[32;1m  twolame               [0;1mLibtwolame audio encoder
+[0m[32;1m  flac                  [0;1mFlac audio decoder
+[0m[32;1m  flac                  [0;1mFlac audio packetizer
+[0m[32;1m  flac                  [0;1mFlac audio encoder
+[0m[32;1m  cmml                  [0;1mCMML annotations decoder
+[0m[32;1m  cmml                  [0;1mCMML annotations decoder
+[0m[32;1m  fake                  [0;1mFake video decoder
+[0m[32;1m  a52                   [0;1mA/52 parser
+[0m[32;1m  a52                   [0;1mA/52 audio packetizer
+[0m[32;1m  x264                  [0;1mH.264/MPEG4 AVC encoder (x264)
+[0m[32;1m  vorbis                [0;1mVorbis audio decoder
+[0m[32;1m  vorbis                [0;1mVorbis audio encoder
+[0m[32;1m  vorbis                [0;1mVorbis audio packetizer
+[0m[32;1m  dts                   [0;1mDTS parser
+[0m[32;1m  dts                   [0;1mDTS audio packetizer
+[0m[32;1m  cvdsub                [0;1mCVD subtitle decoder
+[0m[32;1m  cvdsub                [0;1mChaoji VCD subtitle packetizer
+[0m[32;1m  invmem                [0;1mMemory video decoder
+[0m[32;1m  dvbsub                [0;1mDVB subtitles decoder
+[0m[32;1m  dvbsub                [0;1mDVB subtitles encoder
+[0m[32;1m  spudec                [0;1mDVD subtitles decoder
+[0m[32;1m  spudec                [0;1mDVD subtitles packetizer
+[0m[32;1m  libmpeg2              [0;1mMPEG I/II video decoder (using libmpeg2)
+[0m[32;1m  telx                  [0;1mTeletext subtitles decoder
+[0m[32;1m  sdl_image             [0;1mSDL_image video decoder
+[0m[32;1m  subsusf               [0;1mUSF subtitles decoder
+[0m[32;1m  cdg                   [0;1mCDG video decoder
+[0m[32;1m  adpcm                 [0;1mADPCM audio decoder
+[0m[32;1m  subsdec               [0;1mText subtitles decoder
+[0m[32;1m  schroedinger          [0;1mSchroedinger video decoder
+[0m[32;1m  faad                  [0;1mAAC audio decoder (using libfaad2)
+[0m[32;1m  speex                 [0;1mSpeex audio decoder
+[0m[32;1m  speex                 [0;1mSpeex audio encoder
+[0m[32;1m  speex                 [0;1mSpeex audio packetizer
+[0m[32;1m  theora                [0;1mTheora video decoder
+[0m[32;1m  theora                [0;1mTheora video encoder
+[0m[32;1m  theora                [0;1mTheora video packetizer
+[0m[32;1m  svcdsub               [0;1mPhilips OGT (SVCD subtitle) decoder
+[0m[32;1m  svcdsub               [0;1mPhilips OGT (SVCD subtitle) packetizer
+[0m[32;1m  avcodec               [0;1mFFmpeg audio/video decoder
+[0m[32;1m  avcodec               [0;1mFFmpeg deinterlace video filter
+[0m[32;1m  avcodec               [0;1mFFmpeg audio/video encoder
+[0m[32;1m  packetizer_mpegvideo  [0;1mMPEG-I/II video packetizer
+[0m[32;1m  packetizer_mlp        [0;1mMLP/TrueHD parser
+[0m[32;1m  packetizer_mpeg4audio [0;1mMPEG4 audio packetizer
+[0m[32;1m  packetizer_h264       [0;1mH.264 video packetizer
+[0m[32;1m  packetizer_copy       [0;1mCopy packetizer
+[0m[32;1m  packetizer_mpeg4video [0;1mMPEG4 video packetizer
+[0m[32;1m  packetizer_vc1        [0;1mVC-1 packetizer
+[0m[32;1m  packetizer_dirac      [0;1mDirac packetizer
+[0m[32;1m  shout                 [0;1mShoutcast radio listings
+[0m[32;1m  shout                 [0;1mFreebox TV listing (French ISP free.fr services)
+[0m[32;1m  shout                 [0;1mFrench TV
+[0m[32;1m  shout                 [0;1mShoutcast TV listings
+[0m[32;1m  sap                   [0;1mSAP Announcements
+[0m[32;1m  sap                   [0;1mSDP Descriptions parser
+[0m[32;1m  podcast               [0;1mPodcasts
+[0m[32;1m  hal                   [0;1mHAL devices detection
+[0m[32;1m  udev                  [0;1mCapture devices
+[0m[32;1m  udev                  [0;1mDiscs
+[0m[32;1m  upnp_intel            [0;1mUniversal Plug'n'Play discovery
+[0m[32;1m  bonjour               [0;1mBonjour services
+[0m[32;1m  access_output_dummy   [0;1mDummy stream output
+[0m[32;1m  access_output_shout   [0;1mIceCAST output
+[0m[32;1m  access_output_udp     [0;1mUDP stream output
+[0m[32;1m  access_output_http    [0;1mHTTP stream output
+[0m[32;1m  access_output_file    [0;1mFile stream output
+[0m[32;1m  export                [0;1mexport
+[0m[32;1m  export                [0;1mHTML playlist export
+[0m[32;1m  export                [0;1mXSPF playlist export
+[0m[32;1m  export                [0;1mOld playlist export
+[0m[32;1m  export                [0;1mM3U playlist export
+[0m[32;1m  screensaver           [0;1mX Screensaver disabler
+[0m[32;1m  dummy                 [0;1mDummy interface function
+[0m[32;1m  dummy                 [0;1mDummy font renderer function
+[0m[32;1m  dummy                 [0;1mDummy video output function
+[0m[32;1m  dummy                 [0;1mDummy audio output function
+[0m[32;1m  dummy                 [0;1mDummy encoder function
+[0m[32;1m  dummy                 [0;1mDump decoder function
+[0m[32;1m  dummy                 [0;1mDummy decoder function
+[0m[32;1m  dummy                 [0;1mDummy demux function
+[0m[32;1m  dummy                 [0;1mDummy access function
+[0m[32;1m  logger                [0;1mFile logging
+[0m[32;1m  probe_hal             [0;1mHAL devices detection
+[0m[32;1m  gnutls                [0;1mGnuTLS transport layer security
+[0m[32;1m  gnutls                [0;1mGnuTLS server
+[0m[32;1m  vod_rtsp              [0;1mRTSP VoD server
+[0m[32;1m  inhibit               [0;1mPower Management Inhibitor
+[0m[32;1m  telepathy             [0;1mTelepathy "Now Playing" (MissionControl)
+[0m[32;1m  memcpymmx             [0;1mMMX memcpy
+[0m[32;1m  stats                 [0;1mStats encoder function
+[0m[32;1m  stats                 [0;1mStats video output function
+[0m[32;1m  stats                 [0;1mStats demux function
+[0m[32;1m  stats                 [0;1mStats decoder function
+[0m[32;1m  memcpymmxext          [0;1mMMX EXT memcpy
+[0m[32;1m  notify                [0;1mLibNotify Notification Plugin
+[0m[32;1m  xml                   [0;1mXML Parser (using libxml2)
+[0m[32;1m  freetype              [0;1mFreetype2 font renderer
+[0m[32;1m  memcpy3dn             [0;1m3D Now! memcpy
+[0m[32;1m  osd_parser            [0;1mosd_parser
+[0m[32;1m  osd_parser            [0;1mXML OSD configuration importer
+[0m[32;1m  osd_parser            [0;1mOSD configuration importer
+[0m[32;1m  audioscrobbler        [0;1mSubmission of played songs to last.fm
+[0m[32;1m  xtag                  [0;1mSimple XML Parser
+[0m[32;1m  lua                   [0;1mFetch artwork using lua scripts
+[0m[32;1m  lua                   [0;1mLua Interface Module
+[0m[32;1m  lua                   [0;1mLua Playlist Parser Interface
+[0m[32;1m  memcpy                [0;1mlibc memcpy
+[0m[32;1m  visual                [0;1mVisualizer filter
+[0m[32;1m  float32_mixer         [0;1mFloat32 audio mixer
+[0m[32;1m  spdif_mixer           [0;1mDummy S/PDIF audio mixer
+[0m[32;1m  trivial_mixer         [0;1mTrivial audio mixer
+[0m[32;1m  ty                    [0;1mTY Stream audio/video demux
+[0m[32;1m  playlist              [0;1mPlaylist
+[0m[32;1m  playlist              [0;1miTunes Music Library importer
+[0m[32;1m  playlist              [0;1mDummy ifo demux
+[0m[32;1m  playlist              [0;1mGoogle Video Playlist importer
+[0m[32;1m  playlist              [0;1mQuickTime Media Link importer
+[0m[32;1m  playlist              [0;1mKasenna MediaBase parser
+[0m[32;1m  playlist              [0;1mASX playlist import
+[0m[32;1m  playlist              [0;1mNew winamp 5.2 shoutcast import
+[0m[32;1m  playlist              [0;1mXSPF playlist import
+[0m[32;1m  playlist              [0;1mPodcast parser
+[0m[32;1m  playlist              [0;1mDVB playlist import
+[0m[32;1m  playlist              [0;1mB4S playlist import
+[0m[32;1m  playlist              [0;1mPLS playlist import
+[0m[32;1m  playlist              [0;1mRAM playlist import
+[0m[32;1m  playlist              [0;1mM3U playlist import
+[0m[32;1m  mjpeg                 [0;1mM-JPEG camera demuxer
+[0m[32;1m  nsv                   [0;1mNullSoft demuxer
+[0m[32;1m  demux_cdg             [0;1mCDG demuxer
+[0m[32;1m  ts                    [0;1mMPEG Transport Stream demuxer
+[0m[32;1m  mpgv                  [0;1mMPEG-I/II video demuxer
+[0m[32;1m  rawvid                [0;1mRaw video demuxer
+[0m[32;1m  avformat              [0;1mFFmpeg demuxer
+[0m[32;1m  avformat              [0;1mFFmpeg muxer
+[0m[32;1m  tta                   [0;1mTTA demuxer
+[0m[32;1m  dirac                 [0;1mDirac video demuxer
+[0m[32;1m  es                    [0;1mMPEG-I/II/4 / A52 / DTS / MLP audio
+[0m[32;1m  au                    [0;1mAU demuxer
+[0m[32;1m  subtitle              [0;1mText subtitles parser
+[0m[32;1m  flacsys               [0;1mFLAC demuxer
+[0m[32;1m  asf                   [0;1mASF v1.0 demuxer
+[0m[32;1m  rawaud                [0;1mRaw audio demuxer
+[0m[32;1m  demuxdump             [0;1mFile dumper
+[0m[32;1m  rawdv                 [0;1mDV (Digital Video) demuxer
+[0m[32;1m  avi                   [0;1mAVI demuxer
+[0m[32;1m  nuv                   [0;1mNuv demuxer
+[0m[32;1m  ps                    [0;1mMPEG-PS demuxer
+[0m[32;1m  ps                    [0;1mMPEG-PS demuxer
+[0m[32;1m  pva                   [0;1mPVA demuxer
+[0m[32;1m  vobsub                [0;1mVobsub subtitles parser
+[0m[32;1m  aiff                  [0;1mAIFF demuxer
+[0m[32;1m  real                  [0;1mReal demuxer
+[0m[32;1m  live555               [0;1mRTP/RTSP/SDP demuxer (using Live555)
+[0m[32;1m  live555               [0;1mRTSP/RTP access and demux
+[0m[32;1m  h264                  [0;1mH264 video demuxer
+[0m[32;1m  smf                   [0;1mSMF demuxer
+[0m[32;1m  mp4                   [0;1mMP4 stream demuxer
+[0m[32;1m  voc                   [0;1mVOC demuxer
+[0m[32;1m  nsc                   [0;1mWindows Media NSC metademux
+[0m[32;1m  wav                   [0;1mWAV demuxer
+[0m[32;1m  mod                   [0;1mMOD demuxer (libmodplug)
+[0m[32;1m  xa                    [0;1mXA demuxer
+[0m[32;1m  mpc                   [0;1mMusePack demuxer
+[0m[32;1m  vc1                   [0;1mVC1 video demuxer
+[0m[32;1m  m4v                   [0;1mMPEG-4 video demuxer
+[0m[32;1m  mkv                   [0;1mMatroska stream demuxer
+[0m[32;1m  ogg                   [0;1mOGG demuxer
+[0m[32;1m  glx                   [0;1mOpenGL(GLX) provider
+[0m[32;1m  caca                  [0;1mColor ASCII art video output
+[0m[32;1m  aa                    [0;1mASCII-art video output
+[0m[32;1m  fb                    [0;1mGNU/Linux framebuffer video output
+[0m[32;1m  vmem                  [0;1mVideo memory output
+[0m[32;1m  opengl                [0;1mOpenGL video output
+[0m[32;1m  x11                   [0;1mX11 video output
+[0m[32;1m  drawable              [0;1mEmbedded X window video
+[0m[32;1m  drawable              [0;1mEmbedded Windows video
+[0m[32;1m  xvideo                [0;1mXVideo extension video output
+[0m[32;1m  yuv                   [0;1mYUV video output
+[0m[32;1m  stream_filter_rar     [0;1mUncompressed RAR
+[0m[32;1m  decomp                [0;1mDecompression
+[0m[32;1m  decomp                [0;1mDecompression
+[0m[32;1m  decomp                [0;1mDecompression
+[0m[32;1m  stream_filter_record  [0;1mInternal stream record
+[0m[32;1m  gradient              [0;1mGradient video filter
+[0m[32;1m  canvas                [0;1mAutomatically resize and pad a video
+[0m[32;1m  chain                 [0;1mVideo filtering using a chain of video filter modules
+[0m[32;1m  yuvp                  [0;1mYUVP converter
+[0m[32;1m  logo                  [0;1mLogo sub filter
+[0m[32;1m  logo                  [0;1mLogo video filter
+[0m[32;1m  gaussianblur          [0;1mGaussian blur video filter
+[0m[32;1m  blend                 [0;1mVideo pictures blending
+[0m[32;1m  noise                 [0;1mNoise video filter
+[0m[32;1m  psychedelic           [0;1mPsychedelic video filter
+[0m[32;1m  alphamask             [0;1mAlpha mask video filter
+[0m[32;1m  transform             [0;1mVideo transformation filter
+[0m[32;1m  rv32                  [0;1mRV32 conversion filter
+[0m[32;1m  deinterlace           [0;1mDeinterlacing video filter
+[0m[32;1m  deinterlace           [0;1mDeinterlacing video filter
+[0m[32;1m  rss                   [0;1mRSS and Atom feed display
+[0m[32;1m  puzzle                [0;1mPuzzle interactive game video filter
+[0m[32;1m  erase                 [0;1mErase video filter
+[0m[32;1m  postproc              [0;1mVideo post processing filter
+[0m[32;1m  mosaic                [0;1mMosaic video sub filter
+[0m[32;1m  scene                 [0;1mScene video filter
+[0m[32;1m  motionblur            [0;1mMotion blur filter
+[0m[32;1m  swscale               [0;1mVideo scaling filter
+[0m[32;1m  scale                 [0;1mVideo scaling filter
+[0m[32;1m  colorthres            [0;1mColor threshold filter
+[0m[32;1m  wall                  [0;1mWall video filter
+[0m[32;1m  grain                 [0;1mGrain video filter
+[0m[32;1m  adjust                [0;1mImage properties filter
+[0m[32;1m  osdmenu               [0;1mOn Screen Display menu
+[0m[32;1m  ripple                [0;1mRipple video filter
+[0m[32;1m  panoramix             [0;1mPanoramix: wall with overlap video filter
+[0m[32;1m  magnify               [0;1mMagnify/Zoom interactive video filter
+[0m[32;1m  clone                 [0;1mClone video filter
+[0m[32;1m  motiondetect          [0;1mMotion detect video filter
+[0m[32;1m  remoteosd             [0;1mRemote-OSD over VNC
+[0m[32;1m  wave                  [0;1mWave video filter
+[0m[32;1m  invert                [0;1mInvert video filter
+[0m[32;1m  bluescreen            [0;1mBluescreen video filter
+[0m[32;1m  dynamicoverlay        [0;1mDynamic video overlay
+[0m[32;1m  croppadd              [0;1mVideo scaling filter
+[0m[32;1m  crop                  [0;1mCrop video filter
+[0m[32;1m  extract               [0;1mExtract RGB component video filter
+[0m[32;1m  sharpen               [0;1mAugment contrast between contours.
+[0m[32;1m  rotate                [0;1mRotate video filter
+[0m[32;1m  blendbench            [0;1mBlending benchmark filter
+[0m[32;1m  marq                  [0;1mMarquee display
+[0m[32;1m  qt4                   [0;1mQt interface
+[0m[32;1m  qt4                   [0;1mQt interface
+[0m[32;1m  qt4                   [0;1mDialogs provider
+[0m[32;1m  skins2                [0;1mSkinnable Interface
+[0m[32;1m  skins2                [0;1mSkins loader demux
+[0m[32;1m  skins2                [0;1mSkinnable Interface
+[0m[32;1m  ncurses               [0;1mNcurses interface
+[0m[32;1m  access_ftp            [0;1mFTP input
+[0m[32;1m  access_ftp            [0;1mFTP upload output
+[0m[32;1m  zip                   [0;1mZip files filter
+[0m[32;1m  zip                   [0;1mZip access
+[0m[32;1m  access_tcp            [0;1mTCP input
+[0m[32;1m  access_fake           [0;1mFake input
+[0m[32;1m  access_udp            [0;1mUDP input
+[0m[32;1m  cdda                  [0;1mAudio CD input
+[0m[32;1m  access_smb            [0;1mSMB input
+[0m[32;1m  rtp                   [0;1mReal-Time Protocol (RTP) input
+[0m[32;1m  access_alsa           [0;1mAlsa audio capture input
+[0m[32;1m  access_mmap           [0;1mMemory-mapped file input
+[0m[32;1m  dvdread               [0;1mDVDRead Input (no menu support)
+[0m[32;1m  access_bd             [0;1mBlu-Ray Disc Input
+[0m[32;1m  access_dv             [0;1mDigital Video (Firewire/ieee1394)  input
+[0m[32;1m  access_file           [0;1mFile input
+[0m[32;1m  access_oss            [0;1mOSS input
+[0m[32;1m  dvb                   [0;1mDVB input with v4l2 support
+[0m[32;1m  vcd                   [0;1mVCD input
+[0m[32;1m  access_http           [0;1mHTTP input
+[0m[32;1m  vcdx                  [0;1mVideo CD (VCD 1.0, 1.1, 2.0, SVCD, HQVCD) input
+[0m[32;1m  dvdnav                [0;1mDVDnav Input
+[0m[32;1m  x11_screen            [0;1mScreen Input
+[0m[32;1m  access_directory      [0;1mStandard filesystem directory input
+[0m[32;1m  pvr                   [0;1mIVTV MPEG Encoding cards input
+[0m[32;1m  v4l2                  [0;1mVideo4Linux2 input
+[0m[32;1m  v4l2                  [0;1mVideo4Linux2 Compressed A/V
+[0m[32;1m  access_mms            [0;1mMicrosoft Media Server (MMS) input
+[0m[32;1m  v4l                   [0;1mVideo4Linux input
+[0m[32;1m  access_realrtsp       [0;1mReal RTSP
+[0m[32;1m  oss                   [0;1mUNIX OSS audio output
+[0m[32;1m  aout_file             [0;1mFile audio output
+[0m[32;1m  alsa                  [0;1mALSA audio output
+[0m[32;1m  pulse                 [0;1mPulseaudio audio output
+[0m[32;1m  stream_out_bridge     [0;1mBridge stream output
+[0m[32;1m  stream_out_bridge     [0;1mBridge stream output
+[0m[32;1m  stream_out_bridge     [0;1mBridge stream output
+[0m[32;1m  stream_out_gather     [0;1mGathering stream output
+[0m[32;1m  stream_out_rtp        [0;1mRTP stream output
+[0m[32;1m  stream_out_mosaic_bridge [0;1mMosaic bridge stream output
+[0m[32;1m  stream_out_description [0;1mDescription stream output
+[0m[32;1m  stream_out_standard   [0;1mStandard stream output
+[0m[32;1m  stream_out_record     [0;1mRecord stream output
+[0m[32;1m  stream_out_autodel    [0;1mAutomatically add/delete input streams
+[0m[32;1m  stream_out_dummy      [0;1mDummy stream output
+[0m[32;1m  stream_out_duplicate  [0;1mDuplicate stream output
+[0m[32;1m  stream_out_es         [0;1mElementary stream output
+[0m[32;1m  stream_out_transcode  [0;1mTranscode stream output
+[0m[32;1m  stream_out_display    [0;1mDisplay stream output
+[0m[32;1m  stream_out_raop       [0;1mRemote Audio Output Protocol stream output
+[0m[32;1m  telnet                [0;1mVLM remote control interface
+[0m[32;1m  motion                [0;1mmotion control interface
+[0m[32;1m  lirc                  [0;1mInfrared remote control interface
+[0m[32;1m  dbus                  [0;1mD-Bus control interface
+[0m[32;1m  hotkeys               [0;1mHotkeys management interface
+[0m[32;1m  signals               [0;1mPOSIX signals handling interface
+[0m[32;1m  showintf              [0;1mShow interface with mouse
+[0m[32;1m  http                  [0;1mHTTP remote control interface
+[0m[32;1m  rc                    [0;1mRemote control interface
+[0m[32;1m  gestures              [0;1mMouse gestures control interface
+[0m[32;1m  globalhotkeys         [0;1mGlobal Hotkeys interface
+[0m[32;1m  dtstofloat32          [0;1mDTS Coherent Acoustics audio decoder
+[0m[32;1m  dtstofloat32          [0;1mDTS Coherent Acoustics audio decoder
+[0m[32;1m  mono                  [0;1mAudio filter for stereo to mono conversion
+[0m[32;1m  simple_channel_mixer  [0;1mAudio filter for simple channel mixing
+[0m[32;1m  simple_channel_mixer  [0;1maudio filter for simple channel mixing
+[0m[32;1m  converter_fixed       [0;1mFixed point audio format conversions
+[0m[32;1m  converter_fixed       [0;1mFixed point audio format conversions
+[0m[32;1m  converter_fixed       [0;1mFixed point audio format conversions
+[0m[32;1m  converter_fixed       [0;1mFixed point audio format conversions
+[0m[32;1m  bandlimited_resampler [0;1mAudio filter for band-limited interpolation resampling
+[0m[32;1m  bandlimited_resampler [0;1mAudio filter for band-limited interpolation resampling
+[0m[32;1m  linear_resampler      [0;1mAudio filter for linear interpolation resampling
+[0m[32;1m  linear_resampler      [0;1mAudio filter for linear interpolation resampling
+[0m[32;1m  spatializer           [0;1mAudio Spatializer
+[0m[32;1m  ugly_resampler        [0;1mAudio filter for ugly resampling
+[0m[32;1m  dolby_surround_decoder [0;1mSimple decoder for Dolby Surround encoded streams
+[0m[32;1m  a52tofloat32          [0;1mATSC A/52 (AC-3) audio decoder
+[0m[32;1m  a52tofloat32          [0;1mATSC A/52 (AC-3) audio decoder
+[0m[32;1m  equalizer             [0;1mEqualizer with 10 bands
+[0m[32;1m  mpgatofixed32         [0;1mMPEG audio decoder
+[0m[32;1m  mpgatofixed32         [0;1mMPEG audio decoder
+[0m[32;1m  trivial_channel_mixer [0;1mAudio filter for trivial channel mixing
+[0m[32;1m  param_eq              [0;1mParametric Equalizer
+[0m[32;1m  normvol               [0;1mVolume normalizer
+[0m[32;1m  trivial_resampler     [0;1mAudio filter for trivial resampling
+[0m[32;1m  dtstospdif            [0;1mAudio filter for DTS->S/PDIF encapsulation
+[0m[32;1m  scaletempo            [0;1mAudio tempo scaler synched with rate
+[0m[32;1m  a52tospdif            [0;1mAudio filter for A/52->S/PDIF encapsulation
+[0m[32;1m  audio_format          [0;1mAudio filter for PCM format conversion
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  converter_float       [0;1mFloating-point audio format conversions
+[0m[32;1m  headphone_channel_mixer [0;1mHeadphone virtual spatialization effect
+[0m[32;1m  headphone_channel_mixer [0;1mHeadphone virtual spatialization effect
+[0m[32;1m  main                  [0;1mmain program
+[0m

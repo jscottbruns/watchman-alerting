@@ -1,0 +1,59 @@
+<html> <head>
+  <title>Environment.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Environment</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k3.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k5.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+
+<ul>
+  <li>shells
+       <ul>
+	 <li>sh, csh, tcsh, bash, ksh, zsh...
+       </ul><br><br>
+  <li>do not work as root<br><br>
+  <li>use libraries
+       <ul>
+	 <li>console mode keyboard, screen, mouse manipulator
+	      <ul>
+		<li>SLANG <a href="http://www.s-lang.org/">http://www.s-lang.org/</a>
+		<li>NCURSES <a href="http://www.gnu.org/software/ncurses/">http://www.gnu.org/software/ncurses/</a>
+	      </ul><br><br>
+	 <li>X/MS GUI
+	      <ul>
+		<li>GTK <a href="http://www.gtk.org/">http://www.gtk.org/</a>
+		<li>Qt <a href="http://www.troll.no/products/qt.html">http://www.troll.no/products/qt.html</a>
+	      </ul><br><br>
+       </ul>
+</ul>
+
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k3.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k5.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

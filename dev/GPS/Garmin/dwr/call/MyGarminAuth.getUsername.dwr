@@ -1,0 +1,15 @@
+GET /locate/dwr/call/plaincall/MygarminAuth.getUsername.dwr?callCount=1&page=/locate/savePOI.htm?action=redirect&a_key=c6a2af1c9bee6bfbebd2000da4204779&name=6800+Highview+Terrace,+Chillum,+MD+20782&hl=en&lat=38.976252&long=-76.964137&attribution=&province=MD&country=US&city=Chillum&street=Highview+Terrace&streetnum=6800&postcode=20782&phone=3766180185&source=http%3A%2F%2Fmaps.google.com&notes=&httpSessionId=FDDBC3EE716701AF0D085A3DDE13BC18&scriptSessionId=5D0B2AC1898EB2630488FBF40AA0DAB5973&c0-scriptName=MygarminAuth&c0-methodName=getUsername&c0-id=0&batchId=10 HTTP/1.1
+
+Login Step 2 of 4
+
+HTTP/1.1 200 OK
+Server: Apache/2.2.14 (Ubuntu)
+Vary: Accept-Encoding
+Content-Length: 84
+Content-Type: text/javascript;charset=ISO-8859-1
+Date: Fri, 25 Mar 2011 14:27:09 GMT
+Connection: close
+
+//#DWR-INSERT
+//#DWR-REPLY
+dwr.engine._remoteHandleCallback('10','0',"JSBRUNS");

@@ -1,0 +1,3 @@
+in_cksum.o: contrib/in_cksum.c contrib/in_cksum.h
+
+contrib/in_cksum.h:

@@ -1,0 +1,56 @@
+Encapsulated Modbus-RTU over TCP Request/Response Session Capture using Modbus Slave: 10.10.0.205:4000
+
+Read Commands:
+
+1) DO Readback Value - DO Ch 1: 
+	Req: 010100000001fdca
+	Res: [01]0101005188
+2) DO Readback Value - DO Ch 2: 
+	Req: 010100010001ac0a
+	Res: [01]0101005188
+3) DO Readback Value - DO Ch 3:
+	Req: 0101000200015c0a
+	Res:[01] 0101005188
+4) DO Readback Value - DO Ch 1-2:
+	Req: 010100000002bdcb
+	Res: [01]0101005188
+5) DO Readback Value - DO Ch 1-3:
+	Req: 0101000000037c0b	
+	Res: [01]0101005188
+6) DI Coil Value - DI Ch 1:
+	Req: 010200200001b800
+	Res: [01]020100a188 (false)
+	Res: [01]0201016048 (true)
+) DI Coil Value - DI Ch 2:
+	Req: 010200210001e9c0
+	Res: [01]020100a188 (false)
+	Res: [01]0201016048 (true)
+6) DI Coil Value - DI Ch 3:
+	Req: 01020022000119c0
+	Res: [01]020100a188 (false)
+	Res: [01]0201016048 (true)
+6) DI Coil Value - DI Ch 1-2:
+	Req: 010200200002f801
+	Res: [01]020100a188 (false|false)
+	Res: [01]0201022049 (false|true)
+
+Write Commands: 
+
+1) DO Write Coil - DO Ch 1 (set=on)
+	Req: 01050000ff008c3a 
+	Res: 01050000ff008c3a
+2) DO Write Coil - DO Ch 1 (set=off)
+	Req: 010500000000cdca 
+	Res: 010500000000cdca
+3) DO Write Coil - DO Ch 2 (set=on)
+	Req: 01050001ff00ddfa 
+	Res: 01050001ff00ddfa
+4) DO Write Coil - DO Ch 2 (set=off)
+	Req: 0105000100009c0a 
+	Res: 0105000100009c0a
+5) DO Write Coil - DO Ch 1-3 (set=on|set=off|set=on)
+	Req: 010f0000000301054f54
+	Res: 010f0000000315ca
+6) DO Readback Value - DO Ch 1-3:
+	Req: 010200000003380b
+	Res: [01]020105618b (true|false|true)

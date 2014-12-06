@@ -1,0 +1,63 @@
+The i-7000/8000 Software for Linux
+
+v 0.8.0 2011.5.118 by Golden
+  Support 256 IxVCOM device interfaces.
+
+v 0.7.0 2010.12.13 by Golden
+  Support 256 ttyUSB device interfaces most much at the same time.
+
+v 0.6.0 2010.11.22 by Golden
+  Support I-7015 Module.
+
+v 0.5.2 2010.04.12 by Golden
+  Fixed the bug that I-7565-H1/H2 send command error in "i7k/sio.c"(function "sio_set_timer  ") and "i7k/msw.c"(function "Receive_Binary").
+
+  Update "i7k" Version in "ChangeLog" and "Makefile".
+
+v 0.5.1 2009.12.14 by Golden
+  To modify "i7k/Makefile" and "i7k/sio.c" for I-7565-H1/H2 library.
+
+v 0.5.0 2009.10.15 by Golden
+  Add I-7565-H1/H2 library.
+
+v 0.4.2 2009.01.19 by Golden
+  fix i7kon libary bug.
+
+v 0.4.1 2008.06.26 by Golden
+  Add demo send_read2.c.
+  
+v 0.4.0 2004.03.02 by Emmy
+  Update source code. New version = Win Ver 5.0.8.
+  Support dynamic lib.
+
+v 0.3.0 2003.10.22 by Reed
+  Revise text.
+  Revise i7kon codes, color the scope rx/tx data.
+  Fixed the logical errors in the i7000.c, i8000.c, and i87000.c, which
+  compare an M$ WORD (unsigned int) value with a signed value (-1). 
+
+v 0.2.0 2001.2.19 by Moki and Reed
+  Add support of 8000 series.
+
+v 0.1.3 2000.9.26 by Reed Lai
+  Change the searching order for the "Find Learning Kit" of the i7kon.
+
+v 0.1.2 2000.9.21 by Reed Lai
+  Fixed the timer.c compilation error on kernel 2.2.13.
+
+v 0.1.1 2000.9.1 by Reed Lai
+  Fixed the path error of the lemp pictures in file interface.c (iwc.)
+
+v 0.1.0 2000.6.27 by Reed Lai
+  iWarp
+
+v 0.0.1 2000.4.20 by Reed Lai
+  i7kon
+  Fixed the display problem when device has been found behind the second
+  searching baudrate.
+
+  The timer.h.
+  Fixed the timer.c compilation error on kernel 2.2.14.
+
+v 0.00 1999.11.23 by Reed Lai
+  Created, dirty codes.

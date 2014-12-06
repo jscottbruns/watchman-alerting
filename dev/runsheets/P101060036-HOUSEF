@@ -1,0 +1,43 @@
+INCIDENT HISTORY DETAIL: P101060036                                            
+																			  
+																			  
+INITIATE: 03:58:10  04/16/10   CALL NUMBER:    P00036                          
+ENTRY:    03:59:34             CURRENT STATUS: DISPATCHED                    
+DISPATCH: 04:00:17             ALARM LEVEL:    1      
+ONSCENE:                       CASE NUMBER:    PF1000038181          
+CLOSE:                                                
+						  
+						  
+
+
+LOCATION: 4717 67TH AVE (WEBSTER ST & REDFIELD AVE)
+LOCATION COMMENTS: HYATTS,MD PGCO                  
+DAREA:    F1                                                                
+STATION:  30                    TYPE:     HOUSEF HOUSE FIRE                    
+RD:       3004                  PRIORITY: 1                    
+RUN CARD: 3004                                          
+
+03:59:34 CT07 ENTRY    TEXT:ProQA recommends dispatch at this time \NAME:ALAN  
+					 PH:202-498-3613 (MTF)  
+03:59:34 CT07 SIGNAL4    
+03:59:34 CT07 E911     LOCATION:6011 EMERSON ST \PHONE:202/498-3613  
+					 COMP:Sprint Nextel - iDEN \SRC:WPH1 \LAT:+038.948883L-  
+					 ON:-076.910563 \CONF:  0% \UNCERT:     0FT  
+					 PNUM:301/511-4064  
+03:59:34 CT07 MISC     #101060036, Structure Fire. .Caller Statement: HOUSE  
+					 IS ON FIRE.  
+03:59:34 CT07 MISC     #101060036, ProQA Case #0010008820 Classification:  
+					 HOUSEF Description: Residential (single). 1.The caller  
+					 is on scene (1st party). 2.Smoke is visible. 3.The  
+					 incident involves a single-family residential  
+					 structure. 4.A single-level structure is involved.  
+					 5.The caller has not indicated that there are trapped  
+					 person(s). Dispatch Level: 69D06  
+03:59:46 CT07 SUPP     TEXT:ProQA additional key questions (MTF)  
+03:59:46 CT07 MISC     #101060036, ProQA Case #0010008820 Classification:  
+					 HOUSEF Description: 6.No one is trapped inside the  
+					 structure. 7.No one is reported to be injured.  
+					 Dispatch Level: 69D06  
+04:00:16 CT07 SUPP     TEXT:ProQA processing complete  
+04:00:17 FD02 DISPATCH E830 TK828 E828 TK809 E809 E833 QT822 BO801  
+04:00:17 FD02 CASE     PF1000038181 Assigned 

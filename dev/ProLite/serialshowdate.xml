@@ -1,0 +1,6 @@
+<signboard>
+	<text label="0">
+		<mode display="hold"/><green/>
+		<date format="day"/> <date format="MM.DD.YY"/>
+	</text>
+</signboard>

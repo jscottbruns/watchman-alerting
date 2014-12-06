@@ -1,0 +1,25 @@
+Delivered-To: pgmd-incident@fhwm.net
+Received: by 10.58.151.16 with SMTP id um16csp764261veb;
+        Mon, 15 Oct 2012 16:50:31 -0700 (PDT)
+Received: by 10.68.136.231 with SMTP id qd7mr41427938pbb.3.1350345030898;
+        Mon, 15 Oct 2012 16:50:30 -0700 (PDT)
+Return-Path: <alrt_FRYJ@alert.co.pg.md.us>
+Received: from alert.co.pg.md.us (alert.princegeorgescountymd.gov. [66.235.242.104])
+        by mx.google.com with ESMTPS id vz2si24394109pbc.303.2012.10.15.16.50.29
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Mon, 15 Oct 2012 16:50:30 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alrt_FRYJ@alert.co.pg.md.us designates 66.235.242.104 as permitted sender) client-ip=66.235.242.104;
+Authentication-Results: mx.google.com; spf=pass (google.com: domain of alrt_FRYJ@alert.co.pg.md.us designates 66.235.242.104 as permitted sender) smtp.mail=alrt_FRYJ@alert.co.pg.md.us
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+From: "PSCC" <_FRYJ@alert.co.pg.md.us>
+To: "Fire/EMS Station 828 FIRE" <roamalert_pgc_pub@alert.co.pg.md.us>
+Subject: CAD Feed
+Date: Mon, 15 Oct 2012 19:50:28 -0400
+Disclose-Recipients: Prohibited
+Message-ID: <201210151950.q9FNoS775120@srvp106>
+X-Mailer: Roam Secure Alert Network
+
+

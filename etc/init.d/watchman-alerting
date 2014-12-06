@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+# Startup script for watchman-alerting
+#
+# chkconfig: 345 85 15
+# description: WatchmanAlerting Fire Station Alerting Service
+# processname: watchman-alerting
+# pidfile: /var/run/watchman-alerting.pid
+# todo: If running service as non-compiled perl script rename watchman-alerting.pl -> watchman-alerting after copying to server
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+DESC="WatchmanAlerting Fire Station Alerting Service"
+NAME=watchman-alerting
+DAEMON="/usr/local/watchman-alerting/bin/watchman-alerting"
+DAEMON_ARGS=""
+PIDFILE=/var/run/$NAME.pid
+LOCKFILE=/var/lock/subsys/$NAME
+
+[ -x $DAEMON ] || exit 0
+
+[ -f /etc/sysconfig/watchman-alerting ] && . /etc/sysconfig/watchman-alerting
+
+RETVAL=0
+
+stop()
+{
+    echo -n "Stopping "$DESC
+    killproc -p $PIDFILE -d 5 $NAME
+    RETVAL=$?
+    echo
+    if [ $RETVAL -eq 0 ]; then
+        rm -f $LOCKFILE
+        rm -f $PIDFILE
+    fi
+}
+
+start()
+{
+    echo -n "Starting "$DESC
+    daemon $DAEMON $DAEMON_ARGS
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $LOCKFILE
+
+    return $RETVAL
+}
+
+restart() {
+    stop
+    sleep 1
+    start
+}
+
+
+case "$1" in
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    restart
+    ;;
+  condrestart)
+    [ -e $LOCKFILE ] && restart
+    RETVAL=$?
+    ;;
+  status)
+    status -p $PIDFILE
+    ;;
+  *)
+  echo $DESC" ["$NAME"]"
+  echo "Usage: "$1" {start|stop|restart|condrestart|status}"
+  exit 1
+esac
+
+exit $?

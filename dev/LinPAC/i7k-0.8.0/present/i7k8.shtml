@@ -1,0 +1,47 @@
+<html> <head>
+  <title>Install i7k Software for Linux.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Install i7k Software for Linux</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k7.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k9.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+<ul>
+  <li>do not work as root<br><br>
+  <li>go to your project directory with rw privilege<br><br>
+  <li>extract package into current directory<br>
+       <font face="courier new, courier" size="+0">
+       gunzip -c [<font face="times new roma, times"><i>path</i></font>]i7k_0.00.tar.gz | tar xvf -<br>
+       cd i7k<br>
+       mkdir your-project<br>
+       </font>
+</ul>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k7.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k9.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

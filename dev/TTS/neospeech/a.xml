@@ -1,0 +1,13 @@
+<?xml version="1.0"?><ConvertSsml>
+<email>jeff.bruns@firehouseautomation.com</email>
+<accountId>ef5674a4c1</accountId>
+<loginKey>fhwmtts</loginKey>
+<loginPassword>36159d9079b5a4af9081</loginPassword>
+<voice>TTS_JULIE_DB</voice>
+<outputFormat>FORMAT_WAV</outputFormat>
+<sampleRate>16</sampleRate>
+<ssml>
+<speak version="1.0"><s>Engine</s></speak>
+</ssml>
+<useUserDictionary>false</useUserDictionary>
+</ConvertSsml>

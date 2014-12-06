@@ -1,0 +1,56 @@
+.%-12345X@PJL SET RESOLUTION = 300
+@PJL ENTER LANGUAGE = PCL
+.E.(s10H.(8U.(s0S.(s0B.(s4099T.&l0S.&l0O.&k0G.&l1H.&l2A.&l8.00C.(8U   .05/30/10 14:58:24 ********** SERVICE REQUEST ROUTED FROM FD02 *********
+*
+ INCIDENT HISTORY DETAIL: P101500241
+
+
+INITIATE: 14:55:02  05/30/10   CALL NUMBER:    P00241
+ENTRY:    14:55:58             CURRENT STATUS: DISPATCHED
+DISPATCH: 14:58:24             ALARM LEVEL:    1
+ONSCENE:                       CASE NUMBER:    PF1000054290
+CLOSE:
+
+
+
+
+LOCATION: LAKE ARBOR WY/CYPRESS POINT CI (11200 LAKE ARBOR WY/998 CYPRESS POINT
+LOCATION COMMENTS:
+DAREA:    F1
+STATION:  46                    TYPE:     HOUSEF HOUSE FIRE
+RD:       4629                  PRIORITY: 1
+RUN CARD: 4629
+
+14:55:58 CT10 ENTRY    TEXT:ProQA recommends dispatch at this time \NAME:MS
+                       TAYLOR \PH:301*922*5709 (MTF)
+14:55:58 CT10 SIGNAL4
+14:55:58 CT10 E911     LOCATION:2500 ENTERPRISE RD \PHONE:301/922-5709
+                       COMP:WIRELESS-VERIZON(XYP) \SRC:WPH2 \LAT:+038.902437-
+                       LON:-076.810677 \CONF: 95% \UNCERT:   209FT
+                       PNUM:301/511-7683
+14:55:58 CT10 MISC     #101500241, Structure Fire. .Caller Statement: HEAVY
+                       SMOKE COMING FROM A HOUSE .
+14:55:58 CT10 MISC     #101500241, ProQA Case #0010011985 Classification:
+                       HOUSEF Description: Residential (single). 1.The caller
+                       is on scene (2nd party). 2.Smoke is visible. 3.The
+                       incident involves a single-family residential
+                       structure. 4.A multi-story structure is involved: 2
+                       5.The caller has not indicated that there are trapped
+                       person(s). --Comments: 2- Dispatch Level: 69D06
+14:56:14 CT10 SUPP     TEXT:ProQA additional key questions (MTF)
+14:56:14 CT10 MISC     #101500241, ProQA Case #0010011985 Classification:
+                       HOUSEF Description: 6.It is not known if anyone is
+                       trapped inside the structure. 7.Floor: 1ST FLOOR 8.It
+                       is not known if anyone is injured. --Comments: 1ST
+                       FLOOR- Dispatch Level: 69D06
+14:57:14 CT10 SUPP     TEXT:CALLER ADVS HOUSE IS 2 DOORS UP FROM CYPRESS
+                       POINT CIRCLE.. THERE IS HEAVY SMOKE COMING FROM 1ST
+                       FLOOR OF HOUSE AND SEEN A NEIGHBOR BANGING ON FRONT
+                       DOOR... UNK IF ANYONE IS INSIDE HOUSE (MTF)
+14:57:23 CT10 SUPP     TEXT:ProQA processing complete
+14:58:24 FD02 DISPATCH E833 TK837 E808 TK828 E805 E838 E823 TK826 BO801
+14:58:24 FD02 CASE     PF1000054290 Assigned
+
+OPERATOR ASSIGNMENTS:  CT10  238    JORDAN, CHRISTINA
+                       FD02  116    ROUSSILLON, MICHELLE
+.E.(s10H.&l0O.&l0S.&k0G.&l6D.%-12345X

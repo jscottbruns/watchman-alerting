@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd /usr/local/watchman-alerting/Alert_Zone
+/usr/bin/supervisor zone-server.js
+
+cd /

@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "Setting up RTP listener on 0.0.0.0:4446"
+
+# Optional args -- Following payload=(int)0
+# ssrc=(guint)1350777638, clock-base=(guint)2942119800, seqnum-base=(guint)47141"
+
+`gst-launch-0.10 udpsrc multicast-group=0.0.0.0 auto-multicast=true port=4446 caps="application/x-rtp, media=(string)audio, clock-rate=(int)8000, encoding-name=(string)PCMU, payload=(int)0" ! rtppcmudepay ! mulawdec ! pulsesink`

@@ -1,0 +1,67 @@
+********** SERVICE REQUEST ROUTED FROM FD04 *********     
+*                                                                               
+INCIDENT HISTORY DETAIL: P101200051                                            
+
+
+INITIATE: 06:36:50  04/30/10   CALL NUMBER:    P00051                          
+ENTRY:    06:38:04             CURRENT STATUS: ONSCENE                        
+DISPATCH: 06:38:43             ALARM LEVEL:    1      
+ONSCENE:  06:47:53             CASE NUMBER:    PF1000043146           
+CLOSE:                                                
+
+
+
+
+LOCATION: 4600 MARGIE CT (CRANDALL RD & DEAD END)                               
+LOCATION COMMENTS: LANHAM                           
+DAREA:    F1                   CURRENT: F4                                   
+STATION:  28                    TYPE:     ASTHMA ASTHMA ATTACK                  
+RD:       2801                  PRIORITY: 1                     
+RUN CARD: 2801                  PRIORS                   
+
+06:38:04 CT10 ENTRY    TEXT:ProQA recommends dispatch at this time   
+                       NAME:ANTON \PH:301 429 3491 (MTF)   
+06:38:04 CT10 SIGNAL4     
+06:38:04 CT10 E911     LOCATION:4200 FORBES BLVD \PHONE:240/381-0367   
+                       COMP:WIRELESS-AT&T MOBILITY(XYP) \SRC:W911   
+                       LAT:+038.947872LON:-076.827226 \CONF:  0% \UNCERT:       
+                       0FT \PNUM:410/511-7651   
+06:38:04 CT10 PRIOR    PF BLS 04/28/10 @ 06:36:14 (2 MORE)   
+06:38:04 CT10 MISC     #101200051, 30 year old, Male, Conscious, Breathing.   
+                       Breathing Problems. Caller Statement: T/B.   
+06:38:04 CT10 MISC     #101200051, ProQA Case #0010023525 Classification: ALS   
+                       Description: DIFFICULTY SPEAKING BETWEEN BREATHS. 1.He   
+                       is completely alert (responding appropriately). 2.He   
+                       has difficulty speaking between breaths. 3.He is   
+                       clammy. Dispatch Level: 06D02   
+06:38:13 CT10 UPDATE   TYPE:ALS-->ASTHMA DTYPE:PARAMEDIC LOCAL-->ASTHMA   
+                       ATTACK   
+06:38:13 CT10 SUPP     TEXT:ProQA reconfigured classification (MTF)   
+06:38:13 CT10 MISC     #101200051, ProQA Case #0010023525 Classification:   
+                       ASTHMA Description: DIFFICULTY SPEAKING BETWEEN   
+                       BREATHS (Asthma). 4.He has asthma. Dispatch Level:   
+                       06D02   
+06:38:43 FD02 DISPATCH E828 A848 MD818   
+06:38:43 FD02 CASE     PF1000043146 Assigned   
+06:38:43 FD02 MISC     TONE 28/S:A228/Z,A175/Z, .48A/S:A248/Z, .18MD/S:B063/-   
+                       Z,A451/Z,A218/Z, .   
+06:38:44 FD02 MISC     PAGE 28/S:3028, 48A/S:3048, 18MD/S:2263,   
+06:38:48 FD02 TRANSFER CDAREA:F1  -->F4   
+06:39:15 CT10 SUPP     TEXT:ProQA additional key questions   
+06:39:15 CT10 MISC     #101200051, ProQA Case #0010023525 Classification:   
+                       ASTHMA Description: 5.He has a prescribed inhaler.   
+                       6.He has used a prescribed inhaler. 7.N/A Dispatch   
+                       Level: 06D02   
+06:40:17 FD03 ENROUTE  MD818   
+06:41:35 FD03 PREEMPT  E828   
+06:41:35 FD03 REPLACE  E828 MP828   
+06:41:38 FD03 ENROUTE  MP828   
+06:42:01 FD03 BACKUP   #101200051 A830   
+06:42:01 FD03 MISC     TONE 30A/S:A230/Z, .   .
+06:42:01 FD03 MISC     PAGE 30A/S:3030,  
+06:42:29 FD03 STATION  A848, FTR   
+
+OPERATOR ASSIGNMENTS:  CT10  156    BOLGER, MCVAL            
+                       FD02  116    ROUSSILLON, MICHELLE     
+                       FD03  221    LUMPKIN, EDWARD          
+                       FD04  141    DEVOUS, DENNIS          

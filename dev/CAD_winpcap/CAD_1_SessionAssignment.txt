@@ -1,0 +1,83 @@
+GET /PRD/
+HTTP/1.1
+User-Agent: Opera/9.64 (Windows NT 5.1; U; en) Presto/2.1.1
+Host: 10.11.1.144
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: en-US,en;q=0.9
+Accept-Charset: iso-8859-1, utf-8, utf-16, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Connection: Keep-Alive, TETE: deflate, gzip, chunked, identity, trailers
+
+
+HTTP/1.1 301 Moved Permanently
+Content-Length: 146
+Content-Type: text/html
+Location: http://10.11.1.144/PRD/
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+Date: Sun, 15 Nov 2009 04:34:33 GMT
+<head><title>Document Moved</title></head>
+<body><h1>Object Moved</h1>This document may be found <a HREF="http://10.11.1.144/PRD/">here</a></body>
+
+
+GET /PRD/Html/SystemDocs/Default.aspx 
+HTTP/1.1
+User-Agent: Opera/9.64 (Windows NT 5.1; U; en) Presto/2.1.1
+Host: 10.11.1.144
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: en-US,en;q=0.9
+Accept-Charset: iso-8859-1, utf-8, utf-16, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Connection: Keep-Alive, TETE: deflate, gzip, chunked, identity, trailers
+
+
+HTTP/1.1 200 OK
+Date: Sun, 15 Nov 2009 04:34:36 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 1.1.4322
+Set-Cookie: ASP.NET_SessionId=3h5siz55ke44oc45uigqpq45; path=/
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Content-Type: text/html; charset=utf-8
+Content-Length: 2123
+<html>.
+<head>..
+<link rel='SHORTCUT ICON' href='/PRD/Images/Tiburon.ico'>
+<link rel='STYLESHEET' href='/PRD/Style/Standard.css' type='text/css'>
+<link rel='STYLESHEET' href='/PRD/Style/Default.aspx' type='text/css'>
+<title>WebQuery/2000</title>
+<OBJECT ID='objStartApp'CLASSID='CLSID:0650044D-B7E6-4361-B6ED-121FE993BDBD'CODEBASE='/PRD/CAB/TibApp.CAB#version=1,0,0,0'>
+</OBJECT>
+<script src='/PRD/ClientScripts/Date.js'></script>
+<script src='/PRD/ClientScripts/General.js'></script>
+<script>g_nTimer=0;</script>.
+</head>
+<body onLoad="wndOnLoad();">..
+<span id='_HEADER'>
+	<TABLE style='POSITION: relative' cellSpacing='0' cellPadding='0' width='100%' border='0'>
+	<TR>
+		<TD style='WIDTH: 300px; BACKGROUND-COLOR: #6699cc; BORDER-STYLE: none' vAlign='center' align='middle' rowSpan='2'><a href='http://www.tiburoninc.com'><img vspace='3' hspace='3' alt='' src='/PRD/Images/TibLogo.jpg' border='0'></a>&nbsp;</TD>
+		<TD style='HEIGHT: 29px; BACKGROUND-COLOR: #6699cc; BORDER-STYLE: none' align='middle' colSpan='3'></TD>
+	</TR>
+	<TR>
+		<TD style='width: 400px; BACKGROUND-COLOR: #ccccff' vAlign='center' align='middle'><DIV style="font-family: 'Comic Sans MS'; font-size: 14pt; position:relative" align='center'><span class='noprint'><a href='javascript:PopOnlineHelp();'><img vspace='5' align='right' title='Context-Sensitive Help' border='0' src='/PRD/Images/Help.gif'></img></a></span><script></script>WebQuery/2000</DIV></TD>
+		<TD style='BACKGROUND-COLOR: #336699; BORDER-STYLE:none' align='right'><DIV style="font-weight: bold; font-size: 10pt; font-family: 'Comic Sans MS'; position:relative; color: White">PGC Production Account</DIV><DIV style="font-size: 8pt; font-family: 'Comic Sans MS'; color: White; position:relative">Saturday, November 14, 2009</DIV></TD>
+	</TR>
+	<TR>
+		<td colspan='4' style='BACKGROUND-COLOR: #336699; BORDER-STYLE:none'><span class='noprint'>&nbsp;</span></td>
+	</TR>
+	</TABLE>
+	<span class='noprint'></span>&nbsp;
+</span>
+<p></p>
+<span>
+	<h1>...Welcome..</h1>
+	<p>
+		<a href='Logon.aspx'>Logon To System</a>
+	</p>
+</span>
+<font color='blue'><P id='_TIBERROR'></p></font>.
+</body>
+</html>

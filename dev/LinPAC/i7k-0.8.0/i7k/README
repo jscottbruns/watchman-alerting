@@ -1,0 +1,18 @@
+Library i7k Source Codes
+
+  i7000  Fucntions wrapped from I7000.DLL for MS Windows.  If you
+  i8000  like to use the that is like to the function provided by
+  i87000 I7000.DLL for MS Windows, you should include msw.h in your
+         source codes.
+
+  msw    Microsoft wrap, wrap I7000.DLL calls to i7k and sio.
+
+  i7k    Basic send, read functions for 7000/8000 series modules.
+         Read file I7K.TXT for functions reference.
+
+  sio    Serial port open/close and change parameters.  Read file
+         SIO.TXT for funciton reference.
+
+  timer  Functions of time-measurement used by i7k and sio.
+
+- end of file -

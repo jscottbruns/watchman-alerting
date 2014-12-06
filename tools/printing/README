@@ -1,0 +1,14 @@
+RLPR: Remote TCP/IP printing without requiring local device installation
+Print Filename.txt to remote printer DEVICE_NAME on IP address IPADDR
+#> rlpr --printer=<DEVICE_NAME>@<IPADDR> Filename.txt
+
+LPR: Network printing to local print device
+Print Filename.txt to printer DEVICE_NAME
+#> lpr -P <DEVICE_NAME> Filename.txt
+
+Status information (Options: -t CUPS info -d Display default printer -p Display all printers -a display all printers accepting jobs -o active print jobs
+#> lpstat <options>
+
+# Convert plain text file to postscript before sending to printer (if no input file specified, processing done on stdin and output written to -p - <= stdout in the case of hyphen)
+#> enscript -B -p - --word-wrap <INPUTFILE> | rlpr --printer=HP1320-SERVER@192.168.1.3
+

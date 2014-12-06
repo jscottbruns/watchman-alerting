@@ -1,0 +1,20 @@
+# For MP3 support install gstreamer-plugins-ugly (mad)
+# Above required RPM fusion repository configuration
+# yum local install rpmfusion-free-release-stable.noarch and rpmfusion-nonfree-release-stable.noarch
+# then yum install gstreamer-plugins-ugly
+
+GStreamer - Play 16-bit Linear PCM WAV Audio File through local audio source
+#> gst-launch-0.10 filesrc location=./dev/TTS/neospeech/TTS-SSML-Julie.wav  ! wavparse ! audioconvert ! alsasink
+
+GStreamer - Transcode 16-bit Linear PCM WAV Audio File to RTP ULAW/WAV UDP/Multicast
+#> gst-launch-0.10 -v filesrc location=./TTS-SSML-Kate.wav ! wavparse ! audioconvert ! audioresample ! mulawenc ! rtppcmupay ! udpsink host=127.0.0.1 auto-multicast=true port=4446
+
+GStreamer - Transcode MP3 Audio File to RTP ULAW/WAV UDP/Multicast
+#> gst-launch-0.10 -v filesrc location=audio/preIncAlert.mp3 ! mad ! audioconvert ! audioresample ! mulawenc ! rtppcmupay ! udpsink host=10.1.10.201 auto-multicast=true port=4446
+
+# RTP Buffer Delay for Priority Audio Stream:
+#
+# MP3: 600ms
+# PCM/uLaw 8kHz Mono: 444ms
+# PCM/uLaw 12kHz Mono: 316ms
+

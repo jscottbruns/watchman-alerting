@@ -1,0 +1,9 @@
+Samples for getting start.
+
+  dio          This sample uses the wrapped I7000.DLL functions to open serial
+               port, and digital I/O with 8054 at slot 2 of address 01.
+
+  send_read    This sample uses the basic i7k functions to open serial port,
+               and quest the name of module #01.
+
+- end of file -

@@ -1,0 +1,47 @@
+<html> <head>
+  <title>Getting Start.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Getting Start</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k8.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k10.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+<ul>
+  <li>make sure i7000s are well connected and powered<br><br>
+  <li>check your rw privilege on serial device<br><br>
+      <font face="courier new, courier" size="+0">
+       ls -l /dev/ttyS1<br>
+       crw-rw-rw- 1 root tty 4, 65 Jan 11 16:06 /dev/ttyS1<br>
+       </font><br><br>
+  <li>run i7kon<br><br>
+  <li>refer to sio.c and sample send_read.c<br>
+</ul>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k8.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k10.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

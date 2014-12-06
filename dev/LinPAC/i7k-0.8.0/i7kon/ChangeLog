@@ -1,0 +1,11 @@
+i7000 Console
+
+v 0.1.0 2003.10.22 by Reed Lai
+  Revise codes. Color the scope data.
+
+v 0.0.1 2000.3.31 by Reed Lai
+  do a little of modification on dev_puts() and dev_addmod()
+  to correct the secondary baudrate display
+
+v 0.00 1999.11.23 by Reed Lai
+  create, dirty codes

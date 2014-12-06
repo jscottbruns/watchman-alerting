@@ -1,0 +1,49 @@
+<html> <head>
+  <title>UNIX Family.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>UNIX Family</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k3.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br>
+
+<font size="+1">
+
+<b>3 Big Families</b>
+<ul>
+  <li>USG / USDL / ATTIS / DSG / USO / USL  (System V)
+  <li>Bell Laboratories Research  (V6, SunOS)
+  <li>Berkeley Software Distributions  (BSD)
+</ul>
+
+<br><br>
+<b>Families Tree</b><br><br>
+<image src="unix_family_tree.gif">
+
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k3.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

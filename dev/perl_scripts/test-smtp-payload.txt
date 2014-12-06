@@ -1,0 +1,37 @@
+Received: by mail-wg0-f42.google.com with SMTP id k13so776992wgh.5
+        for <incident@monroeville.fhwm.net>; Fri, 29 Mar 2013 14:25:20 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20120113;
+        h=mime-version:x-received:x-originating-ip:date:message-id:subject
+         :from:to:content-type:x-gm-message-state;
+        bh=x2XL6soS76TQqDriHeL/9I4fqm6fc25m+vCxu6wY72o=;
+        b=Q2l7mO5+qwCyNUa0uEylGa49RkERF2+K1MLNPccL+eXY79XMBPlkarRURTWLYXTlO5
+         M2tVp/0kBkCtP2MVeYCcX+TPctEuHkUc7F9J1OZ+3ljZTBLma4hEHdfPzGxiLE17itu9
+         9ANyASfcaZ5H9BkyanhjdVAchAznjZ7DH86JzfI0m9xurzf7qG7+BP5kWJrh+jEZRn4o
+         mSqaghJpNGEudfvZfnMjt0k6vynykntGBg4HyD8GUKNwdVsOkY1Aj6lo3XMLeHllnCht
+         saWDX0m4RXQKbYZHCTPci2GieKx3z8xDPKk5y4xQfDNtJC9WMB8tIdzXHiAAhAlhCfyU
+         4Apg==
+MIME-Version: 1.0
+X-Received: by 10.194.109.35 with SMTP id hp3mr5651468wjb.15.1364592320043;
+ Fri, 29 Mar 2013 14:25:20 -0700 (PDT)
+Received: by 10.180.100.37 with HTTP; Fri, 29 Mar 2013 14:25:19 -0700 (PDT)
+X-Originating-IP: [96.255.2.155]
+Date: Fri, 29 Mar 2013 16:25:19 -0500
+Message-ID: <CABD8NEAFs1-9dpfbNh7qEDpvBFNoUgTKCoRkvozetD4Y2EOJGw@mail.gmail.com>
+Subject: test subject
+From: Jeff Bruns <jeff.bruns@firehouseautomation.com>
+To: incident@monroeville.fhwm.net
+Content-Type: multipart/alternative; boundary=089e010d85747ff39704d916e88d
+X-Gm-Message-State: ALoCoQlIDwNDrMRLK/xnc4q0g/DxDTg49kf14tEZFsn5wvLpR1IAN4Sj43LzsOdxN1AvNrM3SR7a
+
+--089e010d85747ff39704d916e88d
+Content-Type: text/plain; charset=ISO-8859-1
+
+test message
+
+--089e010d85747ff39704d916e88d
+Content-Type: text/html; charset=ISO-8859-1
+
+<div dir="ltr">test message<br></div>
+
+--089e010d85747ff39704d916e88d--

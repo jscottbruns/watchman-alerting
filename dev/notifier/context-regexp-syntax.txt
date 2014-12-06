@@ -1,0 +1,3 @@
+#!/usr/bin/perl
+
+( ( (area)[2](1|2|3) ) | ( (type)(TYPE1|TYPE2|TYPE3|TYPE4) ) | ( (group)(FIRE|LOCAL|RESCUE|EMS) ) | ( (unit)(231-EN10|231-EN17|231-TK17) ) )

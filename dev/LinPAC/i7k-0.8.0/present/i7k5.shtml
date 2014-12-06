@@ -1,0 +1,66 @@
+<html> <head>
+  <title>Tools.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Tools</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k4.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k6.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+<ul>
+  <li>Console & Terminal
+       <ul>
+	 <li>et -&gt; Big5 console without X
+	 <li>xterm (cxterm) -&gt; terminal emulator for X
+	 <li>rxvt (crxvt) -&gt; VT102 emulator for X
+	 <li>Eterm -&gt; Enlightened terminal emulator for X
+       </ul><br>
+  <li>Editor
+       <ul>
+	 <li>vi (nvi, vim, elvis)
+	 <li>emacs, xemacs -&gt; GNU Emacs
+       </ul><br>
+  <li>Compiler & Linker
+       <ul>
+	 <li>gcc -&gt; GNU C/C++ Compiler
+	 <li>as -&gt; GNU Assembler
+	 <li>ld -&gt;  GNU Linker
+       </ul><br>
+  <li>Projecct & Maintenance
+       <ul>
+	 <li>make -&gt;  GNU make utiltiy
+	 <li>awk -&gt;  GNU Awk, pattern scanning and processing
+	 <li>sed -&gt;  GNU streams editor
+	 <li>gzip(gunzip) -&gt;  GNU Zip
+	 <li>tar -&gt;  GNU tar archiving utiltiy
+	 <li>date, echo, head...
+       </ul><br>
+</ul>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k4.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k6.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

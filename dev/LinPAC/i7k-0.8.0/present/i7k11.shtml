@@ -1,0 +1,73 @@
+<html> <head>
+  <title>Module Files of i7k Software.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>Module Files of i7k Software</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k10.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k12.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<font size="+2">
+<b>timer</b>
+<ul>
+  <li>#include "timer.h"
+  <li>link timer.o
+  <li>source timer.c
+</ul>
+
+<b>sio</b>
+<ul>
+  <li>#include "sio.h"
+  <li>link sio.o
+  <li>source sio.c
+  <li>functions list SIO.TXT
+</ul>
+
+<b>i7k</b>
+<ul>
+  <li>#include "i7k.h"  /* involves sio.h timer.h */
+  <li>link i7k.o
+  <li>source i7k.c
+  <li>functions list I7K.TXT
+</ul>
+
+<b>msw</b>
+<ul>
+  <li>#include "msw.h" /* involves i7k.h */
+  <li>link msw.o
+  <li>source msw.c
+</ul>
+
+<b>i7000</b>
+<ul>
+  <li>#include "msw.h"
+  <li>link i7000.o
+  <li>source i7000.c
+</ul>
+</font>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k10.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k12.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Watchman System Settings</title>
+<script type="text/javascript" src="tabcontent.js"></script>
+<script type="text/javascript">
+function init_tabcontent() {
+	var nav = new ddtabcontent("mainnav");
+	nav.setpersist(true);
+	nav.setselectedClassTarget("link");
+	nav.init();
+}
+</script>
+<meta http-equiv=content-type content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="tabcontent.css" />
+<style>
+body {
+  margin-left: 2em; margin-right: 2em;
+  font-family: arial,sans-serif;
+  color:#000; background-color:#fff;
+}
+a:active { color:#f00 }
+a:visited { color:#551a8b }
+a:link { color:#00c }
+.shaded-header { background-image: url(images/shadeactive.gif); background-color:#efefef; margin: 0px; padding: 0px }
+.shaded-subheader { background-color: #CCE5ED; margin: 12px 0px 0px 0px; padding: 0px }
+.plain-subheader { background-color: #fff; margin: 12px 0px 0px 0px;padding: 0px }
+.header-element { margin: 0px; padding: 2px}
+.s { font-size: smaller }
+.b { font-weight: bold }
+.expand { width: 98% }
+.left { margin-left:25px; }
+.section { background-image: url(images/shadeinvert.gif); padding-bottom:4px; width:95%; margin-bottom:10px; }
+.settings { width:95%; background-color:#cccccc; }
+.settings td { background-color:#ffffff; }
+.settings td.qu { width:25%; text-align:right; padding:5px;  }
+.settings td.an { text-align:left;  padding:5px; }
+</style>
+</head>
+<body onLoad="init_tabcontent();">
+
+<div style="margin:15px;">
+	<table cellspacing=2 cellpadding=0 width="100%" border=0>
+	<tr>
+		<td valign=top width="5%"><h3 style="margin-bottom:5px;color:#000;">Firehouse Watchman</h3></td>
+		<td>&nbsp;</td>
+		<td style="white-space: nowrap">
+			<table class="shaded-header">
+			<tr>
+				<td class="header-element b expand">System Settings</td>
+				<td class="header-element s" style="white-space: nowrap"><a href=""><nobr>Settings Help</nobr></a></td>
+			</tr>
+			</table>
+		</td>
+	</tr>
+	</table>
+</div>
+
+<ul id="mainnav" class="shadetabs">
+	<li><a href="#" rel="system" class="selected">System Settings</a></li>
+	<li><a href="#" rel="calltypes">Call Groups &amp; Types</a></li>
+	<li><a href="#" rel="alerting">Firehouse Alert Settings</a></li>
+	<li><a href="#" rel="notification">Text Message Notifications</a></li>
+	<li><a href="#" rel="preinc">Pre-Incident Alert Settings</a></li>
+</ul>
+
+<div style="border:1px solid gray; width:95%; margin-bottom: 1em; padding: 10px;margin-left:15px;">
+	<div id="system" class="tabcontent">
+	
+        <div class="section b left" >System</div>
+        <div>
+            <table class="settings left" cellspacing="1">
+            <tr>
+                <td class="qu">System Live: </td>
+                <td class="an">!-live-!</td>
+            </tr>
+            <tr>
+                <td class="qu">System Debug: </td>
+                <td class="an">!-debug-!</td>
+            </tr>            
+            <tr>
+                <td class="qu">License No: </td>
+                <td class="an"><input type="text" name="license_no" value="!-license_no-!" /></td>
+            </tr>
+            <tr>
+                <td class="qu">Station No: </td>
+                <td class="an"><input type="text" name="station" value="!-station-!" size="4" /></td>
+            </tr>
+            <tr>
+                <td class="qu">Default Signboard: </td>
+                <td class="an">
+                    <select name="defaultSignboard">
+                        <option value="message">Custom Message</option>
+                        <option value="date" >Current Date</option>
+                        <option value="time">Current Time</option>
+                        <option value="datetime">Current Date/Time</option>
+                    </select>
+                    <div style="margin-top:10px;">
+                        <input type="text" name="defaultSignboardMessage" value=!-defaultSignboard-! />
+                    </div>
+                    <div style="margin-top:10px;">
+                        <select name="defaultTimeFormat">
+                            !-defaultTimeFormat-!
+                        </select>
+                    </div>                    
+                </td>
+            </tr>            
+            <tr>
+                <td class="qu">Default Signboard Message: </td>
+                <td class="an"><input type="text" name="default_signboard" value="!-default_signboard-!" /></td>
+            </tr>
+            
+            </table>
+        </div>           	
+	</div>
+	
+	<div id="calltypes" class="tabcontent">
+	Tab content 2 here<br />Tab content 2 here<br />
+	</div>
+	
+	<div id="alerting" class="tabcontent">
+	Tab content 3 here<br />Tab content 3 here<br />
+	</div>
+	
+	<div id="notification" class="tabcontent">
+	Tab content 4 here<br />Tab content 4 here<br />
+    </div>
+
+    <div id="preinc" class="tabcontent">
+    Tab content 4 here<br />Tab content 4 here<br />
+    </div>        
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+/*Default CSS for the RSS box containers and the pagination div. Customize further for each RSS box*/
+
+.rsscontainer{
+margin-bottom: 5px;
+}
+
+.rsscontainer .rsstitle{ /*Style for .rsstitle DIV*/
+font-weight: normal;
+}
+
+.rsscontainer .rssdate{ /*Style for .rssdate DIV*/
+font-color: gray;
+font-size: 90%;
+}
+
+.rsspaginate{ /*Style for Pagination DIV*/
+width: 250px;
+text-align: left;
+padding: 2px 0;
+margin: 10px 0;
+}
+
+.rsspaginate form{ /*Style for Pagination DIV's form element*/
+margin: 0;
+}
+
+.rsspaginate .paginateselect{ /*Style for Pagination DIV's drop down menu*/
+border: 1px solid navy;
+margin: 0 10px;
+}
+
+.rsspaginate a{ /*Pagination links*/
+padding: 0 5px;
+text-decoration: none;
+border: 1px solid black;
+color: navy;
+background-color: white;
+}
+
+
+.rsspaginate a:hover, .rsspaginate a.selected{
+color: #000;
+background-color: #FEE496;
+}

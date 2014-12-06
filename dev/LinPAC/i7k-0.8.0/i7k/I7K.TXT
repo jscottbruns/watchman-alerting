@@ -1,0 +1,408 @@
+The i7K Functions Reference
+
+By Reed Lai
+
+Include file i7k.h will automatically include file sio.h.
+
+_i7k_chksum
+_i7k_gum_chksum
+_i7k_gum_cr
+
+i7k_read
+i7k_read_cs
+i7k_readt
+i7k_readt_cs
+i7k_send
+i7k_send_cs
+i7k_send_read
+i7k_send_read_cs
+i7k_send_readt
+i7k_send_readt_cs
+
+------------------------------------------------------------------------------
+NAME
+	_i7k_chksum
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int _i7k_chksum(const char *str);
+
+DESCRIPTION
+	This function examines the check-sum for the given string.
+
+ARGUMENTS
+	str	string for check-sum test.
+
+RETURN VALUE
+        0 success, -1 check-sum error.
+
+------------------------------------------------------------------------------
+NAME
+	_i7k_gum_chksum
+
+SYNOPSIS
+	#include "i7k.h"
+
+	char *_i7k_gum_chksum(void *cbuf, const char *cmd);
+
+DESCRIPTION
+	This function calculates the check-sum for the given string -
+	cmd, transfers the check-sum value to two bytes of ASCII, then
+	gums the ASCII-checksum and CR codes at the string tail and
+	puts the result in the given buffer - cbuf.
+
+ARGUMENTS
+	cbuf	A buffer for containing result. The buffer size must
+		be at least 4 bytes greater than the length of the
+		given string (cmd,) that is strlen(cmd) + 4.
+
+	cmd	A pointer to the command string.
+
+RETURN VALUE
+        A pointer to the result buffer - cbuf.
+
+------------------------------------------------------------------------------
+NAME
+	_i7k_gum_cr
+
+SYNOPSIS
+	#include "i7k.h"
+
+	char *_i7k_gum_chksum(void *cbuf, const char *cmd);
+
+DESCRIPTION
+	This function puts the given string - cmd into the given
+	buffer - cbuf, and gums the one byte CR (0x0d) code at the
+	string tail.
+
+ARGUMENTS
+	cbuf	A buffer for containing result. The buffer size must
+		be at least 2 bytes greater than the length of the
+		given string (cmd,) that is strlen(cmd) + 2.
+
+	cmd	A pointer to the string.
+
+RETURN VALUE
+        A pointer to the result buffer - cbuf.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_read
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_read(int fd, char *rbuf, int rmax);
+
+DESCRIPTION
+	This function reads response from the given port.
+
+	This function only works for the CANONICAL mode.  To use this
+	function, the sio_set_canon() must be called after the
+	sio_ open().
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device which
+		to be read.
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less then the rbuf size.
+
+RETURN VALUE
+        The number of read bytes; -1 device reading error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_read_cs
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_read(int fd, char *rbuf, int rmax);
+
+DESCRIPTION
+	This function reads response with check-sum test.
+
+	This function only works for the CANONICAL mode.  To use this
+	function, the sio_set_canon() must be called after the
+	sio_open().
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less then the rbuf size.
+
+RETURN VALUE
+        The number of read bytes; -1 check-sum error or device reading
+	error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_readt
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_readt(int fd, char *rbuf, int rmax, __tod_t *texp);
+
+DESCRIPTION
+	This function reads response with timer.
+
+	This function only works for the NON-CANONICAL mode. The Non-
+	canonical mode is the default setting for the sio_open().
+
+	Use function sio_set_timer() to set the time-out value.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less then the rbuf size.
+
+	texp	After the call is finished, this variable will contain
+		the total time expended for this function in micro-
+		seconds.
+
+RETURN VALUE
+        The number of read bytes; 0 time-out, -1 device read error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_readt_cs
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_readt_cs(int fd, char *rbuf, int rmax, __tod_t *texp);
+
+DESCRIPTION
+	This function reads response and examines the check-sum with
+	timer.
+	
+	This function only works for the NON-CANONICAL mode which is
+	the default setting for the sio_open().
+
+	Use functiion sio_set_timer() to set the time-out condiction.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less then the rbuf size.
+
+	texp	After the call is finished, this variable will contain
+		the total time expended for this function in micro-
+		seconds.
+
+RETURN VALUE
+        The number of read bytes; 0 time-out, -1 check-sum error or
+	device read error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send(int fd, const char *cmd);
+
+DESCRIPTION
+	This function sends the i7000 command via the given port.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string which tailling with
+		the CR code.  For example "#02\r"
+
+RETURN VALUE
+        0 success, -1 device writing error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send_cs
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send_cs(int fd, const char *cmd);
+
+DESCRIPTION
+	This function sends command with check-sum manipulation.
+	The check-sum and CR codes will be automatically gummed to
+	the command string.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string. The sent command will
+		be automatically gummed the check-sum and CR codes.
+		For example, the cmd is "#02", the sent command will
+		be "#0285\r"
+
+RETURN VALUE
+        0 success, -1 device write error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send_read
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send_read( int         fd,
+			   const char *cmd,
+			   char       *rbuf,
+			   int         rmax  );
+
+DESCRIPTION
+	This function sends command then read its response. This
+	function only works for CANONICAL mode. To use this function,
+	the sio_set_canon() must be called after the sio_open().
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string that tailling with
+		the CR code.  For example "#02\r"
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less than the rbuf size.
+
+RETURN VALUE
+        The number of read bytes, -1 device access error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send_read_cs
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send_read_cs( int         fd,
+			      const char *cmd,
+			      char       *rbuf,
+			      int         rmax  );
+
+DESCRIPTION
+	This function sends command and reads its response with
+	check-sum manipulation.
+	
+	This function only works on the CANONICAL mode. To use this
+	function, the sio_set_canon() must be called after the
+	sio_open().
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string. The sent command will
+		be automatically gummed the check-sum and CR codes.
+		For example, if the cmd is "#02", the sent command
+		will be "#0285\r"
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less than the rbuf size.
+
+RETURN VALUE
+        The number of read bytes, -1 check-sum error or device access
+	error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send_readt
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send_readt( int         fd,
+			    const char *cmd,
+			    char       *rbuf,
+			    int         rmax,
+			    __tod_t    *texp  );
+
+DESCRIPTION
+	This function sends command then reads its response with timer.
+
+	This function only works on the NON-CANONICAL mode which is
+	the default setting for the sio_open().
+
+	Use function sio_set_timer() to set the time-out condiction.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string that tailling with the
+		CR code. For example "#02\r"
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less than the rbuf size.
+
+	texp	After the call is finished, this variable will contain
+		the total time expended for this function in micro-
+		seconds.
+
+RETURN VALUE
+        The number of read bytes, 0 time-out, -1 device access error.
+
+------------------------------------------------------------------------------
+NAME
+	i7k_send_readt_cs
+
+SYNOPSIS
+	#include "i7k.h"
+
+	int i7k_send_readt_cs( int         fd,
+			       const char *cmd,
+			       char       *rbuf,
+			       int         rmax,
+			       __tod_t    *texp  );
+
+DESCRIPTION
+	This function sends command and read its response whit check-
+	sum manipulation.
+	
+	This function only works on the NON-CANONICAL mode which is
+	the default setting for the sio_open().
+
+	Use function sio_set_timer() to set the time-out condiction.
+
+ARGUMENTS
+	fd	The file descriptor of the opened serial device.
+
+	cmd	A pointer to the command string. The sent command will
+		be automatically gummed the check-sum and CR codes.
+		For example, if the cmd is "#02", the sent command
+		will be "#0285\r"
+
+	rbuf	The reading buffer.
+
+	rmax	The max bytes for reading. The rmax should be at least
+		one byte less than the rbuf size.
+
+	texp	After the call is finished, this variable will contain
+		the total time expended for this function in micro-
+		seconds.
+
+RETURN VALUE
+        The number of read bytes, 0 time-out, -1 check-sum error or
+	device access error.
+
+------------------------------------------------------------------------------
+- EOF -

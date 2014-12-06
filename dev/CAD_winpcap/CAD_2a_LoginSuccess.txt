@@ -1,0 +1,41 @@
+POST /PRD/Html/SystemDocs/Logon.aspx 
+HTTP/1.1
+User-Agent: Opera/9.64 (Windows NT 5.1; U; en) Presto/2.1.1
+Host: 10.11.1.144
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: en-US,en;q=0.9
+Accept-Charset: iso-8859-1, utf-8, utf-16, *;q=0.1
+Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Referer: http://10.11.1.144/PRD/Html/SystemDocs/Logon.aspx
+Cookie: ASP.NET_SessionId=ntfsu3nmqo4uhw553yxe1gjf
+Cookie2: $Version=1
+Connection: Keep-Alive, TETE: deflate, gzip, chunked, identity, trailers
+Content-Length: 25
+Content-Type: application/x-www-form-urlencoded
+UserName=212&Password=212
+
+HTTP/1.1 302 Found
+Date: Sun, 15 Nov 2009 04:27:30 GMT
+Server: Microsoft-IIS/6.0
+X-Powered-By: ASP.NET
+X-AspNet-Version: 1.1.4322
+Location: /PRD/Html/SystemDocs/Main.aspx
+Cache-Control: no-cache
+Pragma: no-cache
+Expires: -1
+Content-Type: text/html; charset=utf-8
+Content-Length: 147
+<html>
+<head>
+<title>Object moved</title>
+</head><body><h2>Object moved to <a href='/PRD/Html/SystemDocs/Main.aspx'>here</a>.</h2></body></html>
+
+GET /PRD/Style/Default.aspx HTTP/1.1User-Agent: Opera/9.64 (Windows NT 5.1; U; en) Presto/2.1.1Host: 10.11.1.144
+Accept: text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1
+Accept-Language: en-US,en;q=0.9Accept-Charset: iso-8859-1, utf-8, utf-16, *;q=0.1Accept-Encoding: deflate, gzip, x-gzip, identity, *;q=0
+Referer: http://10.11.1.144/PRD/Html/SystemDocs/Main.aspxCookie: ASP.NET_SessionId=ntfsu3nmqo4uhw553yxe1gjfCookie2: $Version=1
+Connection: Keep-Alive, TETE: deflate, gzip, chunked, identity, trailers
+
+HTTP/1.1 200 OK
+Date: Sun, 15 Nov 2009 04:27:30 GMTServer: Microsoft-IIS/6.0X-Powered-By: ASP.NETX-AspNet-Version: 1.1.4322Cache-Control: privateExpires: Sat, 14 Nov 2009 23:00:00 GMT
+Content-Type: text/css; charset=utf-8Content-Length: 4505BODY { font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; background-color: White; color: #000080; background-attachment: fixed; background-image: url(/PRD/Images/WaterMark.gif); background-repeat: repeat-y; } INPUT { behavior:url(/PRD/Style/input.htc); ImageDirectory:/PRD/Images/; } A {behavior:url(/PRD/Style/a.htc);}A:link { color: #000080; } A:visited { color: #000080; } A:active { color: #000080; } TABLE { background-color: white; border-style: ridge; border-collapse: collapse; color: #000000; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; border-width: 1; empty-cells: show; } TD { background-color: White; color: #000080; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; vertical-align: top; border-width: 1; border-style: solid; } TH { background-color: #F0E68C; border-width: 1; border-style: ridge; color: #191970; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: bold; font-style: normal; } .Input-TABLE { border-style: ridge; background-color: White; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; color: #000000; } .Input-TABLE TD { border-width: 1; border-style: ridge; background-color: #cccccc; color: Black; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; } .Input-TABLE TH { background-color: #F0E68C; font-family: Comic Sans MS, Arial, Times New Roman; font-size: 10pt; font-weight: normal; font-style: normal; color: #191970; border-width: 1; border-style: ridge; } .Output-TABLE { behavior: url(/PRD/Style/sort.htc);ImageDirectory:/PRD/Images/;} .Hdr1-DIV { font-family: Arial, Verdana, Helvetica; font-size: 14pt; font-weight: bold; font-style: normal; color: #FFFFFF; background-color: #4682B4; } .Hdr2-DIV { font-family: Arial, Verdana, Helvetica; font-size: 14pt; font-weight: bold; font-style: normal; color: #FFFFFF; background-color: #9ACD32; } .Hdr3-DIV { font-family: Arial, Verdana, Helvetica; font-size: 14pt; font-weight: bold; font-style: normal; color: #FFFFFF; background-color: #696969; } .Hdr4-DIV { font-family: Arial, Verdana, Helvetica; font-size: 14pt; font-weight: bold; font-style: normal; color: #FFFFFF; background-color: #FA8072; } .Label-FONT { font-family: Comic Sans MS, Arial, Times New Roman; color: #323232; font-weight: normal; font-style: normal; font-size: 10pt; } .DELabel { font-family: Arial,Verdana,Helvetica; font-size: 8pt; } .DETextBox { font-size: 8pt; font-family: 'Lucida Sans'; } H1 { font-family: Arial, Verdana, Helvetica; font-size: 14pt; color: #FFFFFF; background-color: #323232; font-style: normal; } DIV.tabContainer { border-bottom: #000000 1px solid; position: relative; z-index: 101; font-family: Comic Sans MS; font-weight: bold; font-size: 8pt; } A.tabPanel { font-weight: normal; font-size: 8pt; position: relative; border-right: #000000 1px solid; padding-right: 1em; border-top: #000000 1px solid; padding-left: 1em; padding-bottom: 2px; border-left: #000000 1px solid; padding-top: 2px; border-bottom: #000000 1px solid; background-color: #f0f0f0; text-decoration: none; top: -2px; z-index: 100; text-decoration: none; color: #808080; } A.tabPanel:visited { color: #808080; } A.tabPanel:hover { color: #606060; background-color: #d0d0d0; } A.tabPanel.activeTabPanel, A.tabPanel.activeTabPanel:visited { top: -1px; position: relative; z-index: 102; border-bottom: #000000 0px solid; background-color: #c0c0c0; color: #000000; } A.tabPanel.activeTabPanel:hover { color: red; } .RDS-PRE { background-color: #add8e6; color: black; font-family: Lucida Console, Courier New; font-size: 10pt; font-weight: normal; font-style: normal; border-width: 1; border-style: ridge; width: 0; } .RDS-TEST { background-color: #add8e6; color: black; font-family: Lucida Console, Courier New; font-size: 10pt; font-weight: normal; font-style: normal; border: 1px solid gray; width: 0; } .RDS-PRE FORM { } .RDS-TEXT { font-family: Lucida Console, Courier New; font-size: 10pt; } .RDS-PASSWORD { font-family: Lucida Console, Courier New; font-size: 10pt; } .RDS-PM { background-color: #cccccc; color: black; } .RDS-PH { background-color: #cccccc; color: black; font-weight: bold; }

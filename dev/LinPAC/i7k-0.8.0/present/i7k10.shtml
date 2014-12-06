@@ -1,0 +1,36 @@
+<html> <head>
+  <title>i7kon.i7000 Presentation</title>
+  <link rel="stylesheet" type="text/css" href="i7k.css">
+</head>
+
+<body>
+<h1>i7kon</h1>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k9.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k11.shtml">NEXT</a>&nbsp;|
+</td></tr></table><br><br>
+
+<center><image src="i7kon_open_port.gif"></center>
+
+<table align=right><tr><td>
+<!--#include file="nav.html"-->
+|&nbsp;<a href="i7k9.shtml">PREV</a>&nbsp;|&nbsp;<a href="i7k11.shtml">NEXT</a>&nbsp;|
+</td></tr></table>
+<hr>
+<address><a href="http://w3.icpdas.com/reed">Reed Lai &lt;reed@icpdas.com&gt;</a></address>
+<!-- hhmts start -->
+<!-- hhmts end -->
+</body> </html>
+
+
+
+
+
+
+
+
+
+
+
+

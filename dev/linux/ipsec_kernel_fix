@@ -1,0 +1,10 @@
+# To fix IPsec startup issue related to kernel module test failure:
+# alg test failed geode-aes
+
+#> cd /lib/modules/[uname]/kernel/drivers/crypto
+#> mv geode-aes.ko geode-aes.ko.DISABLED
+#> depmod -a
+#> reboot
+
+# Alternative option (may be temporary ref sourceforge.net/mailarchive/forum.php?thread_name=20120315204944.29693362%40vostro&forum_name=ipsec-tools-devel)
+#> rmmod geode-aes

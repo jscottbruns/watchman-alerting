@@ -1,0 +1,42 @@
+INCIDENT HISTORY DETAIL: P101250359                                            
+																			  
+																			  
+INITIATE: 23:04:25  05/05/10   CALL NUMBER:    P00359                          
+ENTRY:    23:05:54             CURRENT STATUS: ENROUTE                        
+DISPATCH: 23:06:28             ALARM LEVEL:    1      
+ONSCENE:                       CASE NUMBER:    PF1000045336          
+CLOSE:                                                
+						  
+						  
+
+
+LOCATION: 7521 RIVERDALE RD (FONTAINBLEAU DR & FONTAINBLEAU DR)
+LOCATION COMMENTS: NEW CAROLLTON  PG                
+DAREA:    F1                   CURRENT: F2                                  
+STATION:  28                    TYPE:     APTG   APT GAS LEAK                  
+RD:       2811                  PRIORITY: 1                    
+RUN CARD: 2811                  PRIORS                  
+
+23:05:54 CT14 ENTRY    TEXT:ProQA recommends dispatch at this time  
+					 NAME:MS.LEE \PH:2403548633 (MTF)  
+23:05:54 CT14 SIGNAL4    
+23:05:54 CT14 E911     LOCATION:5621 LANHAM STATION RD \PHONE:240/281-1484  
+					 COMP:WIRELESS-VERIZON(XYP) \SRC:WPH2 \LAT:+038.958270-  
+					 LON:-076.882688 \CONF: 95% \UNCERT:   288FT  
+					 PNUM:301/511-7688  
+23:05:54 CT14 PRIOR    PF ALS 03/27/10 @ 23:54:20 (1 MORE)  
+23:05:54 CT14 MISC     #101250359, Gas Leak / Gas Odor (Natural and LP  
+					 Gases). .Caller Statement: REPORTED GAS LEAK.  
+23:05:54 CT14 MISC     #101250359, ProQA Case #0010010173 Classification:  
+					 APTG Description: Residential (multiple) (Odor only).  
+					 1.The caller is on scene (1st party). 2.The problem is  
+					 reportedly inside. 3.The gas can be smelled only.  
+					 4.The incident involves a multiple-family residential  
+					 structure. Dispatch Level: 60D04  
+23:06:21 CT14 SUPP     TEXT:ProQA additional key questions (MTF)  
+23:06:21 CT14 MISC     #101250359, ProQA Case #0010010173 Classification:  
+					 APTG Description: 5.The gas is coming from: LAUNDRY  
+					 ROOM 6.No one is reportedly sick or injured.  
+					 --Comments: LAUNDRY ROOM- Dispatch Level: 60D04  
+23:06:28 FD02 DISPATCH E828 TW807 E813 E830 BO802  
+23:06:28 FD02 CASE     PF1000045336 Assigned  
