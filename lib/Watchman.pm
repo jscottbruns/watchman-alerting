@@ -103,7 +103,7 @@ sub new
 			);
 		} )
 	};
-	
+
 	if ( my $ex = $@ )
 	{
 		&main::log("DBI exception during station unit lookup: $ex->error - Unable to perform unit alerting", E_ERROR);
@@ -112,7 +112,7 @@ sub new
 	foreach ( @{ $cg } )
 	{
 	    $self->{'CallGroup'}->{ $_->{'CallGroup'} } = $_;
-	}			
+	}
 
     bless $self, $class;
 
@@ -205,12 +205,12 @@ sub parseDispatch
 			DIR		=> $self->{'log_dir'},
 			SUFFIX	=> '.xml'
 		);
-		if ( $fh )	
+		if ( $fh )
 		{
 			&main::log("Writing XSLT preprocessing XML output => $fname ", E_DEBUG);
 			print $fh join '', $buff;
 			close $fh;
-		}		
+		}
 
     	&main::log("Parsing WatchmanAlerting XML ");
 
@@ -222,9 +222,9 @@ sub parseDispatch
 		&main::log("XML XPATH error - Unable to parse WatchmanXML incident data $! $@", E_ERROR) if ( $@ );
 
 		if ( $xp )
-		{			
+		{
 			my $noteref = [];
-			
+
 			foreach my $_comment ( @{ $xp->findnodes('/WatchmanAlerting/IncidentComments/Comment') } )
 			{
 				push @{ $noteref },
@@ -235,8 +235,8 @@ sub parseDispatch
 						'EntryFDID' 	=> $_comment->findvalue('./EntryFDID'),
 						'Text'			=> $_comment->findvalue('./Text')
 					};
-			}			
-			
+			}
+
 			$self->{'dispatch'} = {
 				'CallNo'			=> $xp->findnodes('/WatchmanAlerting/EventNo')->to_literal,
 				'IncidentNo'		=> $xp->findnodes('/WatchmanAlerting/IncidentNo')->to_literal,
@@ -265,7 +265,7 @@ sub parseDispatch
 					'Longitude'		=> $xp->findnodes('/WatchmanAlerting/IncidentLocation/GPSCoords/GPSLongitude')->to_literal,
 				},
 				'CallGroup'			=> $xp->findnodes('/WatchmanAlerting/CallType/CallGroup')->to_literal,
-				'CallType'			=> $xp->findnodes('/WatchmanAlerting/CallType/TypeCode')->to_literal,				
+				'CallType'			=> $xp->findnodes('/WatchmanAlerting/CallType/TypeCode')->to_literal,
 				'CallNature'		=> $xp->findnodes('/WatchmanAlerting/CallType/Nature')->to_literal,
 				'IncidentNotes'		=> $noteref,
 				'FormattedNotes'	=> $self->ConcatComments( $noteref ),
@@ -278,10 +278,10 @@ sub parseDispatch
 					'UnitReplace'		=> {}, # Hash of unit replacements i.e. E828 => MP828 (E828 has been replaced by MP828)
 					'UnitBackup'		=> {}, # Hash of unit backups i.e. SAME AS ABOVE
 				},
-				'VoiceAlert'		=> 
+				'VoiceAlert'		=>
 				{
 					'EmbeddedAudio'		=> undef,
-					'TTSKeyId'			=> $xp->findnodes('/WatchmanAlerting/VoiceAlert/TTSKeyId')->to_literal,						
+					'TTSKeyId'			=> $xp->findnodes('/WatchmanAlerting/VoiceAlert/TTSKeyId')->to_literal,
 				},
 				'Metadata'			=>
 				{
@@ -622,7 +622,7 @@ sub NewIncident
 			            $self->{'dispatch'}->{'IncidentNo'},
 			            $self->{'dispatch'}->{'ReportNo'},
 			            ( $self->{'dispatch'}->{'Times'}->{'Entry'} ? $self->{'dispatch'}->{'Times'}->{'Entry'} : undef ),
-			            ( $self->{'dispatch'}->{'Times'}->{'Initiate'} ? $self->{'dispatch'}->{'Times'}->{'Initiate'} : undef ),			            
+			            ( $self->{'dispatch'}->{'Times'}->{'Initiate'} ? $self->{'dispatch'}->{'Times'}->{'Initiate'} : undef ),
 			            ( $self->{'dispatch'}->{'Times'}->{'Dispatch'} ? $self->{'dispatch'}->{'Times'}->{'Dispatch'} : undef ),
 			            ( $self->{'dispatch'}->{'Times'}->{'Enroute'} ? $self->{'dispatch'}->{'Times'}->{'Enroute'} : undef ),
 			            ( $self->{'dispatch'}->{'Times'}->{'Onscene'} ? $self->{'dispatch'}->{'Times'}->{'Onscene'} : undef ),
@@ -730,10 +730,10 @@ sub activate
 	}
 
 	$self->{'dispatch'}->{'CallLabel'} = $self->{'dispatch'}->{'CallNature'} || $self->{'dispatch'}->{'CallType'} unless $self->{'dispatch'}->{'CallLabel'};
-	
+
 	my $led_flash = $self->{'settings'}->{'ledalerting'}->{'LED_PreambleMessage'};
 	my $led_scroll = $self->{'settings'}->{'ledalerting'}->{'LED_ScrollingMessage'};
-	
+
     if ( $calltype || $self->{'CallGroup'}->{ $self->{'dispatch'}->{'CallGroup'} } )
     {
 	    $self->{'dispatch'}->{'CallGroup'} = $calltype->{'CallGroup'} if $calltype->{'CallGroup'};
@@ -745,14 +745,14 @@ sub activate
         if ( $self->{'dispatch'}->{'Station'} eq $self->{'settings'}->{'system'}->{'DefaultStationID'} && $calltype->{'Priority'} )
         {
             &main::log("Priority incident identified, setting priority flag");
-            
+
             $priority = 1;
 
             $displayColor = "<$self->{settings}->{ledalerting}->{LED_PriorityDisplayColor} />";
             $title = "<mode display=\"$self->{settings}->{ledalerting}->{LED_PreambleDisplayMode}\"/>" . $flashSpeed . $displayColor;
-            $led_flash = encode_entities( $self->{'settings'}->{'ledalerting'}->{'LED_PriorityPreambleDisplay'} ) if $self->{'settings'}->{'ledalerting'}->{'LED_PriorityPreambleDisplay'};                      
-        } 
-        else 
+            $led_flash = encode_entities( $self->{'settings'}->{'ledalerting'}->{'LED_PriorityPreambleDisplay'} ) if $self->{'settings'}->{'ledalerting'}->{'LED_PriorityPreambleDisplay'};
+        }
+        else
         {
         	$displayColor = $calltype->{'AlertDisplayColor'} || $self->{'CallGroup'}->{ $self->{'dispatch'}->{'CallGroup'} }->{'AlertDisplayColor'} || $self->{'settings'}->{'ledalerting'}->{'LED_DefaultDisplayColor'};
         	$displayColor = "<$displayColor/>";
@@ -765,24 +765,24 @@ sub activate
 
 	    $self->{'dispatch'}->{'CallGroup'} = undef;
 	    $self->{'dispatch'}->{'CallLabel'} = $self->{'dispatch'}->{'CallNature'} || $self->{'dispatch'}->{'CallType'};
-	    
+
         $displayColor = "<$self->{settings}->{ledalerting}->{LED_DefaultDisplayColor} />";
         $title = "<mode display=\"$self->{settings}->{ledalerting}->{LED_PreambleDisplayMode}\"/>" . $flashSpeed . $displayColor;
-    }	
+    }
 
 	my $led = $self->formatLedDisplay( {
 		'title'		=> $led_flash,
 		'scroll'	=> $led_scroll
 	} );
 
-	$led->{'title'} = $title . $led->{'title'}; 
+	$led->{'title'} = $title . $led->{'title'};
 	&main::log("Setting LED display preamble: $led->{title}");
-	
+
     $led->{'scroll'} = "<mode display=\"$self->{settings}->{ledalerting}->{LED_StandardDisplayMode}\"/>" . $scrollSpeed . $displayColor . $led->{'scroll'};
     &main::log("Setting LED display message: $led->{scroll}");
 
     my $beep;
-    
+
     if ( $self->{'settings'}->{'ledalerting'}->{'LED_BeepEnabled'} )
     {
     	&main::log("LED display beep enabled, setting beep parameters");
@@ -791,7 +791,7 @@ sub activate
     	$beep = "<beep $beep_type/>";
     }
 
-    $self->{'dispatch'}->{'LED_Message'} = 
+    $self->{'dispatch'}->{'LED_Message'} =
     {
     	'title'		=> "<signboard>$beep<text label=\"$self->{settings}->{ledalerting}->{LED_DefaultTextPage}\">$led->{title}</text></signboard>",
     	'message'	=> "<signboard><text label=\"$self->{settings}->{ledalerting}->{LED_DefaultTextPage}\">$led->{scroll} </text></signboard>"
@@ -799,7 +799,7 @@ sub activate
 
     $self->{'dispatch'}->{'printout'} = $self->WritePrintout;
 
-    return 1 if $self->{'silent'};	
+    return 1 if $self->{'silent'};
 
     if ( $self->{'settings'}->{'audioalerting'}->{'NetAudioEnabled'} )
     {
@@ -811,9 +811,9 @@ sub activate
 		if ( $priority )
 		{
 			$self->{'dispatch'}->{'priority'} = 1 if $self->{'settings'}->{'audioalerting'}->{'PriorityAudioPreamble'};
-			
+
 			push @{ $self->{'dispatch'}->{'audiosrc'} }, $self->{'settings'}->{'audioalerting'}->{'PriorityAudioPreamble'} || $calltype->{'AudioPreAmble'} || $self->{'CallGroup'}->{ $self->{'dispatch'}->{'CallGroup'} }->{'AudioPreAmble'} || $self->{'settings'}->{'audioalerting'}->{'DefaultAudioPreamble'};
-			&main::log("Setting priority audio preamble => [" . ( $self->{'settings'}->{'audioalerting'}->{'PriorityAudioPreamble'} || $calltype->{'AudioPreAmble'} || $self->{'CallGroup'}->{ $self->{'dispatch'}->{'CallGroup'} }->{'AudioPreAmble'} || $self->{'settings'}->{'audioalerting'}->{'DefaultAudioPreamble'} ) . "]");			
+			&main::log("Setting priority audio preamble => [" . ( $self->{'settings'}->{'audioalerting'}->{'PriorityAudioPreamble'} || $calltype->{'AudioPreAmble'} || $self->{'CallGroup'}->{ $self->{'dispatch'}->{'CallGroup'} }->{'AudioPreAmble'} || $self->{'settings'}->{'audioalerting'}->{'DefaultAudioPreamble'} ) . "]");
 		}
 		else
 		{
@@ -847,11 +847,11 @@ sub activate
 		if ( $self->{'settings'}->{'voicealert'}->{'TTS_Enabled'} )
 		{
 			&main::log("VoiceAlert TTS audible dispatch service enabled, checking for VoiceAlert dispatch");
-			
+
 			if ( $self->{'dispatch'}->{'VoiceAlert'}->{'TTSKeyId'} )
 			{
 				&main::log("VoiceAlert conversion key exists - Initiating fetch process for TTS key [$self->{dispatch}->{VoiceAlert}->{TTSKeyId}]");
-				
+
 				my $uri = $self->{'settings'}->{'voicealert'}->{'TTS_URI'};
 				$uri =~ s/%conversionid/$self->{dispatch}->{VoiceAlert}->{TTSKeyId}/;
 
@@ -862,39 +862,39 @@ sub activate
 					DIR		=> $self->{'temp_dir'},
 					SUFFIX	=> '.txt'
 				);
-				
+
 				if ( $tts_fname )
 				{
 					&main::log("Submitting WGET request to TTS status URI: [$uri] => $tts_fname");
-					
+
 					my ($wav_fh, $wav_fname) = tempfile(
 						'ttswav_XXXXX',
 						DIR		=> $self->{'temp_dir'},
 						SUFFIX	=> '.wav'
-					);								
-					
+					);
+
 					if ( $wav_fname )
-					{						
+					{
 						push @{ $self->{'dispatch'}->{'audiosrc'} }, $wav_fname;
 					}
-					
+
 					if ( ! ( fork ) )
 					{
 						`wget --output-document=$tts_fname "$uri"`;
-								
+
 						if ( open(FH, "<$tts_fname") )
 						{
 							my $resp = <FH>;
 							close FH;
-						
+
 							my ($tts_url, $tts_status, $tts_statmsg);
-							
+
 							$resp =~ /statusCode="([0-9])"/ and $tts_status = $1;
 							$resp =~ /status="(.*?)"/ and $tts_statmsg = $1;
 							$resp =~ /downloadUrl="(.*?)"/ and $tts_url = $1;
-							
-							if ( $tts_status == 4 && $tts_url ) 
-							{								
+
+							if ( $tts_status == 4 && $tts_url )
+							{
 								if ( $wav_fname )
 								{
 									&main::log("TTS conversion status successful, initiating content download from [$tts_url] => [$wav_fname]");
@@ -902,7 +902,7 @@ sub activate
 								}
 								else
 								{
-									&main::log("Error creating temporary file for content download $@ $!", E_ERROR);	
+									&main::log("Error creating temporary file for content download $@ $!", E_ERROR);
 								}
 							}
 							else
@@ -912,17 +912,17 @@ sub activate
 						}
 						else
 						{
-							&main::log("Unable to read TTS status response - Can't open temp file [$tts_fname]", E_ERROR);	
+							&main::log("Unable to read TTS status response - Can't open temp file [$tts_fname]", E_ERROR);
 						}
-						
+
 						exit(0);
-					}	
-				}													
+					}
+				}
 			}
 			else
 			{
-				&main::log("VoiceAlert key/URI not found, skipping VoiceAlert TTS", E_ERROR); 	
-			}				  					
+				&main::log("VoiceAlert key/URI not found, skipping VoiceAlert TTS", E_ERROR);
+			}
 		}
 
 		# Postamble audio tone
@@ -985,7 +985,7 @@ sub mapXpath
 	my $array = [];
 
 	for my $node ( $xp->findnodes( $path ) )
-	{	
+	{
 		push @{ $array }, $node->to_literal;
 	}
 
@@ -1016,7 +1016,7 @@ sub ConcatComments
 	foreach my $_i ( @{ $notes } )
 	{
 		$_i->{'Text'} =~ s/(\[)(.*?)(\])/$2/g;
-		
+
 		$notestr .=
 		( $_i->{'EntryTime'} ?
 			POSIX::strftime('%H:%M:%S ', localtime( Date::Parse::str2time( $_i->{'EntryTime'} ) ) ) : pack("A9", '')
@@ -1112,10 +1112,10 @@ sub WritePrintout
 sub formatLedDisplay
 {
 	my $self = shift;
-	my $led = shift;	
-	
+	my $led = shift;
+
     my ($status, $unitassg, $xstreet);
-    
+
     $status = 'Pending' if ( $self->{'dispatch'}->{'IncidentStatus'} eq '-1' );
     $status = 'Dispatched' if ( $self->{'dispatch'}->{'IncidentStatus'} eq '1' );
     $status = 'Enroute' if ( $self->{'dispatch'}->{'IncidentStatus'} eq '2' );
@@ -1126,13 +1126,13 @@ sub formatLedDisplay
     {
     	$unitassg .= ( $unitassg ? "/" : undef );
     	$unitassg .= encode_entities( $self->{'units'}->{ $_ }->{'UnitLabel'} ) if ( $self->{'units'}->{ $_ }->{'UnitLabel'} );
-    	$unitassg .= encode_entities( $_ ) unless ( $self->{'units'}->{ $_ }->{'UnitLabel'} );    	
+    	$unitassg .= encode_entities( $_ ) unless ( $self->{'units'}->{ $_ }->{'UnitLabel'} );
 	}
-	
+
 	$xstreet = "($self->{'dispatch'}->{'CrossStreet'}->[0] & $self->{'dispatch'}->{'CrossStreet'}->[1])" if ( $self->{'dispatch'}->{'CrossStreet'}->[0] && $self->{'dispatch'}->{'CrossStreet'}->[1] );
 	$xstreet = "(near $self->{'dispatch'}->{'CrossStreet'}->[0])" if ( $self->{'dispatch'}->{'CrossStreet'}->[0] && ! $self->{'dispatch'}->{'CrossStreet'}->[1] );
 	$xstreet = "(near $self->{'dispatch'}->{'CrossStreet'}->[1])" if ( $self->{'dispatch'}->{'CrossStreet'}->[1] && ! $self->{'dispatch'}->{'CrossStreet'}->[0] );
-	
+
     my $regex = {
         '%CallNo'           => encode_entities( $self->{'dispatch'}->{'CallNo'} ),
         '%IncidentNo'       => encode_entities( $self->{'dispatch'}->{'IncidentNo'} ),
@@ -1158,7 +1158,7 @@ sub formatLedDisplay
 
     $led->{'title'} =~ s/($regex_s)/$regex->{$1}/g;
     $led->{'scroll'} =~ s/($regex_s)/$regex->{$1}/g;
-    
-    return $led;	
+
+    return $led;
 }
 1;

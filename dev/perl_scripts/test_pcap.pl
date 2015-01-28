@@ -7,43 +7,16 @@ use Net::Pcap;
 use NetPacket::Ethernet qw( :strip );
 use NetPacket::IP qw( IP_PROTO_TCP );
 use NetPacket::TCP qw( FIN SYN ACK PSH URG RST );
-
-my $PATH = $ENV{'WATCHMAN_HOME'};
-
-my $self = {};
-
-$self->{'seqnum'} = -1;
-
-my $dbh = DBI->connect(
-	"dbi:SQLite:dbname=$PATH\\watchman.s3db",
-	"",
-	"",
-	{
-	   ShowErrorStatement => 1,
-	   PrintError => 1
-	}
-);
-unless ( $dbh ) {
-
-	&main::write_log( "Error connecting to database: " . $DBI::errstr, 1 );
-	exit;
-}
-
-my %row;
-my $sth = $dbh->prepare("SELECT *
-						 FROM settings
-						 WHERE category IN ('system', 'network')") or die "DBH Query Error: " . $dbh->errstr;
-if ( $sth->execute ) {
-
-	$sth->bind_columns( \( @row{ @{$sth->{NAME} } } ) );
-	while ( $sth->fetch ) {
-		$self->{ $row{'name'} } = $row{'setting'};
-	}
-}
+use File::Temp qw/tempfile/;
 
 my ($err, $network, $netmask, $pcap_t);
 
-$self->{'captureFile'} = "$PATH\\$self->{captureFile}";
+my $self = {
+    ip_addr => '10.50.28.35',
+    iface => 'br0',
+    captureFile => $ARGV[0],
+    seqnum => -1
+};
 
 &main::write_log("Opening offline network capture stream on capture file: $self->{'captureFile'}\n");
 if ( $self->{'captureFile'} && -f $self->{'captureFile'} ) {
@@ -88,7 +61,7 @@ if ( $self->{'ip_addr'} ) {
 &main::write_log("Starting network capture loop\n");
 unless ( Net::Pcap::loop($pcap_t, -1, \&process_pkt, \%{ $self } ) ) {
 
-	# &main::write_log("Error initiating network capture loop. Pcap reported: " . Net::Pcap::geterr( $pcap_t ) . "\n", 1);
+	&main::write_log("Error initiating network capture loop. Pcap reported: " . Net::Pcap::geterr( $pcap_t ) . "\n", 1);
 	exit;
 }
 
@@ -102,7 +75,7 @@ sub process_pkt
 
         my $tcp = NetPacket::TCP->decode( $ip->{'data'} );
 
-		#print "$ip->{src_ip}:$tcp->{src_port} => $ip->{dest_ip}:$tcp->{dest_port} SEQ: $tcp->{seqnum} LEN: " . length( $tcp->{'data'} ) . " " . ( $tcp->{'flags'} & SYN ? "SYN, " : undef ) . ( $tcp->{'flags'} & ACK ? "ACK, " : undef ) . ( $tcp->{'flags'} & FIN ? "FIN, " : undef ) . ( $tcp->{'flags'} & PSH ? "PSH, " : undef ) . ( $tcp->{'flags'} & URG ? "URG, " : undef ) . ( $tcp->{'flags'} & RST ? "RST, " : undef ) . "\n";
+        #print "$ip->{src_ip}:$tcp->{src_port} => $ip->{dest_ip}:$tcp->{dest_port} SEQ: $tcp->{seqnum} LEN: " . length( $tcp->{'data'} ) . " " . ( $tcp->{'flags'} & SYN ? "SYN, " : undef ) . ( $tcp->{'flags'} & ACK ? "ACK, " : undef ) . ( $tcp->{'flags'} & FIN ? "FIN, " : undef ) . ( $tcp->{'flags'} & PSH ? "PSH, " : undef ) . ( $tcp->{'flags'} & URG ? "URG, " : undef ) . ( $tcp->{'flags'} & RST ? "RST, " : undef ) . "\n";
 
 		if ( $ip->{'dest_ip'} eq $self->{'ip_addr'} && ( $tcp->{'flags'} & SYN ) ) {
 
@@ -111,8 +84,9 @@ sub process_pkt
 			$self->{'__port__'} = $tcp->{'src_port'};
             $self->{'__checksum__'}->{ ( $tcp->{'seqnum'} + 1 ) } = 0;
 
-			print "Incomming message from [$ip->{src_ip}:$tcp->{src_port}]=>[$ip->{dest_ip}:$tcp->{dest_port}]\n";
+			print "Incomming message from [$ip->{src_ip}:$tcp->{src_port}]=>[$ip->{dest_ip}:$tcp->{dest_port}] SEQNUM: $tcp->{seqnum}\n";
 			print "      Setting Connection Port: $self->{__port__}\n";
+            #print "      Setting Checksum: $self->{__checksum__}->{ ( $tcp->{'seqnum'} + 1 ) }\n";
 
 		} elsif ( $tcp->{'src_port'} eq $self->{'__port__'} && $ip->{'dest_ip'} eq $self->{'ip_addr'} && ( $tcp->{'flags'} & ACK ) ) {
 
@@ -124,14 +98,14 @@ sub process_pkt
 
             $self->{'__checksum__'}->{ $tcp->{'seqnum'} } = 1 if ( $tcp->{'data'} || ( $tcp->{'flags'} & FIN ) );
 
-            print "  ACK data packet from [$ip->{src_ip}:$tcp->{src_port}]=>[$ip->{dest_ip}:$tcp->{dest_port}]\n";
-            print "      SEQNUM: $tcp->{seqnum} FLAGS: " . ( $tcp->{'flags'} & SYN ? "SYN, " : undef ) . ( $tcp->{'flags'} & ACK ? "ACK, " : undef ) . ( $tcp->{'flags'} & FIN ? "FIN, " : undef ) . ( $tcp->{'flags'} & PSH ? "PSH, " : undef ) . ( $tcp->{'flags'} & URG ? "URG, " : undef ) . ( $tcp->{'flags'} & RST ? "RST, " : undef ) . "\n";
+            print "  ACK data packet from [$ip->{src_ip}:$tcp->{src_port}]=>[$ip->{dest_ip}:$tcp->{dest_port}] CKSUM:$tcp->{cksum} HLEN:$tcp->{hlen} WINSZ:$tcp->{winsize}\n";
+            print "      SEQNUM: $tcp->{seqnum} ACKNUM: $tcp->{acknum} CHECKSUM: $self->{'__checksum__'}->{ $tcp->{seqnum} } FLAGS: " . ( $tcp->{'flags'} & SYN ? "SYN, " : undef ) . ( $tcp->{'flags'} & ACK ? "ACK, " : undef ) . ( $tcp->{'flags'} & FIN ? "FIN, " : undef ) . ( $tcp->{'flags'} & PSH ? "PSH, " : undef ) . ( $tcp->{'flags'} & URG ? "URG, " : undef ) . ( $tcp->{'flags'} & RST ? "RST, " : undef ) . "\n";
 
 		}
 
 		if ( ( ( $tcp->{'src_port'} eq $self->{'__port__'} && $ip->{'dest_ip'} eq $self->{'ip_addr'} ) || ( $tcp->{'dest_port'} eq $self->{'__port__'} && $ip->{'src_ip'} eq $self->{'ip_addr'} ) ) && ( $tcp->{'flags'} & FIN ) ) {
 
-           $self->{'__checksum__'}->{'30266130'} = 0;
+            #$self->{'__checksum__'}->{'30266130'} = 0;
 
             # If the FIN flag has been set by the sender, validate the checksum for out of order packet transmission
             if ( $tcp->{'src_port'} eq $self->{'__port__'} && $ip->{'dest_ip'} eq $self->{'ip_addr'} ) {
@@ -161,12 +135,21 @@ sub process_pkt
                 	undef $self->{'__checksum__'};
                 	$self->{'__port__'} = 0;
 
-                    print "Reassembled $i packet containing incident data. Invoking alert class\n";
+                    #my ($fh, $filename) = tempfile(DIR => './capture-data');
+                    #print $fh $self->{'packet'};
+                    #close $fh;
 
-                    #print $self->{'packet'};
+                    print "Reassembled $i packets\n\tWriting raw packet payload to file:\n";# $filename\n";
+
+                    #my $txtfile = $filename . ".txt";
+                    #`pcl6 -dNOPAUSE -sOutputFile=$txtfile -sDEVICE=txtwrite $filename`;
+
+                    #print "\tWriting decoded payload to file: $txtfile\n";
                 }
-
-                print "Checksum was not valid, posting packet reassembly\n";
+                else
+                {
+                    print "Checksum was not valid, posting packet reassembly\n";
+                }
 
             } elsif ( $tcp->{'dest_port'} eq $self->{'__port__'} && $ip->{'src_ip'} eq $self->{'ip_addr'} ) {
 

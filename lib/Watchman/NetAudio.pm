@@ -92,8 +92,8 @@ OR
 	t1.GroupType = 1
 	AND
 	(
-		t1.ToneID IS NULL OR '$tone_id' REGEXP t1.ToneID 
-	) 
+		t1.ToneID IS NULL OR '$tone_id' REGEXP t1.ToneID
+	)
 )
 SQL
 	}

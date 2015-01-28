@@ -303,7 +303,7 @@ sub new
 
 				#$tty->setbaud( $speed ) if $speed;
 				#$tty->setcsize( $databits ) if $databits;
-				#$tty->setparity( $parity ) if $parity;
+				#$tty->setparity( $parity ) if $parity && lc($parity) ne 'n';
 				#$tty->setstop( $stopbits ) if $stopbits;
 
 				#my $out = `$xsltbin $xsl $xml_file`;

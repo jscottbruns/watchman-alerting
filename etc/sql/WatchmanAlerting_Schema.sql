@@ -5,7 +5,7 @@ CREATE TABLE `Settings` (
 	`Category` VARCHAR(16) NOT NULL,
 	`Setting` VARCHAR(255) NULL DEFAULT NULL,
 	INDEX `Category` ( `Category` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 -- PGCo XSLT_PreProcessCommand => [ pcl6 -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=- %source_file ]
 -- PGCo DefaultXSLT_Command => [ pdftotext -layout -nopgbrk -x 11 -y 22 -W 600 -H 724 %source_file - | pgfd-tibparse -units '%myunits' ]
@@ -194,17 +194,32 @@ CREATE TABLE `LED_Displays` (
  	`DefaultMsg` VARCHAR(255) NULL DEFAULT NULL,
  	`TimeFormat` VARCHAR(10) NOT NULL DEFAULT '24-hour', -- Enum: 24-hour|am-pm
  	`Stylesheet` VARCHAR(200) NOT NULL DEFAULT 'xsl/alphasign.xsl'
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `SystemProperties`;
 CREATE TABLE `SystemProperties` (
 	`PropName` VARCHAR(45) NOT NULL PRIMARY KEY,
 	`PropValue` VARCHAR(64) NULL DEFAULT NULL
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 INSERT INTO SystemProperties VALUES
 ( 'SystemVersion', '5.1026' ),
 ( 'SchemaVersion', '5.1021' );
+
+DROP TABLE IF EXISTS `RF_Alerts`;
+CREATE TABLE RF_Alerts (
+	`ToneID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`IO_Device` VARCHAR(10) NOT NULL, -- SlotIO Model for LinPAC SDK
+	`IO_Slot` INT NOT NULL,
+	`IO_Channel` INT NOT NULL,
+	`ToneDescr` VARCHAR(100) NOT NULL,
+	`DisplayLabel` VARCHAR(64) NULL DEFAULT NULL,
+	`DisplayColor` VARCHAR(16) NULL DEFAULT NULL,
+	`AudioPreamble` VARCHAR(255) NULL DEFAULT NULL,
+	`AudioAnnouncement` VARCHAR(64) NULL DEFAULT NULL,
+	UNIQUE KEY IO_Slot_IO_Channel ( `IO_Slot`, `IO_Channel` )
+) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 DROP TABLE IF EXISTS `iCADAlertTrans`;
 CREATE TABLE iCADAlertTrans (
@@ -213,11 +228,11 @@ CREATE TABLE iCADAlertTrans (
 	`ReceivedTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`SentTime` DATETIME NOT NULL,
 	`StreamData` TEXT
-) ENGINE=MyISAM AUTO_INCREMENT=1000;
+) ENGINE=InnoDB AUTO_INCREMENT=1000;
 
 DROP TABLE IF EXISTS `AlertZones`; -- Physical Alert Zones
 CREATE TABLE AlertZones (
-	`ZoneID` VARCHAR(12) NOT NULL PRIMARY KEY,
+	`ZoneID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`ZoneName` VARCHAR(64) NOT NULL,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`HostAddr` VARCHAR(16) NOT NULL,
@@ -243,9 +258,9 @@ CREATE TABLE AlertZones (
 	`iFaceUptime` INT NOT NULL DEFAULT 0,
 	INDEX HostAddr ( `HostAddr` ),
 	INDEX iFaceHostAddr ( `iFaceHostAddr` )
-) ENGINE=MyISAM AUTO_INCREMENT=100;
+) ENGINE=InnoDB AUTO_INCREMENT=100;
 
-INSERT INTO AlertZones ( `ZoneID`, `ZoneName`, `HostAddr`, `iFaceHostAddr`, `DefaultVolLevel`, `AlertVolLevel`, `TimeoutMins` ) VALUES ( 'DEFAULT-1', 'STATION COMMON', '', '10.100.1.3', '0', '75', 3);
+INSERT INTO AlertZones ( `ZoneName`, `HostAddr`, `iFaceHostAddr`, `DefaultVolLevel`, `AlertVolLevel`, `TimeoutMins` ) VALUES ( 'STATION COMMON', '', '10.100.1.3', '0', '75', 3);
 
 DROP TABLE IF EXISTS `AlertGroups`; -- Static unit alert groups
 CREATE TABLE AlertGroups (
@@ -254,35 +269,36 @@ CREATE TABLE AlertGroups (
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`GroupName` VARCHAR(24) NOT NULL,
 	`GroupType` TINYINT(1) NOT NULL DEFAULT 0, -- 0=DEFAULT; 1=UNIT/TONE
-	`UnitID` VARCHAR(12) NULL DEFAULT NULL,
-	`ToneID` INT NULL DEFAULT NULL,
+	`UnitID` INT NULL DEFAULT NULL,
 	`AlertQueue_PriAlert` TINYINT(1) NOT NULL DEFAULT 0, -- 1=>Enabled Priority AlertQueue Alerts 0=>Disable AlertQueue Priority Alerts
 	`AlertQueue_LocalAlert` TINYINT(1) NOT NULL DEFAULT 0, -- 1=>Enabled First Due AlertQueue Alerts 0=>Disable First Due Priority Alerts
 	`AlertQueue_Filter` VARCHAR(255) NULL DEFAULT NULL, -- Box area filter for AlertQueue alerts
 	`AudioPreamble` VARCHAR(255) NULL DEFAULT NULL, -- Preamble alert tone, otherwise will use DefaultAutioPreamble in audioalerting settings
 	`ToneID` INT NULL DEFAULT NULL, -- Regexp filter for association w/RF tone channels
-	UNIQUE KEY `GroupAddr` ( `GroupAddr` )
-	INDEX `GroupType` ( `GroupType`, `UnitId` )
-) ENGINE=MyISAM AUTO_INCREMENT=1;
+	UNIQUE KEY `index_group_addr` ( `GroupAddr` ),
+	INDEX `index_group_type` ( `GroupType`, `UnitId` ),
+	CONSTRAINT `alert_groups_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE CASCADE,
+	CONSTRAINT `alert_groups_tone_id_fk` FOREIGN KEY (`ToneID`) REFERENCES `RF_Alerts` (`ToneID`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=1;
 
 -- Generic broadcast alert groups for non-alert zone alerting
 INSERT INTO AlertGroups ( `GroupAddr`, `GroupName`, `GroupType` )VALUES ( '239.255.0.5', 'DEFAULT', 0 );
 
-DROP TABLE IF EXISTS `AlertGroupMember`; -- Dynamic alert zone group membership - Used for displaying groups on zone interface
-CREATE TABLE AlertGroupMember (
+DROP TABLE IF EXISTS `AlertGroupMembers`; -- Dynamic alert zone group membership - Used for displaying groups on zone interface
+CREATE TABLE AlertGroupMembers (
 	`MemberID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-	`GroupAddr` VARCHAR(16) NOT NULL,
-	`ZoneID` VARCHAR(12) NOT NULL,
-	KEY `GroupAddr` ( `GroupAddr` ),
-	KEY `ZoneID` ( `ZoneID` )
-) ENGINE=MyISAM;
+	`GroupID` INT NOT NULL,
+	`ZoneID` INT NOT NULL,
+	CONSTRAINT `alert_group_members_group_id_fk` FOREIGN KEY (`GroupID`) REFERENCES `AlertGroups` (`GroupID`) ON DELETE CASCADE,
+	CONSTRAINT `alert_group_members_zone_id_fk` FOREIGN KEY (`ZoneID`) REFERENCES `AlertZones` (`ZoneID`) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `IO_Device`;
-CREATE TABLE `IO_Device` (
+DROP TABLE IF EXISTS `IO_Devices`;
+CREATE TABLE `IO_Devices` (
 	`TriggerID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`EventType` TINYINT(1) NOT NULL DEFAULT 0, -- (0) Generic Alert Triggered Event (1) Unit Alert Triggered Event (2) Tone Alert Triggered Event
-	`UnitID` VARCHAR(12) NULL DEFAULT NULL,
+	`UnitID` INT NULL DEFAULT NULL,
 	`ToneID` INT NULL DEFAULT NULL,
 	`TriggerType` VARCHAR(10) NOT NULL DEFAULT 'MB_TCP', -- (1) MB_TCP => ModbusTCP Event (2) MB_RTU => ModbusRTU IO Event (3) MB_RTUIP => ModbusRTU/IP Event (4) TCPIP => TCP/IP Command Event (5) SLOT_IO => LinPAC Slot IO
 	`DeviceAddr` VARCHAR(32) NOT NULL, -- (1) MB_TCP => IPv4 Addr (2) MB_RTU => TTY Addr (3) SLOT_IO => Slot No (1-x)
@@ -292,21 +308,26 @@ CREATE TABLE `IO_Device` (
 	`DeviceOnVal` VARCHAR(8) NULL DEFAULT NULL, -- Value to represent "ON" (if needed)
 	`DeviceOffVal` VARCHAR(8) NULL DEFAULT NULL, -- Value to represent "OFF" (if needed)
 	`ResetTime` VARCHAR(3) NULL DEFAULT NULL, -- Seconds to send reset signal (if needed)
-	`Inactive` TINYINT(1) NOT NULL DEFAULT 0
+	`Inactive` TINYINT(1) NOT NULL DEFAULT 0,
+	CONSTRAINT `io_devices_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE SET NULL,
+	CONSTRAINT `io_devices_tone_id_fk` FOREIGN KEY (`ToneID`) REFERENCES `RF_Alert` (`ToneID`) ON DELETE SET NULL
 );
 
 DROP TABLE IF EXISTS `Units`;
 CREATE TABLE Units (
-	`UnitID` VARCHAR(12) NOT NULL PRIMARY KEY,
+	`ID` INT NOT NULL PRIMARY KEY,
+	`UnitID` VARCHAR(12) NOT NULL,
 	`UnitLabel` VARCHAR(32) NOT NULL,
 	`AudioAnnounce` VARCHAR(128) NULL DEFAULT NULL,
-	`Inactive` TINYINT(1) NOT NULL DEFAULT 1
-) ENGINE=MyISAM;
+	`Inactive` TINYINT(1) NOT NULL DEFAULT 1,
+	UNIQUE KEY `index_unit_id` (`UnitID`)
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `Incident`;
-CREATE TABLE Incident (
-	`EventNo` VARCHAR(32) NOT NULL PRIMARY KEY,
-	`IncidentNo` VARCHAR(25) NOT NULL,
+DROP TABLE IF EXISTS `Incidents`;
+CREATE TABLE Incidents (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`EventNo` VARCHAR(32) NULL DEFAULT NULL,
+	`IncidentNo` VARCHAR(25) NULL DEFAULT NULL,
 	`ReportNo` VARCHAR(25) NULL DEFAULT NULL,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`EntryTime` DATETIME NULL DEFAULT NULL,
@@ -327,65 +348,73 @@ CREATE TABLE Incident (
 	`GPSLongitude` VARCHAR(64) NULL DEFAULT NULL,
 	`UnitList` VARCHAR(255) NULL DEFAULT NULL,
 	`Comments` TEXT,
-	KEY `IncidentNo` ( `IncidentNo` ),
-	KEY `OpenTime` ( `OpenTime` )
-) ENGINE=MyISAM;
+	UNIQUE KEY `index_event_no` ( `EventNo` ),
+	UNIQUE KEY `index_incident_no` ( `IncidentNo` ),
+	KEY `index_open_time` ( `OpenTime` )
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `IncidentUnit`;
-CREATE TABLE IncidentUnit (
-	ObjID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+DROP TABLE IF EXISTS `IncidentUnits`;
+CREATE TABLE IncidentUnits (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	IncidentNo VARCHAR(24) NOT NULL,
-	UnitID VARCHAR(12) NOT NULL,
-	DispatchTime DATETIME NULL DEFAULT NULL,
-	Cancelled TINYINT(1) NOT NULL DEFAULT 0,
-	Key `IncidentNo` ( `IncidentNo`, `UnitID` )
-) ENGINE=MyISAM;
+	`IncidentID` INT NOT NULL,
+	`UnitID` INT NOT NULL,
+	`DispatchTime` DATETIME NULL DEFAULT NULL,
+	`Cancelled` TINYINT(1) NOT NULL DEFAULT 0,
+	UNIQUE KEY `index_incident_no_unit_id` ( `IncidentID`, `UnitID` ),
+	CONSTRAINT `incident_units_incident_id_fk` FOREIGN KEY (`IncidentID`) REFERENCES `Incidents` (`ID`) ON DELETE CASCADE,
+	CONSTRAINT `incident_units_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE CASCADE
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `RF_Incident`;
-CREATE TABLE RF_Incident (
-	ObjID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+DROP TABLE IF EXISTS `RF_Incidents`;
+CREATE TABLE RF_Incidents (
+	ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`ToneId` INT NOT NULL,
-	FOREIGN KEY ( ToneId ) REFERENCES RF_Alert ( ToneId )
+	CONSTRAINT `rf_incidents_tone_id_fk` ( `ToneId` ) REFERENCES `RF_Alerts` ( `ToneID` ) ON DELETE CASCADE
 ) ENGINE=MYISAM;
 
-DROP TABLE IF EXISTS `CallGroup`;
-CREATE TABLE CallGroup (
-	`CallGroup` VARCHAR(24) NOT NULL PRIMARY KEY,
+DROP TABLE IF EXISTS `CallGroups`;
+CREATE TABLE CallGroups (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`CallGroup` VARCHAR(24) NOT NULL,
 	`AlertDisplayColor` VARCHAR(16) NULL DEFAULT NULL,
 	`AlertAudioAnnounce` VARCHAR(64) NULL DEFAULT NULL,
 	`AudioPreAmble` VARCHAR(64) NULL DEFAULT NULL,
 	`AudioPostAmble` VARCHAR(64) NULL DEFAULT NULL,
-	`Priority` TINYINT(1) NOT NULL DEFAULT 0
-) ENGINE=MyISAM;
+	`Priority` TINYINT(1) NOT NULL DEFAULT 0,
+	UNIQUE KEY `index_call_groups_call_group` (`CallGroup`)
+) ENGINE=InnoDB;
 
-INSERT INTO CallGroup VALUES
-( 'FIRE', 'rainbow1', 'audio/Box.mp3', '', '', 1),
-( 'LOCAL', 'red', 'audio/Local.mp3', '', '', 0),
-( 'RESCUE', 'yellow', 'audio/Rescue_Local.mp3', '', '', 0),
-( 'EMS', 'green', 'audio/Medical_Local.mp3', '', '', 0),
-( 'MISC', 'green', 'audio/tts/default/misc/GeneralAnnouncement.wav', '', '', 0);
+INSERT INTO CallGroups VALUES
+( NULL, 'FIRE', 'rainbow1', 'audio/Box.mp3', '', '', 1),
+( NULL, 'LOCAL', 'red', 'audio/Local.mp3', '', '', 0),
+( NULL, 'RESCUE', 'yellow', 'audio/Rescue_Local.mp3', '', '', 0),
+( NULL, 'EMS', 'green', 'audio/Medical_Local.mp3', '', '', 0),
+( NULL, 'MISC', 'green', 'audio/tts/default/misc/GeneralAnnouncement.wav', '', '', 0);
 
-DROP TABLE IF EXISTS `CallType`;
-CREATE TABLE CallType (
+DROP TABLE IF EXISTS `CallTypes`;
+CREATE TABLE CallTypes (
+	`ID` NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`TypeCode` VARCHAR(12) NOT NULL PRIMARY KEY,
-	`CallGroup` VARCHAR(64) NOT NULL,
+	`CallGroup` INT NOT NULL,
 	`Label` VARCHAR(64) NOT NULL,
 	`Priority` TINYINT(1) NOT NULL DEFAULT 0,
 	`AlertDisplayColor` VARCHAR(16) NULL DEFAULT NULL,
-	`AlertAudioAnnounce` VARCHAR(64) NULL DEFAULT NULL
-) ENGINE=MyISAM;
+	`AlertAudioAnnounce` VARCHAR(64) NULL DEFAULT NULL,
+	KEY `index_type_code` (`TypeCode`),
+	CONSTRAINT `call_types_call_group_fk` (`CallGroup`) REFERENCES CallGroups (`ID`) ON DELETE SET NULL
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `AlertQueueFilter`;
-CREATE TABLE AlertQueueFilter (
-	`ObjID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+DROP TABLE IF EXISTS `AlertQueueFilters`;
+CREATE TABLE AlertQueueFilters (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Agency` VARCHAR(20) NULL DEFAULT NULL,
 	`BoxArea` VARCHAR(12) NOT NULL COMMENT 'One box area per row, regex matching permitted',
 	`CallType` TEXT NOT NULL COMMENT 'Formatting options: (1) Pipe delimited types (i.e. TYPE1|TYPE2|TYPE3 -- regex/wildcard matching: TYPE1.*|TYPE2[0-3] -- prefix optional: type:TYPE1.* ) (2) Pipe delimited groups (i.e. group:LOCAL|group:FIRE -- wildcard matching: group:*)',
 	`AreaAnnounce` VARCHAR(255) NULL DEFAULT NULL,
-	KEY `BoxArea` ( `BoxArea` )
-) ENGINE=MyISAM;
+	KEY `index_box_area` ( `BoxArea` )
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `AlertQueue_Rules`;
 CREATE TABLE AlertQueue_Rules (
@@ -394,12 +423,13 @@ CREATE TABLE AlertQueue_Rules (
 	`BoxArea` VARCHAR(100) NOT NULL COMMENT 'Regex formatting box area, one per row',
 	`Ruleset` TEXT NOT NULL COMMENT 'Regex formatted call type and/or call group rules to apply to corresponding box area and agency (if not null)',
 	`AreaAnnounce` VARCHAR(255) NULL DEFAULT NULL,
-	KEY `BoxArea` ( `BoxArea` )
-) ENGINE=MyISAM;
+	KEY `index_box_area` ( `index_box_area` )
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `ActiveIncident`;
-CREATE TABLE ActiveIncident (
-	`EventNo` VARCHAR(24) NOT NULL PRIMARY KEY,
+DROP TABLE IF EXISTS `ActiveIncidents`;
+CREATE TABLE ActiveIncidents (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`EventNo` VARCHAR(24) NOT NULL,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`IncidentNo` VARCHAR(24) NOT NULL,
 	`OpenTime` DATETIME NULL DEFAULT NULL,
@@ -411,9 +441,8 @@ CREATE TABLE ActiveIncident (
 	`Priority` TINYINT(1) NOT NULL DEFAULT 0,
 	`Update` TINYINT(1) NOT NULL DEFAULT 0,
 	`Cancel` TINYINT(1) NOT NULL DEFAULT 0,
-	KEY `IncidentNo` ( `IncidentNo` )
-) ENGINE=MyISAM;
-
+	KEY `index_incident_no` ( `IncidentNo` )
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `SMSAlerts`;
 CREATE TABLE SMSAlerts (
@@ -427,15 +456,15 @@ CREATE TABLE SMSAlerts (
 	`ScheduleDayOfWeek` VARCHAR(7) NULL DEFAULT NULL,
 	`Carrier` VARCHAR(24) NOT NULL,
 	KEY `MemberName` ( `MemberName` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `SMSCarrier`;
-CREATE TABLE SMSCarrier (
+DROP TABLE IF EXISTS `SMSCarriers`;
+CREATE TABLE SMSCarriers (
 	`Carrier` VARCHAR(16) NOT NULL PRIMARY KEY,
 	`GatewayAddr` VARCHAR(64) NULL DEFAULT NULL
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
-INSERT INTO SMSCarrier
+INSERT INTO SMSCarriers
 VALUES
 ('Alltel', NULL),
 ('ATT_Wireless_WCTP', NULL),
@@ -456,7 +485,7 @@ CREATE TABLE SMSAlertPrefs (
 	`AlertPref` VARCHAR(12) NOT NULL DEFAULT 'CALLTYPE', -- [ CALLTYPE | UNIT ]
 	`AlertContext` VARCHAR(12) NOT NULL,
 	KEY `SMSID` ( `SMSID`, `AlertPref` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
 
 DROP TABLE IF EXISTS `SMSNotifications`;
@@ -470,11 +499,10 @@ CREATE TABLE SMSNotifications (
 	`SMSRecipients` TEXT,
 	KEY `EventNo` ( `EventNo` ),
 	KEY `IncidentNo` ( `IncidentNo` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
-
-DROP TABLE IF EXISTS `RSSFeed`;
-CREATE TABLE RSSFeed (
+DROP TABLE IF EXISTS `RSSFeeds`;
+CREATE TABLE RSSFeeds (
 	`RSSID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`IncidentNo` VARCHAR(24) NOT NULL,
@@ -482,20 +510,20 @@ CREATE TABLE RSSFeed (
 	`Nature` VARCHAR(18) NOT NULL,
 	`UnitList` VARCHAR(255) NULL DEFAULT NULL,
 	KEY `IncidentNo` ( `IncidentNo` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `ErrorLog`;
-CREATE TABLE ErrorLog (
+DROP TABLE IF EXISTS `ErrorLogs`;
+CREATE TABLE ErrorLogs (
 	`RowId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP,
 	`LogFile` VARCHAR(128) NOT NULL,
 	`Level` VARCHAR(16) NOT NULL DEFAULT 'ERROR',
 	`ErrorText` VARCHAR(255) NOT NULL,
 	KEY `LogFile` ( `LogFile` )
-) ENGINE=MyISAM;
+) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `CommLog`;
-CREATE TABLE CommLog (
+DROP TABLE IF EXISTS `CommLogs`;
+CREATE TABLE CommLogs (
 	`ObjId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	`Type` INT NOT NULL DEFAULT 1,
@@ -503,19 +531,4 @@ CREATE TABLE CommLog (
 	`Ack` TINYINT(1) NOT NULL DEFAULT 0,
 	`Cleared` TINYINT(1) NOT NULL DEFAULT 0,
 	KEY `ZoneKey` ( `ActivateZone`, `Ack` )
-) ENGINE=MyISAM;
-
-DROP TABLE IF EXISTS `RF_Alert`;
-CREATE TABLE RF_Alert (
-	`ToneId` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`IO_Device` VARCHAR(10) NOT NULL, -- SlotIO Model for LinPAC SDK
-	`IO_Slot` INT NOT NULL,
-	`IO_Channel` INT NOT NULL,
-	`ToneDescr` VARCHAR(100) NOT NULL,
-	`DisplayLabel` VARCHAR(64) NULL DEFAULT NULL,
-	`DisplayColor` VARCHAR(16) NULL DEFAULT NULL,
-	`AudioPreamble` VARCHAR(255) NULL DEFAULT NULL,
-	`AudioAnnouncement` VARCHAR(64) NULL DEFAULT NULL,
-	UNIQUE KEY IO_Slot_IO_Channel ( `IO_Slot`, `IO_Channel` )
-) ENGINE=MyISAM AUTO_INCREMENT=1;
+) ENGINE=InnoDB;
