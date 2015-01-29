@@ -14,6 +14,7 @@ use IO::Socket qw(:DEFAULT :crlf);
 
 $| = 1;
 
+my $DEBUG = 1;
 my $self = {
     ip_addr         => '10.50.28.35',
     port            => '9100',
@@ -153,9 +154,6 @@ sub process_pkt
     				`pcl6 -dNOPAUSE -sOutputFile=$txtfile -sDEVICE=txtwrite $filename`;
 
     				write_log( "\tWriting decoded payload to file: $txtfile");
-
-                    my $rcpt = 'jscottbruns@gmail.com';
-                    `echo "New incident received" | mutt -s "New WLHVFD Incident" -a $txtfile -- $rcpt`;
                 }
                 else
                 {
@@ -236,6 +234,16 @@ sub process_payload
     }
 
     my ($created_time, $open_comment, @comments) = &parse_comments($data, $payload);
+
+    if ( $DEBUG )
+    {
+        print "------------ START DEBUG -----------\n";
+        print Dumper($payload);
+        print Dumper(@units);
+        print Dumper(@comments);
+        print "------------ END DEBUG -----------\n";
+    }
+
     my $inc_xml;
     foreach my $_note ( @comments )
     {
@@ -324,10 +332,7 @@ sub process_payload
         ),
     ) if $dispatch_time;
 
-    print "Unit list: " . ( @units ? join(' ', @units ) : '' );
-    print "\n";
-    print "Station Assign: \n" . $unitxml;
-    exit;
+
 
     my $xmlout = $xml->ICadDispatch(
         [
@@ -518,8 +523,6 @@ sub process_payload
         )
     );
 
-    my $DEBUG = 1;
-
     if ( $DEBUG )
     {
         my ($fh, $filename) = tempfile(
@@ -569,6 +572,16 @@ sub process_payload
     close($sock);
 
     &write_log("iCAD data transfer complete with confirmation => [$confirm] - Updating iCAD alert transaction status");
+
+    if ( $DEBUG )
+    {
+        my $txtmsg = sprintf("echo \"%s %s\" | mutt -s \"[%s] %s\" -- ", $payload->{'LocationAddress'}, ( @units ? join(' ', @units ) : '' ), $payload->{'StationGrid'}, $payload->{'CallType'});
+        `$txtmsg 4432501272\@vtext.com`;
+        `$txtmsg jscottbruns\@gmail.com`;
+
+        &write_log("Dispatching incident text message -> $txtmsg");
+    }
+
     return $confirm;
 }
 
