@@ -136,7 +136,7 @@ __PACKAGE__->set_primary_key("groupid");
 
 =head1 UNIQUE CONSTRAINTS
 
-=head2 C<index_group_addr>
+=head2 C<index_alert_groups_group_addr>
 
 =over 4
 
@@ -146,7 +146,7 @@ __PACKAGE__->set_primary_key("groupid");
 
 =cut
 
-__PACKAGE__->add_unique_constraint("index_group_addr", ["groupaddr"]);
+__PACKAGE__->add_unique_constraint("index_alert_groups_group_addr", ["groupaddr"]);
 
 =head1 RELATIONS
 
@@ -206,8 +206,8 @@ __PACKAGE__->belongs_to(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:38:40
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:ORvddAhSQiyHeXHKy+pOfg
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:55:30
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:m5HxJ+2dz+yAEIpoE5ZDtg
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

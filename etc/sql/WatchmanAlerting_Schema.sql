@@ -4,7 +4,7 @@ CREATE TABLE `Settings` (
 	`Descr` VARCHAR(128) NOT NULL,
 	`Category` VARCHAR(16) NOT NULL,
 	`Setting` VARCHAR(255) NULL DEFAULT NULL,
-	INDEX `Category` ( `Category` )
+	INDEX `index_settings_category` ( `Category` )
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `LED_Displays`;
@@ -56,7 +56,7 @@ CREATE TABLE Units (
 	`UnitLabel` VARCHAR(32) NOT NULL,
 	`AudioAnnounce` VARCHAR(128) NULL DEFAULT NULL,
 	`Inactive` TINYINT(1) NOT NULL DEFAULT 1,
-	UNIQUE KEY `index_unit_id` (`UnitID`)
+	UNIQUE KEY `index_units_unit_id` (`UnitID`)
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `AlertZones`; -- Physical Alert Zones
@@ -85,8 +85,8 @@ CREATE TABLE AlertZones (
 	`iFaceAlarm` TINYINT(1) NOT NULL DEFAULT 0,
 	`iFaceError` INT NOT NULL DEFAULT 0,
 	`iFaceUptime` INT NOT NULL DEFAULT 0,
-	INDEX HostAddr ( `HostAddr` ),
-	INDEX iFaceHostAddr ( `iFaceHostAddr` )
+	INDEX index_alert_zones_host_addr ( `HostAddr` ),
+	INDEX index_alert_zones_iface_host_addr ( `iFaceHostAddr` )
 ) ENGINE=InnoDB AUTO_INCREMENT=100;
 
 DROP TABLE IF EXISTS `AlertGroups`; -- Static unit alert groups
@@ -102,8 +102,8 @@ CREATE TABLE AlertGroups (
 	`AlertQueue_Filter` VARCHAR(255) NULL DEFAULT NULL, -- Box area filter for AlertQueue alerts
 	`AudioPreamble` VARCHAR(255) NULL DEFAULT NULL, -- Preamble alert tone, otherwise will use DefaultAutioPreamble in audioalerting settings
 	`ToneID` INT NULL DEFAULT NULL, -- Regexp filter for association w/RF tone channels
-	UNIQUE KEY `index_group_addr` ( `GroupAddr` ),
-	INDEX `index_group_type` ( `GroupType`, `UnitId` ),
+	UNIQUE KEY `index_alert_groups_group_addr` ( `GroupAddr` ),
+	INDEX `index_alert_groups_group_type` ( `GroupType`, `UnitId` ),
 	CONSTRAINT `alert_groups_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE CASCADE,
 	CONSTRAINT `alert_groups_tone_id_fk` FOREIGN KEY (`ToneID`) REFERENCES `RF_Alerts` (`ID`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1;
@@ -137,57 +137,6 @@ CREATE TABLE `IO_Devices` (
 	CONSTRAINT `io_devices_tone_id_fk` FOREIGN KEY (`ToneID`) REFERENCES `RF_Alerts` (`ID`) ON DELETE SET NULL
 ) ENGINE=InnoDB;
 
-DROP TABLE IF EXISTS `Incidents`;
-CREATE TABLE Incidents (
-	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`EventNo` VARCHAR(32) NULL DEFAULT NULL,
-	`IncidentNo` VARCHAR(25) NULL DEFAULT NULL,
-	`ReportNo` VARCHAR(25) NULL DEFAULT NULL,
-	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`EntryTime` DATETIME NULL DEFAULT NULL,
-	`OpenTime` DATETIME NULL DEFAULT NULL,
-	`DispatchTime` DATETIME NULL DEFAULT NULL,
-	`EnrouteTime` DATETIME NULL DEFAULT NULL,
-	`OnsceneTime` DATETIME NULL DEFAULT NULL,
-	`CloseTime` DATETIME NULL DEFAULT NULL,
-	`CallType` VARCHAR(12) NOT NULL,
-	`Nature` VARCHAR(100) NULL DEFAULT NULL,
-	`Station` VARCHAR(6) NULL DEFAULT NULL,
-	`BoxArea` VARCHAR(6) NULL DEFAULT NULL,
-	`Location` VARCHAR(255) NOT NULL,
-	`LocationNote` VARCHAR(255) NULL DEFAULT NULL,
-	`CrossSt1` VARCHAR(128) NOT NULL,
-	`CrossSt2` VARCHAR(128) NOT NULL,
-	`GPSLatitude` VARCHAR(64) NULL DEFAULT NULL,
-	`GPSLongitude` VARCHAR(64) NULL DEFAULT NULL,
-	`UnitList` VARCHAR(255) NULL DEFAULT NULL,
-	`Comments` TEXT,
-	UNIQUE KEY `index_event_no` ( `EventNo` ),
-	UNIQUE KEY `index_incident_no` ( `IncidentNo` ),
-	KEY `index_open_time` ( `OpenTime` )
-) ENGINE=InnoDB;
-
-DROP TABLE IF EXISTS `IncidentUnits`;
-CREATE TABLE IncidentUnits (
-	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`IncidentID` INT NOT NULL,
-	`UnitID` INT NOT NULL,
-	`DispatchTime` DATETIME NULL DEFAULT NULL,
-	`Cancelled` TINYINT(1) NOT NULL DEFAULT 0,
-	UNIQUE KEY `index_incident_no_unit_id` ( `IncidentID`, `UnitID` ),
-	CONSTRAINT `incident_units_incident_id_fk` FOREIGN KEY (`IncidentID`) REFERENCES `Incidents` (`ID`) ON DELETE CASCADE,
-	CONSTRAINT `incident_units_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE CASCADE
-) ENGINE=InnoDB;
-
-DROP TABLE IF EXISTS `RF_Incidents`;
-CREATE TABLE RF_Incidents (
-	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-	`ToneId` INT NOT NULL,
-	CONSTRAINT `rf_incidents_tone_id_fk` FOREIGN KEY ( `ToneId` ) REFERENCES `RF_Alerts` ( `ID` ) ON DELETE CASCADE
-) ENGINE=InnoDB;
-
 DROP TABLE IF EXISTS `CallGroups`;
 CREATE TABLE CallGroups (
 	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -213,6 +162,57 @@ CREATE TABLE CallTypes (
 	CONSTRAINT `call_types_call_group_fk` FOREIGN KEY (`CallGroup`) REFERENCES CallGroups (`ID`)
 ) ENGINE=InnoDB;
 
+DROP TABLE IF EXISTS `Incidents`;
+CREATE TABLE Incidents (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`EventNo` VARCHAR(32) NULL DEFAULT NULL,
+	`IncidentNo` VARCHAR(25) NULL DEFAULT NULL,
+	`ReportNo` VARCHAR(25) NULL DEFAULT NULL,
+	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`EntryTime` DATETIME NULL DEFAULT NULL,
+	`OpenTime` DATETIME NULL DEFAULT NULL,
+	`DispatchTime` DATETIME NULL DEFAULT NULL,
+	`EnrouteTime` DATETIME NULL DEFAULT NULL,
+	`OnsceneTime` DATETIME NULL DEFAULT NULL,
+	`CloseTime` DATETIME NULL DEFAULT NULL,
+	`CallType` INT NOT NULL,
+	`Station` VARCHAR(6) NULL DEFAULT NULL,
+	`BoxArea` VARCHAR(6) NULL DEFAULT NULL,
+	`Location` VARCHAR(255) NOT NULL,
+	`LocationNote` VARCHAR(255) NULL DEFAULT NULL,
+	`CrossSt1` VARCHAR(128) NOT NULL,
+	`CrossSt2` VARCHAR(128) NOT NULL,
+	`GPSLatitude` VARCHAR(64) NULL DEFAULT NULL,
+	`GPSLongitude` VARCHAR(64) NULL DEFAULT NULL,
+	`UnitList` VARCHAR(255) NULL DEFAULT NULL,
+	`Comments` TEXT,
+	UNIQUE KEY `index_incidents_event_no` ( `EventNo` ),
+	UNIQUE KEY `index_incidents_incident_no` ( `IncidentNo` ),
+	KEY `index_incidents_open_time` ( `OpenTime` ),
+	CONSTRAINT `Incidents_call_type_fk` FOREIGN KEY (`CallType`) REFERENCES CallTypes (`ID`)
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `IncidentUnits`;
+CREATE TABLE IncidentUnits (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`IncidentID` INT NOT NULL,
+	`UnitID` INT NOT NULL,
+	`DispatchTime` DATETIME NULL DEFAULT NULL,
+	`Cancelled` TINYINT(1) NOT NULL DEFAULT 0,
+	UNIQUE KEY `index_incident_no_unit_id` ( `IncidentID`, `UnitID` ),
+	CONSTRAINT `incident_units_incident_id_fk` FOREIGN KEY (`IncidentID`) REFERENCES `Incidents` (`ID`) ON DELETE CASCADE,
+	CONSTRAINT `incident_units_unit_id_fk` FOREIGN KEY (`UnitID`) REFERENCES `Units` (`ID`) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+DROP TABLE IF EXISTS `RF_Incidents`;
+CREATE TABLE RF_Incidents (
+	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`Timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`ToneId` INT NOT NULL,
+	CONSTRAINT `rf_incidents_tone_id_fk` FOREIGN KEY ( `ToneId` ) REFERENCES `RF_Alerts` ( `ID` ) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
 DROP TABLE IF EXISTS `AlertQueueFilters`;
 CREATE TABLE AlertQueueFilters (
 	`ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -220,7 +220,7 @@ CREATE TABLE AlertQueueFilters (
 	`BoxArea` VARCHAR(12) NOT NULL COMMENT 'One box area per row, regex matching permitted',
 	`CallType` TEXT NOT NULL COMMENT 'Formatting options: (1) Pipe delimited types (i.e. TYPE1|TYPE2|TYPE3 -- regex/wildcard matching: TYPE1.*|TYPE2[0-3] -- prefix optional: type:TYPE1.* ) (2) Pipe delimited groups (i.e. group:LOCAL|group:FIRE -- wildcard matching: group:*)',
 	`AreaAnnounce` VARCHAR(255) NULL DEFAULT NULL,
-	KEY `index_box_area` ( `BoxArea` )
+	KEY `index_alert_queue_filters_box_area` ( `BoxArea` )
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `AlertQueue_Rules`;
@@ -248,7 +248,8 @@ CREATE TABLE ActiveIncidents (
 	`Priority` TINYINT(1) NOT NULL DEFAULT 0,
 	`Update` TINYINT(1) NOT NULL DEFAULT 0,
 	`Cancel` TINYINT(1) NOT NULL DEFAULT 0,
-	KEY `index_incident_no` ( `IncidentNo` )
+	KEY `index_active_incidents_event_no` ( `EventNo` ),
+	KEY `index_active_incidents_incident_no` ( `IncidentNo` )
 ) ENGINE=InnoDB;
 
 #
@@ -314,7 +315,7 @@ CREATE TABLE ErrorLogs (
 	`LogFile` VARCHAR(128) NOT NULL,
 	`Level` VARCHAR(16) NOT NULL DEFAULT 'ERROR',
 	`ErrorText` VARCHAR(255) NOT NULL,
-	KEY `LogFile` ( `LogFile` )
+	KEY `index_error_logs_log_file` ( `LogFile` )
 ) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `CommLogs`;
@@ -325,5 +326,5 @@ CREATE TABLE CommLogs (
 	`ActivateZone` TINYINT(1) NOT NULL DEFAULT 1,
 	`Ack` TINYINT(1) NOT NULL DEFAULT 0,
 	`Cleared` TINYINT(1) NOT NULL DEFAULT 0,
-	KEY `ZoneKey` ( `ActivateZone`, `Ack` )
+	KEY `index_comm_logs_active_zone_ack` ( `ActivateZone`, `Ack` )
 ) ENGINE=InnoDB;

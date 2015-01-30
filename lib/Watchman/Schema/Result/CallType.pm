@@ -127,9 +127,24 @@ __PACKAGE__->belongs_to(
   { is_deferrable => 1, on_delete => "RESTRICT", on_update => "RESTRICT" },
 );
 
+=head2 incidents
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:38:40
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:fWDb8r2nRFSQstnHZPdiow
+Type: has_many
+
+Related object: L<Watchman::Schema::Result::Incident>
+
+=cut
+
+__PACKAGE__->has_many(
+  "incidents",
+  "Watchman::Schema::Result::Incident",
+  { "foreign.calltype" => "self.id" },
+  { cascade_copy => 0, cascade_delete => 0 },
+);
+
+
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:55:30
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:XeKQSo7wiipF5Vs1SrQFIQ
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

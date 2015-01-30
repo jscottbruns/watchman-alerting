@@ -92,15 +92,9 @@ __PACKAGE__->table("Incidents");
 
 =head2 calltype
 
-  data_type: 'varchar'
+  data_type: 'integer'
+  is_foreign_key: 1
   is_nullable: 0
-  size: 12
-
-=head2 nature
-
-  data_type: 'varchar'
-  is_nullable: 1
-  size: 100
 
 =head2 station
 
@@ -216,9 +210,7 @@ __PACKAGE__->add_columns(
     is_nullable => 1,
   },
   "calltype",
-  { data_type => "varchar", is_nullable => 0, size => 12 },
-  "nature",
-  { data_type => "varchar", is_nullable => 1, size => 100 },
+  { data_type => "integer", is_foreign_key => 1, is_nullable => 0 },
   "station",
   { data_type => "varchar", is_nullable => 1, size => 6 },
   "boxarea",
@@ -255,7 +247,7 @@ __PACKAGE__->set_primary_key("id");
 
 =head1 UNIQUE CONSTRAINTS
 
-=head2 C<index_event_no>
+=head2 C<index_incidents_event_no>
 
 =over 4
 
@@ -265,9 +257,9 @@ __PACKAGE__->set_primary_key("id");
 
 =cut
 
-__PACKAGE__->add_unique_constraint("index_event_no", ["eventno"]);
+__PACKAGE__->add_unique_constraint("index_incidents_event_no", ["eventno"]);
 
-=head2 C<index_incident_no>
+=head2 C<index_incidents_incident_no>
 
 =over 4
 
@@ -277,9 +269,24 @@ __PACKAGE__->add_unique_constraint("index_event_no", ["eventno"]);
 
 =cut
 
-__PACKAGE__->add_unique_constraint("index_incident_no", ["incidentno"]);
+__PACKAGE__->add_unique_constraint("index_incidents_incident_no", ["incidentno"]);
 
 =head1 RELATIONS
+
+=head2 calltype
+
+Type: belongs_to
+
+Related object: L<Watchman::Schema::Result::CallType>
+
+=cut
+
+__PACKAGE__->belongs_to(
+  "calltype",
+  "Watchman::Schema::Result::CallType",
+  { id => "calltype" },
+  { is_deferrable => 1, on_delete => "RESTRICT", on_update => "RESTRICT" },
+);
 
 =head2 incident_units
 
@@ -312,8 +319,8 @@ __PACKAGE__->has_many(
 );
 
 
-# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:38:40
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:3SI+tNAKVldzYsW3RBU3cA
+# Created by DBIx::Class::Schema::Loader v0.07042 @ 2015-01-30 10:55:30
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:03KuJ0NFXKoOP34zYn6Q/w
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
