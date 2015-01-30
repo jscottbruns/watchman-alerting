@@ -108,7 +108,7 @@ sub process_pkt
             }
 
             $self->{'__checksum__'}->{ $tcp->{'seqnum'} } = 1 if ( $tcp->{'data'} || ( $tcp->{'flags'} & FIN ) );
-            #write_log("\tNext SEQNUM should be: " . ( $tcp->{'seqnum'} + length( $tcp->{'data'} ) ));
+            #write_log("Next SEQNUM should be: " . ( $tcp->{'seqnum'} + length( $tcp->{'data'} ) ));
 		}
 
 		if ( ( $tcp->{'src_port'} eq $self->{'__port__'} && $ip->{'dest_ip'} eq $self->{'ip_addr'} ) && ( $tcp->{'flags'} & FIN ) )
@@ -116,7 +116,7 @@ sub process_pkt
             # If the FIN flag has been set by the sender, validate the checksum for out of order packet transmission
             if ( $tcp->{'src_port'} eq $self->{'__port__'} && $ip->{'dest_ip'} eq $self->{'ip_addr'} )
             {
-                write_log( "\tFinish flag set by sender, validating packet checksum");
+                write_log( "Finish flag set by sender, validating packet checksum");
 
                 $self->{'packet'} = '';
                 my $checksum = 1;
@@ -126,7 +126,7 @@ sub process_pkt
                 {
                     if ( ! $self->{'__checksum__'}->{ $_seq } )
                     {
-                        write_log( "\t\t**Checksum failed on seqnum $_seq");
+                        write_log( "**Checksum failed on seqnum $_seq");
                         $checksum = 0;
                     }
 
@@ -136,7 +136,7 @@ sub process_pkt
 
                 if ( $checksum )
                 {
-                    write_log("\tChecksum is valid, processing data payload");
+                    write_log("Checksum is valid, processing data payload");
 
                 	undef $self->{'__packet__'};
                 	undef $self->{'__checksum__'};
@@ -148,12 +148,13 @@ sub process_pkt
 
                     &process_payload($filename);
 
-    				write_log( "\tReassembled $i packets\n\t\tWriting raw packet payload to file: $filename");
+    				write_log("Reassembled $i packets");
+                    write_log("Writing raw packet payload to file: $filename");
 
     				my $txtfile = $filename . ".txt";
     				`pcl6 -dNOPAUSE -sOutputFile=$txtfile -sDEVICE=txtwrite $filename`;
 
-    				write_log( "\tWriting decoded payload to file: $txtfile");
+    				write_log("Writing decoded payload to file: $txtfile");
                 }
                 else
                 {

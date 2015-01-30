@@ -1,8 +1,10 @@
 #include <iostream>
 #include <windows.h>
+#include "atlimage.h"
 using namespace std;
 
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam);
+void CreateImage(HWND hwnd);
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR pCmdLine, int iCmdShow)
 {
