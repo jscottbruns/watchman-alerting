@@ -8,9 +8,11 @@ use File::Temp qw/tempfile/;
 use Data::Dumper;
 use XML::Generator;
 use POSIX;
-use URI::Escape;
+use URI::Encode qw(uri_encode);
 use HTML::Entities;
 use IO::Socket qw(:DEFAULT :crlf);
+use REST::Client;
+use JSON;
 
 $| = 1;
 
@@ -150,11 +152,6 @@ sub process_pkt
 
     				write_log("Reassembled $i packets");
                     write_log("Writing raw packet payload to file: $filename");
-
-    				my $txtfile = $filename . ".txt";
-    				`pcl6 -dNOPAUSE -sOutputFile=$txtfile -sDEVICE=txtwrite $filename`;
-
-    				write_log("Writing decoded payload to file: $txtfile");
                 }
                 else
                 {
@@ -576,11 +573,35 @@ sub process_payload
 
     if ( $DEBUG )
     {
-        my $txtmsg = sprintf("echo \"%s %s\" | mutt -s \"[%s] %s\" -- ", $payload->{'LocationAddress'}, ( @units ? join(' ', @units ) : '' ), $payload->{'StationGrid'}, $payload->{'CallType'});
-        `$txtmsg 4432501272\@vtext.com`;
-        `$txtmsg jscottbruns\@gmail.com`;
+        my $subject = sprintf("[%s] %s", $payload->{'StationGrid'}, $payload->{'CallType'});
+        my $message = sprintf("%s %s", $payload->{'LocationAddress'}, ( @units ? join(' ', @units ) : '' ));
 
-        &write_log("Dispatching incident text message -> $txtmsg");
+        my $recips = [];
+        if ( open(FH, "<./etc/notification_recipients") )
+        {
+          while (<FH>)
+          {
+            my($user, $apikey) = $_ =~ /^(.*?):(.*)/;
+            push @{ $recips }, $apikey if $apikey;
+          }
+          close FH;
+        }
+
+        my $client = REST::Client->new;
+        $client->POST('http://104.236.212.31/api/incidents', uri_encode( sprintf("incident[incident_no]=%s&incident[call_type]=%s&incident[location]=%s&incident[text]=%s", $payload->{IncidentNo}, $payload->{CallType}, $payload->{LocationAddress}, $data) ) );
+
+        my $sns_uri;
+        if ( $client->responseCode() eq '200' )
+        {
+            my $json = decode_json($client->responseContent());
+            $sns_uri = sprintf("-u \"http://104.236.212.31/incidents/%s\" -r \"Incident Detail\"", $json->{id});
+        }
+
+        foreach my $_recip ( @{ $recips } )
+        {
+            `/usr/local/watchman-alerting/bin/pushover.pl -a az2s6tpKBmexLDDibfSsdiDV6MVRqf -k $_recip -m "$message" -t "$subject" $sns_uri`;
+            &write_log("Sending notification to user [$_recip]");
+        }
     }
 
     return $confirm;
