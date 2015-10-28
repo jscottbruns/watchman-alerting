@@ -170,9 +170,9 @@ sub process_payload
 
     &write_log("Decoding PCL packet data");
 
-    open(F, "cat $datafile | pcl6 -dNOPAUSE -sOutputFile=/dev/stdout -sDEVICE=txtwrite -|");
-    $data .= $_ while (<F>);
+    open(F, "cat $datafile | /usr/local/bin/pcl6 -dNOPAUSE -sOutputFile=/dev/stdout -sDEVICE=txtwrite -|");
 
+    $data .= $_ while (<F>);
     my $ns = {
         ns1 => [ ns1 => "http://niem.gov/niem/structures/2.0" ],
         ns2 => [ ns2 => "http://niem.gov/niem/domains/emergencyManagement/2.0" ],
@@ -587,8 +587,9 @@ sub process_payload
           close FH;
         }
 
+        $data =~ s/"/\\"/g;
         my $client = REST::Client->new;
-        $client->POST('http://104.236.212.31/api/incidents', uri_encode( sprintf("incident[incident_no]=%s&incident[call_type]=%s&incident[location]=%s&incident[text]=%s", $payload->{IncidentNo}, $payload->{CallType}, $payload->{LocationAddress}, $data) ) );
+        $client->POST('http://104.236.212.31/api/incidents', sprintf("incident[incident_no]=%s&incident[call_type]=%s&incident[location]=%s&incident[text]=%s", $payload->{IncidentNo}, $payload->{CallType}, uri_encode($payload->{LocationAddress}), uri_encode($data) ) );
 
         my $sns_uri;
         if ( $client->responseCode() eq '200' )
